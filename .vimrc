@@ -3,6 +3,7 @@ syntax on
 set bs=2
 
 filetype plugin indent on
+au FileType gitcommit set tw=72
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs

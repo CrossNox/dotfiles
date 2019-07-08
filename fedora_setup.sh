@@ -1,16 +1,19 @@
 # set dnf repos
-sudo dnf update
+sudo dnf update -y
 sudo dnf install -y fedora-workstation-repositories
 sudo dnf config-manager --set-enabled google-chrome
 sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
 sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
-sudo dnf copr enable evana/fira-code-fonts
+sudo dnf copr enable evana/fira-code-fonts -y
+sudo dnf copr enable jdoss/slack-repo -y
 # install packages
-sudo dnf install -y google-chrome-stable install gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+sudo dnf install -y google-chrome-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv
+dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'
+sleep 10
 sudo snap install spotify 
 sudo snap install telegram-desktop
-pip install --user flake8
+pip3 install --user flake8
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 
 # kitty
 ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
@@ -32,8 +35,7 @@ pip install bpython
 deactivate
 
 # add ssh key to github
-sudo dnf install xclip
-ls -al ~/.ssh
+sudo dnf install -y xclip
 ssh-keygen -t rsa -b 4096 -C "ijmermet@gmail.com"
 xclip -sel clip < ~/.ssh/id_rsa.pub
 read -p "Add ssh key to github. Then press enter"
@@ -45,21 +47,29 @@ cd ~
 cp ~/repos/dotfiles/.alias ~/.alias
 echo 'source ~/.alias' >> ~/.bashrc
 cp ~/repos/dotfiles/kitty.conf ~/.config/kitty/
+mkdir -p ~/.config/sublime-text-3/
 cp -r ~/repos/dotfiles/Packages ~/.config/sublime-text-3/Packages
-cp ~/repos/dotfiles/.vim* ~/
+cp -r ~/repos/dotfiles/.vim* ~/
 
-subl --command install_package_control
+subl && sleep 10 && subl --command install_package_control && pkill subl
 
 # extensions
-sudo dnf install gnome-shell
 cd ~/repos
 git clone https://github.com/micheleg/dash-to-dock.git
 cd dash-to-dock/
 make
 make install
-gnome-shell --replace
 git clone --depth 1 https://github.com/shumingch/gnome-email-notifications ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com
+dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'
 
 cd ~
 source venv/bin/activate
 pip install -r ~/repos/dotfiles/base_requirements.txt
+deactivate
+
+read -p "Tap to click. Then press enter"
+read -p "Enable extensions. Then press enter"
+read -p "Mayus as esc. Then press enter"
+read -p "Maximize windows. Then press enter"
+read -p "Dark theme. Then press enter"
+read -p "Chrome login. Then press enter"

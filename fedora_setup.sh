@@ -6,7 +6,7 @@ sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
 sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 sudo dnf copr enable evana/fira-code-fonts -y
 sudo dnf copr enable jdoss/slack-repo -y
-sudo dnf install slack-repo
+sudo dnf install -y slack-repo
 # install packages
 sudo dnf install -y google-chrome-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv vim
 dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'

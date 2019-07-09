@@ -7,7 +7,7 @@ sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x
 sudo dnf copr enable evana/fira-code-fonts -y
 sudo dnf copr enable jdoss/slack-repo -y
 # install packages
-sudo dnf install -y google-chrome-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv
+sudo dnf install -y google-chrome-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv vim
 dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'
 sleep 10
 sudo snap install spotify 
@@ -24,7 +24,7 @@ sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hico
 echo 'source /usr/share/autojump/autojump.bash' >> ~/.bashrc
 
 # colored terminal
-echo 'PS1="\[\033[01;32m\]\u@\h:\[\033[00m\] \[\033[01;34m\]\w $\[\033[00m\]"' >> ~/.bashrc
+echo 'PS1="\[\033[01;32m\]\u@\h:\[\033[00m\] \[\033[01;34m\]\w $\[\033[00m\] "' >> ~/.bashrc
 
 # set up dev env
 mkdir ~/repos

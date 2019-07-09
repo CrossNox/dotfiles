@@ -30,9 +30,9 @@ echo 'PS1="\[\033[01;32m\]\u@\h:\[\033[00m\] \[\033[01;34m\]\w $\[\033[00m\] "' 
 # set up dev env
 mkdir ~/repos
 
+cd ~/repos
 virtualenv -p python3 venv
 source venv/bin/activate
-pip install bpython
 deactivate
 
 # add ssh key to github
@@ -52,7 +52,9 @@ mkdir -p ~/.config/sublime-text-3/
 cp -r ~/repos/dotfiles/Packages ~/.config/sublime-text-3/Packages
 cp -r ~/repos/dotfiles/.vim* ~/
 
-subl && sleep 10 && subl --command install_package_control && pkill subl
+subl -b && sleep 10 && subl --command install_package_control
+sleep 10
+pkill subl
 
 # extensions
 cd ~/repos
@@ -63,7 +65,7 @@ make install
 git clone --depth 1 https://github.com/shumingch/gnome-email-notifications ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com
 dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'
 
-cd ~
+cd ~/repos
 source venv/bin/activate
 pip install -r ~/repos/dotfiles/base_requirements.txt
 deactivate

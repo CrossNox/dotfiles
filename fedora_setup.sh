@@ -72,6 +72,10 @@ source venv/bin/activate
 pip install -r ~/repos/dotfiles/base_requirements.txt
 deactivate
 
+cd ~/Pictures
+wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png
+sudo dnf install numix-icon-theme-circle breeze-cursor-theme arc-theme 
+
 read -p "Tap to click. Then press enter"
 read -p "Enable extensions. Then press enter"
 read -p "Mayus as esc. Then press enter"

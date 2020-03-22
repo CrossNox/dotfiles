@@ -2,5 +2,5 @@ alias l='ls -GFh'
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias devenv='source $HOME/repos/venv/bin/activate'
 alias aliases="awk '!/aliases/ && /alias/' $HOME/.alias"
-alias git_token='echo $GIT_TOKEN | xclip'
+alias git_token='echo $(pass github/token) | xclip'
 alias tpr='tput reset'

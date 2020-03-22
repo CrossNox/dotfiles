@@ -4,7 +4,7 @@ GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
 GRUB_DEFAULT=saved
 GRUB_DISABLE_SUBMENU=true
 GRUB_TERMINAL_OUTPUT="console"
-GRUB_CMDLINE_LINUX="resume=/dev/mapper/fedora_localhost--live-swap rd.lvm.lv=fedora_localhost-live/root rd.lvm.lv=fedora_localhost-live/swap nomodeset rhgb quiet splash acpi_override=1 nouveau.blacklist=1"
+GRUB_CMDLINE_LINUX="resume=/dev/mapper/fedora_localhost--live-swap rd.lvm.lv=fedora_localhost-live/root rd.lvm.lv=fedora_localhost-live/swap rhgb quiet splash rd.driver.blacklist=nouveau acpi_backlight=none acpi_osi=Linux acpi_osi=! acpi_osi='Windows 2009' acpi_rev_override=1 nouveau.modeset=0 rd.driver.blacklist=nouveau"
 GRUB_DISABLE_RECOVERY="true"
-GRUB_ENABLE_BLSCFG=truei
+GRUB_ENABLE_BLSCFG=true
 GRUB_GFXMODE=1920x1440

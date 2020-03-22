@@ -1,21 +1,11 @@
-https://www.if-not-true-then-false.com/2015/fedora-nvidia-guide/
-https://www.reddit.com/r/Fedora/comments/a8xuli/nvidia_optimus_confusion/
 
-https://rpmfusion.org/Howto/NVIDIA
-https://rpmfusion.org/Howto/Optimus
-https://rpmfusion.org/Howto/CUDA
-https://rpmfusion.org/Configuration/
-https://developer.nvidia.com/rdp/cudnn-download
-https://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html
-https://developer.nvidia.com/cuda-10.0-download-archive?target_os=Linux&target_arch=x86_64&target_distro=Fedora&target_version=27&target_type=rpmnetwork
+https://www.reddit.com/r/Dell/comments/9724vh/xps_9560_fedora_28_guide_for_power_saving_and_no/
 
-So, important steps, follow any available guide:
-- Install nvidia propietary driver
-- Install CUDA 10.0 (or latest with cudnn support)
-- Install cudnn
+https://negativo17.org/nvidia-driver/
 
-ATM there is no way to switch between nvidia/intel.
-FedoraPrimeSelect and such are really broken.
-Didn't try bumblebee.
+https://www.reddit.com/r/Fedora/comments/7duqbs/psa_how_i_got_the_negativo17_nvidia_drivers/
 
-A few kernel parameters must be set.
+
+just a reminder https://askubuntu.com/questions/716957/what-do-the-nomodeset-quiet-and-splash-kernel-parameters-mean
+
+instal cudnn then

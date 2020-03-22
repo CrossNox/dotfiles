@@ -88,3 +88,11 @@ gpg --full-generate-key
 sudo dnf install pass
 GPG_KEY_ID=gpg --list-keys | grep -A1 -E ^pub | grep -v pub | sed -e 's/^[ \t]*//' | xclip -sel clip
 pass init "$(echo GPG_KEY_ID)"
+
+# glances
+mkdir -p .config/systemd/user/
+curl -L https://bit.ly/glances | /bin/bash
+cp ~/repos/dotfiles/systemd/glances.service .config/systemd/user/
+systemctl --user daemon-reload
+systemctl --user enable glances.service
+systemctl --user start glances.service

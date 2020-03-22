@@ -1,0 +1,9 @@
+[Unit]
+    Description=glances
+[Service]
+    Type=simple
+    PIDFile=/var/run/glances.pid
+    ExecStart=glances -w -t 1
+    Restart=always
+[Install]
+    WantedBy=default.target

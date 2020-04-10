@@ -49,7 +49,7 @@ ln -s ~/repos/dotfiles/.powerline ~/.powerline
 echo 'source ~/.powerline' >> ~/.bashrc
 
 # kitty conf
-cp ~/repos/dotfiles/kitty.conf ~/.config/kitty/
+ln -s ~/repos/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 mkdir -p ~/.config/sublime-text-3/
 ln -s ~/repos/dotfiles/Packages ~/.config/sublime-text-3/Packages

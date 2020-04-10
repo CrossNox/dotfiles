@@ -9,7 +9,7 @@ sudo dnf copr enable evana/fira-code-fonts -y
 sudo dnf copr enable jdoss/slack-repo -y
 sudo dnf install -y slack-repo
 # install packages
-sudo dnf install -y google-chrome-stable vivaldi-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv vim tlp tlp-rdw smbios-utils-python telegram-desktop flatpak
+sudo dnf install -y google-chrome-stable vivaldi-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv vim tlp tlp-rdw smbios-utils-python telegram-desktop flatpak powerline-go
 sudo systemctl enable powertop.service
 sudo flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
 pip3 install --user flake8
@@ -22,9 +22,6 @@ sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hico
 
 # j cmd
 echo 'source /usr/share/autojump/autojump.bash' >> ~/.bashrc
-
-# colored terminal
-echo 'PS1="\[\033[01;32m\]\u@\h:\[\033[00m\] \[\033[01;34m\]\w $\[\033[00m\] "' >> ~/.bashrc
 
 # set up dev env
 mkdir ~/repos

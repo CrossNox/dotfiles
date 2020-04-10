@@ -20,16 +20,14 @@ ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
 cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications
 sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hicolor\/256x256\/apps\/kitty.png/g" ~/.local/share/applications/kitty.desktop
 
-# j cmd
-echo 'source /usr/share/autojump/autojump.bash' >> ~/.bashrc
-
 # set up dev env
 mkdir ~/repos
 
 cd ~/repos
 virtualenv -p python3 venv
-source venv/bin/activate
-deactivate
+
+# j cmd
+echo 'source /usr/share/autojump/autojump.bash' >> ~/.bashrc
 
 # add ssh key to github
 sudo dnf install -y xclip
@@ -41,12 +39,23 @@ read -p "Add ssh key to github. Then press enter"
 cd ~/repos
 git clone git@github.com:CrossNox/dotfiles.git
 cd ~
-cp ~/repos/dotfiles/.alias ~/.alias
+
+# alias
+ln -s ~/repos/dotfiles/.alias ~/.alias
 echo 'source ~/.alias' >> ~/.bashrc
+
+# powerline
+ln -s ~/repos/dotfiles/.powerline ~/.powerline
+echo 'source ~/.powerline' >> ~/.bashrc
+
+# kitty conf
 cp ~/repos/dotfiles/kitty.conf ~/.config/kitty/
+
 mkdir -p ~/.config/sublime-text-3/
-cp -r ~/repos/dotfiles/Packages ~/.config/sublime-text-3/Packages
-cp -r ~/repos/dotfiles/.vim* ~/
+ln -s ~/repos/dotfiles/Packages ~/.config/sublime-text-3/Packages
+
+ln -s ~/repos/dotfiles/.vim ~/.vim
+ln -s ~/repos/dotfiles/.vimrc ~/.vimrc
 
 subl -b && sleep 10 && subl --command install_package_control
 sleep 10
@@ -84,9 +93,9 @@ GPG_KEY_ID=gpg --list-keys | grep -A1 -E ^pub | grep -v pub | sed -e 's/^[ \t]*/
 pass init "$(echo GPG_KEY_ID)"
 
 # glances
-mkdir -p .config/systemd/user/
+mkdir -p ~/.config/systemd/user/
 curl -L https://bit.ly/glances | /bin/bash
-cp ~/repos/dotfiles/systemd/glances.service .config/systemd/user/
+ln -s ~/repos/dotfiles/systemd/glances.service ~/.config/systemd/user/
 systemctl --user daemon-reload
 systemctl --user enable glances.service
 systemctl --user start glances.service

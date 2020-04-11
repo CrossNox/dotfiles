@@ -17,6 +17,7 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
+Plug 'davidhalter/jedi-vim'
 call plug#end()
 
 colorscheme gruvbox

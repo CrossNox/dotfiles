@@ -9,7 +9,7 @@ sudo dnf copr enable evana/fira-code-fonts -y
 sudo dnf copr enable jdoss/slack-repo -y
 sudo dnf install -y slack-repo
 # install packages
-sudo dnf install -y google-chrome-stable vivaldi-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv vim tlp tlp-rdw smbios-utils-python telegram-desktop flatpak powerline-go
+sudo dnf install -y google-chrome-stable vivaldi-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv vim tlp tlp-rdw smbios-utils-python telegram-desktop flatpak powerline-go texlive texlive-arara latexmk cmake gcc-c++ make python3-devel
 sudo systemctl enable powertop.service
 sudo flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
 pip3 install --user flake8

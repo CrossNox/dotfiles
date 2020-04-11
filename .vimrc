@@ -17,8 +17,10 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'psf/black'
+Plug 'lervag/vimtex' 
 call plug#end()
 
 colorscheme gruvbox
@@ -29,6 +31,9 @@ autocmd BufWritePre *.py execute ':Black'
 
 " run black on f9
 nnoremap <F9> :Black<CR>
+
+let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_view_general_viewer = 'vivaldi'
 
 map <C-o> :NERDTreeToggle<CR>
 

@@ -1,19 +1,31 @@
 # set dnf repos
-sudo dnf update -y
-sudo dnf install -y fedora-workstation-repositories
-sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
-sudo dnf config-manager --set-enabled google-chrome
-sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
-sudo dnf copr enable evana/fira-code-fonts -y
-sudo dnf copr enable jdoss/slack-repo -y
-sudo dnf install -y slack-repo
+sudo -i
+dnf update -y
+dnf install -y fedora-workstation-repositories
+dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
+dnf config-manager --set-enabled google-chrome
+rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+dnf copr enable evana/fira-code-fonts -y
+dnf copr enable jdoss/slack-repo -y
+dnf install -y slack-repo
 # install packages
-sudo dnf install -y google-chrome-stable vivaldi-stable gnome-tweaks htop sublime-text snapd fira-code-fonts autojump powertop gnome-shell slack python3-virtualenv vim tlp tlp-rdw smbios-utils-python telegram-desktop flatpak powerline-go texlive texlive-arara latexmk cmake gcc-c++ make python3-devel
-sudo systemctl enable powertop.service
-sudo flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
+dnf install -y `cat dnf_pkgs`
+systemctl enable powertop.service
+flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
+
+# return to user
+exit
 pip3 install --user flake8
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+
+# rvm
+curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
+curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -
+curl -L get.rvm.io | bash -s stable
+echo 'source ~/.rvm/scripts/rvm' >> ~/.bashrc
+rvm install 2.7.0
+rvm --default use 2.7.0
 
 # kitty
 ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/

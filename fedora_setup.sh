@@ -2,6 +2,8 @@
 sudo -i
 dnf update -y
 dnf install -y fedora-workstation-repositories
+dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
 dnf config-manager --set-enabled google-chrome
 rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg

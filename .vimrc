@@ -18,10 +18,17 @@ Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'davidhalter/jedi-vim'
+Plug 'psf/black'
 call plug#end()
 
 colorscheme gruvbox
 set background=dark
+
+" run black on save
+autocmd BufWritePre *.py execute ':Black'
+
+" run black on f9
+nnoremap <F9> :Black<CR>
 
 map <C-o> :NERDTreeToggle<CR>
 

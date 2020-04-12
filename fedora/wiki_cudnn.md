@@ -7,5 +7,11 @@ To enable the nvidia driver follow [these commands](https://www.reddit.com/r/Fed
 
 In case you are wondering again about [nomodeset, quiet and splash](just a reminder https://askubuntu.com/questions/716957/what-do-the-nomodeset-quiet-and-splash-kernel-parameters-mean) kernel parameters.
 
+Algo del estilo `sudo dnf install kernel-devel dkms dkms-nvidia nvidia-driver nvidia-settings  nvidia-driver-libs.i686 nvidia-driver-cuda cuda-devel` seguido de `sudo dkms autoinstall` deberia andar.
+
+Si rompiste todo, podes hacer un muy violento `sudo dnf remove *nvidia*` y hacerlo de nuevo.
+
+Fijate que `nvidia-smi` no pinche.
+
 # cudNN
 TODO

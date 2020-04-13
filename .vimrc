@@ -34,6 +34,11 @@ nnoremap <F9> :Black<CR>
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_general_viewer = 'vivaldi'
 
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+
 map <C-o> :NERDTreeToggle<CR>
 
 nnoremap <C-Down> <C-W><C-J>

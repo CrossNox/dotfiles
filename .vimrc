@@ -17,10 +17,9 @@ Plug 'w0rp/ale'
 Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-" Plug 'davidhalter/jedi-vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-Plug 'psf/black'
 Plug 'lervag/vimtex' 
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'psf/black', {'tag': '19.10b0'}
 call plug#end()
 
 colorscheme gruvbox

@@ -43,6 +43,21 @@ virtualenv -p python3 venv
 # j cmd
 echo 'source /usr/share/autojump/autojump.bash' >> ~/.bashrc
 
+# todo.sh
+cd ~/repos
+git clone https://github.com/todotxt/todo.txt-cli.git
+cd todo.txt-cli/
+make
+mkdir ~/bin
+mkdir -p ~/.local/share/bash-completion/completions
+make install CONFIG_DIR=~/.todo INSTALL_DIR=~/bin BASH_COMPLETION=~/.local/share/bash-completion/completions
+mkdir -p ~/.todo.actions.d
+mkdir ~/.todo
+ln -s ~/repos/dotfiles/todo_config ~/.todo/config
+#wget -P ~/.todo.actions.d/ https://raw.githubusercontent.com/amcintosh/todo.txt-cli/google-tasks-addon/.todo.actions.d/google
+#chmod +x ~/.todo.actions.d/google
+#pip install --user -r https://raw.githubusercontent.com/amcintosh/todo.txt-cli/google-tasks-addon/.todo.actions.d/requirements.txt
+
 # add ssh key to github
 sudo dnf install -y xclip
 ssh-keygen -t rsa -b 4096 -C "ijmermet@gmail.com"

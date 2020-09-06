@@ -40,7 +40,9 @@ if !exists('g:ycm_semantic_triggers')
 endif
 au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
+" nerdtree
 map <C-o> :NERDTreeToggle<CR>
+let NERDTreeShowHidden=1
 
 nnoremap <C-Down> <C-W><C-J>
 nnoremap <C-Up> <C-W><C-K>

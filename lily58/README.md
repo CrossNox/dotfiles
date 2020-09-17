@@ -15,3 +15,13 @@ qmk compile $(pwd)/minimal_vim.json
 ```bash
 qmk flash -kb lily58 -km minimal_vim
 ```
+
+# QMK setup
+Run both as sudo and user
+
+```bash
+python -m pip install qmk
+qmk setup
+```
+
+And run `qmk setup` first as non-sudo.

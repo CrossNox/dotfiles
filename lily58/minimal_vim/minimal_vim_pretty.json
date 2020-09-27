@@ -118,12 +118,12 @@
       "KC_END",
       "KC_RSFT",
       "KC_LALT",
+      "KC_LGUI",
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
+      "KC_LALT",
+      "LCA(KC_NO)",
       "KC_NO"
     ]
   ],

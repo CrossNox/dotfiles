@@ -9,7 +9,7 @@ ln -s ~/repos/dotfiles/lily58/minimal_vim/ /home/nox/qmk_firmware/keyboards/lily
 ## Convert into `keymap.c`
 ```bash
 qmk json2c minimal_vim.json -o layout.c
-qmk -cformat keymap.c
+qmk cformat keymap.c
 ```
 
 ## Compile

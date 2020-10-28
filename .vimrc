@@ -23,6 +23,8 @@ Plug 'psf/black', {'tag': '19.10b0'}
 " https://github.com/psf/black/issues/1293
 Plug 'glench/vim-jinja2-syntax'
 Plug 'vim-scripts/dbext.vim'
+Plug 'tmhedberg/SimpylFold'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 colorscheme gruvbox
@@ -53,6 +55,9 @@ if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}
 endif
 au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
+
+let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_fold_import = 0
 
 " nerdtree
 map <C-o> :NERDTreeToggle<CR>

@@ -23,12 +23,6 @@ enum layer_number {
 // rules.mk
 #ifdef OLED_DRIVER_ENABLE
 
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (!is_keyboard_master())
-    return OLED_ROTATION_180; // flips the display 180 degrees if offhand
-  return rotation;
-}
-
 // When you add source files to SRC in rules.mk, you can use functions.
 const char *read_layer_state(void);
 const char *read_logo(void);
@@ -54,20 +48,30 @@ static void render_layer_state(void) {
   }
 }
 
-#define IDLE_WPM_THRESHOLD 20 // below this wpm value your animation will idle
-#define DELOREAN_WPM_THRESHOLD 45
-
-#define IDLE_ANIM_FRAME_DURATION 250 // we'll keep going
-#define GETTING_THERE_FRAME_DURATION 200
-#define OUTRUN_THE_SUN_FRAME_DURATION 100 // how fast we'll outrun the sun
+#define IDLE_WPM_THRESHOLD 40 // below this wpm value your animation will idle
+#define IDLE_ANIM_FRAME_DURATION 200
 
 #define PIXELS_PER_COL 32
+
+#define STARS 24
 
 uint32_t anim_timer = 0;
 uint32_t anim_sleep = 0;
 uint8_t current_idle_frame = 0;
 uint8_t current_tap_frame = 0;
 uint32_t current_frame = 0;
+uint32_t stars_arr[STARS][3] = {0};
+
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+  for (uint8_t i = 0; i < STARS; ++i) {
+    stars_arr[i][0] = rand() % 57;
+    stars_arr[i][1] = rand() % 32;
+    stars_arr[i][2] = rand() % 2;
+  }
+  if (!is_keyboard_master())
+    return OLED_ROTATION_180; // flips the display 180 degrees if offhand
+  return rotation;
+}
 
 void render_line(uint16_t lno) {
   for (uint8_t i = 0; i < PIXELS_PER_COL; ++i) {
@@ -113,16 +117,24 @@ static void render_outrun(void) {
       1,   1,   3,   3,   3,   3,   3,   3,   3,   3,   3,   3,   2,   6,   6,
       6,   6};
 
+  void render_stars(void) {
+    bool could_flip = (current_frame % 10) == 0;
+    for (uint8_t i = 0; i < STARS; ++i) {
+      if (could_flip && (rand() % 10 == 0)) {
+        stars_arr[i][2] = !!!stars_arr[i][2];
+      }
+      oled_write_pixel(stars_arr[i][0], stars_arr[i][1], stars_arr[i][2]);
+    }
+  }
+
   void animation_phase(void) {
     // TODO: add defines for this logic
     current_frame = (current_frame + 1) % 45;
+
     oled_write_raw_P(raw_logo, sizeof(raw_logo));
-   
-    // dreamy stars 
-    for(uint8_t i=0; i <= 16; ++i) {
-      oled_write_pixel(rand() % 57, rand() % 32, 1);
-    }
-    
+
+    render_stars();
+
     // move the road
     render_line(83 + 0 + (current_frame % 9));
     render_line(83 + 9 + (current_frame % 9));
@@ -140,13 +152,14 @@ static void render_outrun(void) {
         anim_timer = timer_read32();
         animation_phase();
       }
-    } else if (current_wpm <= DELOREAN_WPM_THRESHOLD) {
-      if (timer_elapsed32(anim_timer) > GETTING_THERE_FRAME_DURATION) {
-        anim_timer = timer_read32();
-        animation_phase();
-      }
     } else { // we will outrun the sun
-      if (timer_elapsed32(anim_timer) > OUTRUN_THE_SUN_FRAME_DURATION) {
+      // the faster you type the faster we will outrun the sun
+      uint32_t frame_len = IDLE_ANIM_FRAME_DURATION -
+                           25 * ((current_wpm - IDLE_WPM_THRESHOLD) / 10);
+      if (frame_len < 100) {
+        frame_len = 100;
+      }
+      if (timer_elapsed32(anim_timer) > frame_len) {
         anim_timer = timer_read32();
         animation_phase();
       }

@@ -25,6 +25,7 @@ Plug 'glench/vim-jinja2-syntax'
 Plug 'vim-scripts/dbext.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-fugitive'
+Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 colorscheme gruvbox

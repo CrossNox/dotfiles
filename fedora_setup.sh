@@ -15,6 +15,7 @@ dnf install -y slack-repo
 dnf install -y `cat dnf_pkgs`
 systemctl enable powertop.service
 flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
+flatpak install -y flathub com.discordapp.Discord
 
 # return to user
 exit

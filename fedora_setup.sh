@@ -130,3 +130,12 @@ ln -s ~/repos/dotfiles/systemd/glances.service ~/.config/systemd/user/
 systemctl --user daemon-reload
 systemctl --user enable glances.service
 systemctl --user start glances.service
+
+# pipx
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+pipx completions
+
+# stuff
+pipx install cookiecutter
+pipx install poetry

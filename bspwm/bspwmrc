@@ -1,0 +1,27 @@
+#! /bin/sh
+# in order to reload the config, just execute the script again
+
+sxhkd &
+
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+
+# TODO: grep xrandr -q for 4k
+xrandr --output eDP-1 --scale 0.5x0.5 --mode 3840x2160
+
+# wallpaper
+feh --bg-fill ~/Pictures/wallpaper_mikael_gustafsson.png
+
+# polybar
+$HOME/.config/polybar/launch.sh
+
+# bspc config
+bspc monitor -d 1 2 3 4 5
+
+bspc config border_width         1
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      false
+
+bspc config focus_follows_pointer true

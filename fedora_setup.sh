@@ -129,3 +129,12 @@ ln -s ~/repos/dotfiles/systemd/glances.service ~/.config/systemd/user/
 systemctl --user daemon-reload
 systemctl --user enable glances.service
 systemctl --user start glances.service
+
+# bspwm
+ln -s ~/repos/dotfiles/bspwm ~/.config/bspwm
+
+# themes
+ln -s ~/repos/dotfiles/gtk-3.0 ~/.config/gtk-3.0
+
+# Xresources
+ln -s ~/repos/dotfiles/Xresources ~/.Xresources

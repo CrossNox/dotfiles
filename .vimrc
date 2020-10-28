@@ -20,10 +20,14 @@ Plug 'tpope/vim-surround'
 Plug 'lervag/vimtex' 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'psf/black', {'tag': '19.10b0'}
+Plug 'glench/vim-jinja2-syntax'
+Plug 'vim-scripts/dbext.vim'
 call plug#end()
 
 colorscheme gruvbox
 set background=dark
+
+let g:black_skip_string_normalization = 1
 
 " run black on save
 autocmd BufWritePre *.py execute ':Black'
@@ -31,8 +35,18 @@ autocmd BufWritePre *.py execute ':Black'
 " run black on f9
 nnoremap <F9> :Black<CR>
 
+let g:tex_flavor = 'latex'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_general_viewer = 'vivaldi'
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \    '-shell-escape',
+    \    '-verbose',
+    \    '-file-line-error',
+    \    '-synctex=1',
+    \    '-interaction=nonstopmode',
+    \ ],
+    \}
 
 if !exists('g:ycm_semantic_triggers')
     let g:ycm_semantic_triggers = {}

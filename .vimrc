@@ -26,6 +26,7 @@ Plug 'vim-scripts/dbext.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-fugitive'
 Plug 'arcticicestudio/nord-vim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 colorscheme gruvbox

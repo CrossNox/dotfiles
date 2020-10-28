@@ -20,6 +20,7 @@ Plug 'tpope/vim-surround'
 Plug 'lervag/vimtex' 
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'psf/black', {'tag': '19.10b0'}
+" https://github.com/psf/black/issues/1293
 Plug 'glench/vim-jinja2-syntax'
 Plug 'vim-scripts/dbext.vim'
 call plug#end()

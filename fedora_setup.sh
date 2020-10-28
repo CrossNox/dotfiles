@@ -27,6 +27,7 @@ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -
 curl -L get.rvm.io | bash -s stable
 echo 'source ~/.rvm/scripts/rvm' >> ~/.bashrc
+source ~/.bashrc
 rvm install 2.7.0
 rvm --default use 2.7.0
 

@@ -32,7 +32,7 @@ snapd
 sqlite-devel
 sublime-text
 telegram-desktop
-texlive
+texlive-scheme-full
 texlive-arara
 tlp
 tlp-rdw

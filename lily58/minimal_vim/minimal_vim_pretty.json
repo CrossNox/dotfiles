@@ -95,8 +95,8 @@
       "KC_LEFT",
       "KC_DOWN",
       "KC_RGHT",
-      "KC_NO",
-      "KC_NO",
+      "KC_LCTL",
+      "KC_PGUP",
       "KC_LEFT",
       "KC_DOWN",
       "KC_UP",
@@ -108,7 +108,7 @@
       "KC_CUT",
       "KC_COPY",
       "KC_PSTE",
-      "KC_NO",
+      "KC_PGDN",
       "KC_DQUO",
       "KC_QUOT",
       "KC_NO",
@@ -124,7 +124,7 @@
       "KC_NO",
       "KC_LALT",
       "LCA(KC_NO)",
-      "KC_NO"
+      "C_S_T(KC_NO)"
     ]
   ],
   "author": "CrossNox"

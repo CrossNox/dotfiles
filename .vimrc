@@ -27,9 +27,14 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-fugitive'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
+Plug 'co1ncidence/gunmetal.vim'
+Plug 'habamax/vim-gruvbit'
 call plug#end()
 
-colorscheme gruvbox
+set termguicolors
+colorscheme gruvbit
+"colorscheme gruvbox
+"colorscheme gunmetal-grey
 set background=dark
 
 let g:black_skip_string_normalization = 1

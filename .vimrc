@@ -77,3 +77,7 @@ nnoremap <C-Up> <C-W><C-K>
 nnoremap <C-Right> <C-W><C-L>
 nnoremap <C-Left> <C-W><C-H>
 
+" Apply first suggestion
+inoremap <C-L> 1z=
+nnoremap <C-L> 1z=
+

@@ -1,3 +1,5 @@
+set spelllang=es
+set spell
 set number
 syntax on
 set bs=2

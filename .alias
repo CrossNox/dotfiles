@@ -11,3 +11,4 @@ alias docker='podman'
 alias docker-compose='podman-compose'
 alias ssh='kitty +kitten ssh'
 alias icat="kitty +kitten icat"
+alias weather="curl v2.wttr.in/Buenos_Aires"

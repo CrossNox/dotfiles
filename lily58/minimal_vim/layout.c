@@ -21,4 +21,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                  KC_DOWN, KC_UP, KC_RGHT, KC_HOME, KC_VOLD, KC_LCTL, KC_NO,
                  KC_CUT, KC_COPY, KC_PSTE, KC_PGDN, KC_DQUO, KC_QUOT, KC_NO,
                  KC_NO, KC_NO, KC_NO, KC_END, KC_RSFT, KC_LALT, KC_LGUI, KC_NO,
-                 KC_NO, KC_NO, KC_LALT, LCA(KC_NO), C_S_T(KC_NO))};
+                 LCA(KC_NO), C_S_T(KC_NO), KC_NO, KC_DEL, KC_NO)};

@@ -6,8 +6,6 @@ dnf install -y fedora-workstation-repositories
 #dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
 dnf config-manager --set-enabled google-chrome
-rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 dnf copr enable evana/fira-code-fonts -y
 dnf copr enable jdoss/slack-repo -y
 dnf install -y slack-repo
@@ -82,15 +80,8 @@ echo 'source ~/.powerline' >> ~/.bashrc
 # kitty conf
 ln -s ~/repos/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
-mkdir -p ~/.config/sublime-text-3/
-ln -s ~/repos/dotfiles/Packages ~/.config/sublime-text-3/Packages
-
 ln -s ~/repos/dotfiles/.vim ~/.vim
 ln -s ~/repos/dotfiles/.vimrc ~/.vimrc
-
-subl -b && sleep 10 && subl --command install_package_control
-sleep 10
-pkill subl
 
 # extensions
 cd ~/repos

@@ -79,12 +79,12 @@
       "KC_F10",
       "KC_F11",
       "KC_F12",
-      "KC_NO",
+      "KC_TAB",
       "KC_NO",
       "KC_UP",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
+      "TG(1)",
       "KC_MSTP",
       "KC_MPRV",
       "KC_MPLY",
@@ -113,8 +113,8 @@
       "KC_QUOT",
       "KC_NO",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
+      "KC_PGUP",
+      "KC_PGDN",
       "KC_END",
       "KC_RSFT",
       "KC_LALT",
@@ -124,7 +124,7 @@
       "C_S_T(KC_NO)",
       "KC_NO",
       "KC_DEL",
-      "KC_NO"
+      "OSM(MOD_RALT)"
     ]
   ],
   "author": "CrossNox"

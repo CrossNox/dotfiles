@@ -14,4 +14,11 @@ Si rompiste todo, podes hacer un muy violento `sudo dnf remove *nvidia*` y hacer
 Fijate que `nvidia-smi` no pinche.
 
 # cudNN
-TODO
+Using the `negativo17` repo, you might get this error after updates/upgrades, not covered by the fixes on `wiki_cudnn`.
+```
+W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load dynamic library 'libcudart.so.10.1'; dlerror: libcudart.so.10.1: cannot open shared object file: No such file or directory
+```
+
+## Fix
+Check `upgrades.md`
+

@@ -31,6 +31,9 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'co1ncidence/gunmetal.vim'
 Plug 'habamax/vim-gruvbit'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 set termguicolors
@@ -44,8 +47,8 @@ let g:black_skip_string_normalization = 1
 " run black on save
 autocmd BufWritePre *.py execute ':Black'
 
-" run black on f9
-nnoremap <F9> :Black<CR>
+" run black on f6
+nnoremap <F6> :Black<CR>
 
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_method = 'latexmk'
@@ -68,6 +71,10 @@ au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 "let g:SimpylFold_docstring_preview = 1
 "let g:SimpylFold_fold_import = 0
 
+" airline
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+
 " nerdtree
 map <C-o> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -80,4 +87,10 @@ nnoremap <C-Left> <C-W><C-H>
 " Apply first suggestion
 inoremap <C-L> 1z=
 nnoremap <C-L> 1z=
+
+" Floaterm
+let g:floaterm_keymap_new    = '<F9>'
+let g:floaterm_keymap_prev   = '<F10>'
+let g:floaterm_keymap_next   = '<F11>'
+let g:floaterm_keymap_toggle = '<F12>'
 

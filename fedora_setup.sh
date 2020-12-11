@@ -130,3 +130,8 @@ pipx completions
 # stuff
 pipx install cookiecutter
 pipx install poetry
+
+# f33 default editor
+sudo dnf remove nano-default-editor
+sudo dnf install vim-default-editor
+echo 'export EDITOR=vim' >> ~/.bashrc

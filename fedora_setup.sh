@@ -111,7 +111,7 @@ read -p "Chrome login. Then press enter"
 # pass
 gpg --full-generate-key
 sudo dnf install pass
-GPG_KEY_ID=gpg --list-keys | grep -A1 -E ^pub | grep -v pub | sed -e 's/^[ \t]*//' | xclip -sel clip
+GPG_KEY_ID=gpg --list-secret-keys | grep -A1 -E ^sec | grep -v sec | sed -e 's/^[ \t]*//' | xclip -sel clip
 pass init "$(echo GPG_KEY_ID)"
 
 # glances

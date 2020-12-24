@@ -25,7 +25,7 @@ Plug 'psf/black', {'tag': '19.10b0'}
 " https://github.com/psf/black/issues/1293
 Plug 'glench/vim-jinja2-syntax'
 Plug 'vim-scripts/dbext.vim'
-"Plug 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 Plug 'tpope/vim-fugitive'
 Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
@@ -68,8 +68,10 @@ if !exists('g:ycm_semantic_triggers')
 endif
 au VimEnter * let g:ycm_semantic_triggers.tex=g:vimtex#re#youcompleteme
 
-"let g:SimpylFold_docstring_preview = 1
-"let g:SimpylFold_fold_import = 0
+" zc close a fold
+" zo open a fold
+let g:SimpylFold_docstring_preview = 1
+let g:SimpylFold_fold_import = 0
 
 " airline
 let g:airline_powerline_fonts=1
@@ -85,7 +87,6 @@ nnoremap <C-Right> <C-W><C-L>
 nnoremap <C-Left> <C-W><C-H>
 
 " Apply first suggestion
-inoremap <C-L> 1z=
 nnoremap <C-L> 1z=
 
 " Floaterm

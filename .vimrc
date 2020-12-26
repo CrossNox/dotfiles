@@ -34,6 +34,7 @@ Plug 'habamax/vim-gruvbit'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 set termguicolors

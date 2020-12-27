@@ -113,7 +113,7 @@ let g:floaterm_keymap_prev   = '<F10>'
 let g:floaterm_keymap_next   = '<F11>'
 let g:floaterm_keymap_toggle = '<F12>'
 
-
+" CoC
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -133,5 +133,9 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+" Ctrl+Enter / Ctrl+M / Ctrl+backspace
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nmap <leader>rn <Plug>(coc-rename)

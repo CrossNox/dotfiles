@@ -139,4 +139,4 @@ pip install --user jedi
 
 # neovim
 mkdir ~/.config/nvim
-ln -s ~/repos/dotfiles/init.vim ~/.config/nvim/init.vim
+ln -s ~/repos/dotfiles/neovim/init.vim ~/.config/nvim/init.vim

@@ -17,12 +17,15 @@ libffi-devel
 libtool
 libyaml-devel
 make
+neovim
+nodejs
 openssl-devel
 patch
 piper
 powerline-go
 powertop
 python3-devel
+python3-neovim
 python3-virtualenv
 readline
 readline-devel

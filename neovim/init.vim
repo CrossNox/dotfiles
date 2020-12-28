@@ -36,7 +36,6 @@ Plug 'tpope/vim-fugitive'
 " LaTex
 Plug 'lervag/vimtex' 
 
-
 " Linting
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

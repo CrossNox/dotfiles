@@ -1,5 +1,6 @@
 set spelllang=es
 set spell
+set spellang=en_us,es_ar
 set number
 syntax on
 set bs=2
@@ -55,7 +56,7 @@ let g:coc_global_extensions = [
       \ ]
 
 let g:ale_linters = {
-      \   'python': ['pylint'],
+      \   'python': ['pylint', 'flake8'],
       \}
 
 let g:ale_fixers = {

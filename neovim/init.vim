@@ -1,6 +1,5 @@
-set spelllang=es
 set spell
-set spellang=en_us,es_ar
+set spelllang=en_us,es
 set number
 syntax on
 set bs=2
@@ -139,3 +138,7 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nmap <leader>rn <Plug>(coc-rename)
+
+" FZF
+nnoremap <C-g> :Ag<Cr>
+nnoremap <C-p> :GFiles<Cr>

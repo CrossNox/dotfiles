@@ -80,9 +80,6 @@ echo 'source ~/.powerline' >> ~/.bashrc
 # kitty conf
 ln -s ~/repos/dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
-ln -s ~/repos/dotfiles/.vim ~/.vim
-ln -s ~/repos/dotfiles/.vimrc ~/.vimrc
-
 # extensions
 cd ~/repos
 git clone https://github.com/micheleg/dash-to-dock.git
@@ -135,3 +132,11 @@ pipx install poetry
 sudo dnf remove nano-default-editor
 sudo dnf install vim-default-editor
 echo 'export EDITOR=vim' >> ~/.bashrc
+
+# jedi
+deactivate
+pip install --user jedi
+
+# neovim
+mkdir ~/.config/nvim
+ln -s ~/repos/dotfiles/neovim/init.vim ~/.config/nvim/init.vim

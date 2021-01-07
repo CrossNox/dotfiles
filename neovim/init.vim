@@ -52,6 +52,7 @@ call plug#end()
 let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-jedi',
+      \ 'coc-metals'
       \ ]
 
 let g:ale_linters = {

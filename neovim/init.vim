@@ -1,3 +1,5 @@
+" share clipboard
+set clipboard+=unnamedplus
 set spell
 set spelllang=en_us,es
 set number

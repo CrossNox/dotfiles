@@ -1,3 +1,5 @@
+" share clipboard
+set clipboard+=unnamedplus
 set spell
 set spelllang=en_us,es
 set number
@@ -52,6 +54,7 @@ call plug#end()
 let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-jedi',
+      \ 'coc-metals'
       \ ]
 
 let g:ale_linters = {

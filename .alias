@@ -14,3 +14,4 @@ alias ssh='kitty +kitten ssh'
 alias icat="kitty +kitten icat"
 alias weather="curl v2.wttr.in/Buenos_Aires"
 alias vim="nvim"
+alias df="duf"

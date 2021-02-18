@@ -63,11 +63,13 @@ let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-jedi',
       \ 'coc-metals',
-      \ 'coc-vimtex'
+      \ 'coc-vimtex',
+      \ 'coc-pyright',
+      \ 'coc-sql'
       \ ]
 
 let g:ale_linters = {
-      \   'python': ['pylint', 'flake8'],
+      \   'python': ['pylint', 'flake8', 'pyright'],
       \}
 
 let g:ale_fixers = {

@@ -75,13 +75,13 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \    'python': ['black', 'isort'],
-      \    'sql': ['sqlformat']
       \}
-
-let g:ale_sql_sqlformat_options = '-k upper -a -s'
 
 nmap <F6> :ALEFix<CR>
 let g:ale_fix_on_save = 1
+
+" SQL
+:autocmd BufWritePost *.sql call CocAction('format')
 
 set termguicolors
 colorscheme gruvbit

@@ -96,7 +96,7 @@ deactivate
 
 cd ~/Pictures
 wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png
-sudo dnf install numix-icon-theme-circle breeze-cursor-theme arc-theme 
+sudo dnf install numix-icon-theme-circle breeze-cursor-theme arc-theme
 
 read -p "Tap to click. Then press enter"
 read -p "Enable extensions. Then press enter"
@@ -140,3 +140,6 @@ pip install --user jedi
 # neovim
 mkdir ~/.config/nvim
 ln -s ~/repos/dotfiles/neovim/init.vim ~/.config/nvim/init.vim
+
+" pipx
+pipx install sqlparse

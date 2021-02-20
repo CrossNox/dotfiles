@@ -26,7 +26,7 @@ endif
 let g:ale_disable_lsp = 1
 
 call plug#begin()
-" Themes 
+" Themes
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'co1ncidence/gunmetal.vim'
@@ -44,7 +44,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " LaTex
-Plug 'lervag/vimtex' 
+Plug 'lervag/vimtex'
 
 " Linting
 Plug 'dense-analysis/ale'
@@ -73,8 +73,13 @@ let g:ale_linters = {
       \}
 
 let g:ale_fixers = {
+      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \    'python': ['black', 'isort'],
+      \    'sql': ['sqlformat']
       \}
+
+let g:ale_sql_sqlformat_options = '-k upper -a -s'
+
 nmap <F6> :ALEFix<CR>
 let g:ale_fix_on_save = 1
 

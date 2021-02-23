@@ -49,6 +49,7 @@ Plug 'lervag/vimtex'
 " Linting
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'CrossNox/coc-sql', {'do': 'yarn install --frozen-lockfile'}
 
 " Python
 Plug 'psf/black', {'tag': '19.10b0'}

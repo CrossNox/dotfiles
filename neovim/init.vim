@@ -49,7 +49,7 @@ Plug 'lervag/vimtex'
 " Linting
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'CrossNox/coc-sql', {'do': 'yarn install --frozen-lockfile'}
+Plug 'CrossNox/coc-sql-plus-jinja', {'do': 'yarn install --frozen-lockfile'}
 
 " Python
 Plug 'psf/black', {'tag': '19.10b0'}
@@ -66,7 +66,6 @@ let g:coc_global_extensions = [
       \ 'coc-metals',
       \ 'coc-vimtex',
       \ 'coc-pyright',
-      \ 'coc-sql'
       \ ]
 
 let g:ale_linters = {

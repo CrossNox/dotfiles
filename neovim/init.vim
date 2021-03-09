@@ -6,6 +6,9 @@ set number
 syntax on
 set bs=2
 
+set cursorcolumn
+set cursorline
+
 " move lines
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
@@ -42,6 +45,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+Plug 'Yggdroot/indentLine'
 
 " LaTex
 Plug 'lervag/vimtex'
@@ -60,6 +64,8 @@ Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
+let g:indentLine_setColors = 0
+
 let g:coc_global_extensions = [
       \ 'coc-json',
       \ 'coc-jedi',
@@ -75,6 +81,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \    'python': ['black', 'isort'],
+      \    'json': ['jq']
       \}
 
 nmap <F6> :ALEFix<CR>
@@ -161,3 +168,6 @@ nmap <leader>rn <Plug>(coc-rename)
 " FZF
 nnoremap <C-g> :Ag<Cr>
 nnoremap <C-p> :GFiles<Cr>
+
+" Json
+autocmd Filetype json setlocal ts=4 sw=4 expandtab

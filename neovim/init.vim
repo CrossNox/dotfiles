@@ -6,7 +6,7 @@ set number
 syntax on
 set bs=2
 
-set cursorcolumn
+" set cursorcolumn
 set cursorline
 
 " move lines

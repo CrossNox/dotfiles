@@ -46,6 +46,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
+Plug 'APZelos/blamer.nvim'
 
 " LaTex
 Plug 'lervag/vimtex'
@@ -171,3 +172,13 @@ nnoremap <C-p> :GFiles<Cr>
 
 " Json
 autocmd Filetype json setlocal ts=4 sw=4 expandtab
+
+" Blamer
+let g:blamer_enabled = 1
+let g:blamer_delay = 1000
+let g:blamer_show_in_visual_modes = 0
+let g:blamer_show_in_insert_modes = 1
+let g:blamer_prefix = ' :: '
+let g:blamer_template = '<committer>, <committer-time> • <summary>'
+let g:blamer_date_format = '%y-%m-%d %H:%M'
+let g:blamer_relative_time = 0

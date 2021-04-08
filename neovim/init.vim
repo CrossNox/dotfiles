@@ -82,7 +82,8 @@ let g:ale_linters = {
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
       \    'python': ['black', 'isort'],
-      \    'json': ['jq']
+      \    'json': ['jq'],
+      \    'html': ['html-beautify'],
       \}
 
 nmap <F6> :ALEFix<CR>

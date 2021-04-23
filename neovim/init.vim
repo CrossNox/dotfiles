@@ -47,6 +47,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 Plug 'APZelos/blamer.nvim'
+Plug 'tpope/vim-unimpaired'
 
 " LaTex
 Plug 'lervag/vimtex'
@@ -66,6 +67,7 @@ Plug 'tmhedberg/SimpylFold'
 call plug#end()
 
 let g:indentLine_setColors = 0
+let g:indentLine_setConceal = 0
 
 let g:coc_global_extensions = [
       \ 'coc-json',
@@ -184,3 +186,9 @@ let g:blamer_prefix = ' :: '
 let g:blamer_template = '<committer>, <committer-time> • <summary>'
 let g:blamer_date_format = '%y-%m-%d %H:%M'
 let g:blamer_relative_time = 0
+
+" Git
+nmap <leader>gs :G<CR>
+nmap <leader>gj :diffget //3<CR>
+nmap <leader>gf :diffget //3<CR>
+nmap <leader>gM :vert Gdiffsplit!<CR>

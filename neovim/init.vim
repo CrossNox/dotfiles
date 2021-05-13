@@ -125,6 +125,12 @@ let g:SimpylFold_fold_import = 0
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 
+set guifont=FiraCode\ Nerd\ Font
+
+" testing rounded separators (extra-powerline-symbols):
+let g:airline_left_sep = "\uE0C6"
+let g:airline_right_sep = "\uE0C7"
+
 " nerdtree
 map <C-o> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1

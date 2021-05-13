@@ -141,5 +141,14 @@ pip install --user jedi
 mkdir ~/.config/nvim
 ln -s ~/repos/dotfiles/neovim/init.vim ~/.config/nvim/init.vim
 
-" pipx
+# pipx
 pipx install sqlparse
+
+mkdir -p ~/.local/share/fonts/Droid\ Sans\ Mono\ Nerd\ Font\ Complete
+mkdir -p ~/.local/share/fonts/Fira\ Code\ Regular\ Nerd\ Font\ Complete
+
+curl -fLo ~/.local/share/fonts/Droid\ Sans\ Mono\ Nerd\ Font\ Complete/Droid\ Sans\ Mono\ Nerd\ Font\ Complete.otf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+
+curl -fLo ~/.local/share/fonts/Fira\ Code\ Regular\ Nerd\ Font\ Complete/Fira\ Code\ Regular\ Nerd\ Font\ Complete.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+
+fc-cache -v

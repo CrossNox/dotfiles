@@ -1,5 +1,5 @@
 function _update_ps1() {
-    PS1="$($GOPATH/bin/powerline-go -error $? | sed 's.\\\$.Ξ.g')"
+    PS1="$($GOPATH/bin/powerline-go -theme default -hostname-only-if-ssh -modules terraform-workspace,venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,root -cwd-max-depth 4 -error $? | sed 's.\\\$.Ξ.g')"
 }
 
 if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then

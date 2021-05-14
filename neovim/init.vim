@@ -18,6 +18,8 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 filetype plugin indent on
+au FileType markdown let g:indentLine_setConceal= 0
+au FileType json let g:indentLine_setConceal= 0
 au FileType gitcommit set tw=72
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
@@ -34,6 +36,9 @@ Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'co1ncidence/gunmetal.vim'
 Plug 'habamax/vim-gruvbit'
+Plug 'artanikin/vim-synthwave84'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 
 " Utils
 Plug 'scrooloose/nerdtree'
@@ -48,6 +53,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-unimpaired'
+Plug 'chrisbra/Colorizer'
 
 " LaTex
 Plug 'lervag/vimtex'
@@ -66,8 +72,9 @@ Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
-let g:indentLine_setColors = 0
-let g:indentLine_setConceal = 0
+" let g:indentLine_setColors = 0
+let g:indentLine_defaultGroup = 'SpecialKey'
+let g:indentLine_char = '¦'
 
 let g:coc_global_extensions = [
       \ 'coc-json',
@@ -94,14 +101,35 @@ let g:ale_fix_on_save = 1
 " SQL
 :autocmd BufWritePost *.sql call CocAction('format')
 
-set termguicolors
-colorscheme gruvbit
-" colorscheme gruvbox
-" colorscheme gunmetal-grey
-set background=dark
+" colorscheme
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    let &t_ZH="\e[3m"
+    let &t_ZR="\e[23m"
+    let &t_ZH="\e[3m"
+    let &t_ZR="\e[23m"
+    set termguicolors
+endif
 
+hi Comment cterm=ITALIC
+
+colorscheme synthwave84
+let g:airline_theme='synthwave84'
+
+" Colorizer
+" let g:colorizer_auto_color = 1
+" let g:colorizer_skip_comments = 1
+let g:colorizer_colornames = 0
+let g:colorizer_use_virtual_text = 1
+let g:colorizer_auto_filetype='css,html,md,conf'
+let g:colorizer_disable_bufleave = 1
+:au BufNewFile,BufRead *.css,*.html,*.htm,*.md,*.conf  :ColorHighlight!
+
+" Black
 let g:black_skip_string_normalization = 1
 
+" Vimtex
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_method = 'latexmk'
 let g:vimtex_view_general_viewer = 'vivaldi'
@@ -175,6 +203,8 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 nmap <leader>rn <Plug>(coc-rename)
+nmap <leader>eN <Plug>(coc-diagnostic-next-error)
+nmap <leader>eP <Plug>(coc-diagnostic-prev-error)
 
 " FZF
 nnoremap <C-g> :Ag<Cr>

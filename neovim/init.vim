@@ -64,8 +64,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'CrossNox/coc-sql-plus-jinja', {'do': 'yarn install --frozen-lockfile'}
 
 " Python
-Plug 'psf/black', {'tag': '19.10b0'}
-" https://github.com/psf/black/issues/1293
+Plug 'psf/black'
 Plug 'glench/vim-jinja2-syntax'
 Plug 'vim-scripts/dbext.vim'
 Plug 'tmhedberg/SimpylFold'

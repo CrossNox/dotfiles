@@ -80,11 +80,10 @@ let g:coc_global_extensions = [
       \ 'coc-jedi',
       \ 'coc-metals',
       \ 'coc-vimtex',
-      \ 'coc-pyright',
       \ ]
 
 let g:ale_linters = {
-      \   'python': ['pylint', 'flake8', 'pyright'],
+      \   'python': ['pylint', 'flake8'],
       \}
 
 let g:ale_fixers = {

@@ -152,3 +152,20 @@ curl -fLo ~/.local/share/fonts/Droid\ Sans\ Mono\ Nerd\ Font\ Complete/Droid\ Sa
 curl -fLo ~/.local/share/fonts/Fira\ Code\ Regular\ Nerd\ Font\ Complete/Fira\ Code\ Regular\ Nerd\ Font\ Complete.ttf https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
 
 fc-cache -v
+
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.bashrc
+nvm install node
+
+flatpak install flathub org.gnome.Extensions
+
+cd ~/repos
+git clone https://github.com/RensAlthuis/vertical-overview.git
+cd vertical-overview
+make
+make install
+
+read -p "Alt+F2 -> r"
+gnome-extensions enable vertical-overview@RensAlthuis.github.com
+
+ln -s ~/repos/dotfiles/pipewire.conf ~/.config/pipewire

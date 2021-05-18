@@ -18,7 +18,6 @@ libtool
 libyaml-devel
 make
 neovim
-nodejs
 openssl-devel
 patch
 piper

@@ -1,4 +1,5 @@
 " share clipboard
+" set mouse=n
 set clipboard+=unnamedplus
 set spell
 set spelllang=en_us,es

@@ -165,7 +165,13 @@ cd vertical-overview
 make
 make install
 
+cd ~/repos
+git clone https://github.com/aunetx/blur-my-shell
+cd blur-my-shell
+make install
+
 read -p "Alt+F2 -> r"
 gnome-extensions enable vertical-overview@RensAlthuis.github.com
+gnome-extensions enable blur-my-shell@aunetx
 
 ln -s ~/repos/dotfiles/pipewire.conf ~/.config/pipewire

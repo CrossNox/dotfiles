@@ -23,6 +23,9 @@ au FileType markdown let g:indentLine_setConceal= 0
 au FileType json let g:indentLine_setConceal= 0
 au FileType gitcommit set tw=72
 
+au BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['python']
+
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim  --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

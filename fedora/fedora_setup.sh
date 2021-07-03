@@ -93,15 +93,15 @@ if [ $DESKTOP_SESSION == "gnome" ]; then
   cd blur-my-shell
   make install
 
-  dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'
-  gnome-extensions enable vertical-overview@RensAlthuis.github.com
-  gnome-extensions enable blur-my-shell@aunetx
+  # dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'
+  # gnome-extensions enable vertical-overview@RensAlthuis.github.com
+  # gnome-extensions enable blur-my-shell@aunetx
 
-  read -p "Tap to click. Then press enter"
-  read -p "Enable extensions. Then press enter"
-  read -p "Mayus as esc. Then press enter"
-  read -p "Maximize windows. Then press enter"
-  read -p "Dark theme. Then press enter"
+  #read -p "Tap to click. Then press enter"
+  #read -p "Enable extensions. Then press enter"
+  #read -p "Mayus as esc. Then press enter"
+  #read -p "Maximize windows. Then press enter"
+  #read -p "Dark theme. Then press enter"
 fi
 
 cd ~/Pictures

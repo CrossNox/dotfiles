@@ -3,6 +3,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+sudo su - $USER
+
 # clone this repo
 REPOS_FOLDER=~/repos
 mkdir -p $REPOS_FOLDER

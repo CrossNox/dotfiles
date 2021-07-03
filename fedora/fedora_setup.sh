@@ -68,7 +68,7 @@ sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hico
 cd $REPOS_FOLDER
 virtualenv -p python3 venv
 source venv/bin/activate
-pip install -r dotfiles/fedora/base_requirements.txt
+pip install -r $REPOS_FOLDER/dotfiles/fedora/base_requirements.txt
 deactivate
 
 # add ssh key to github

@@ -1,3 +1,5 @@
+sudo -s
+
 # clone this repo
 REPOS_FOLDER=~/repos
 mkdir -p $REPOS_FOLDER
@@ -9,20 +11,20 @@ fi
 cd $REPOS_FOLDER/dotfiles
 
 # set dnf repos
-sudo -i
 
-dnf update -y
-dnf install -y fedora-workstation-repositories
-#dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-#dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
-dnf config-manager --set-enabled google-chrome
-dnf copr enable evana/fira-code-fonts -y
-dnf copr enable jdoss/slack-repo -y
-dnf install -y slack-repo
+sudo dnf update -y
+sudo dnf install -y fedora-workstation-repositories
+#sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+#sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf copr enable evana/fira-code-fonts -y
+sudo dnf copr enable jdoss/slack-repo -y
+sudo dnf install -y slack-repo
+
 # install packages
-dnf install -y `cat fedora/dnf_pkgs`
-systemctl enable powertop.service
+sudo dnf install -y `cat fedora/dnf_pkgs`
+sudo systemctl enable powertop.service
 
 # f33 default editor
 sudo dnf remove -y nano-default-editor
@@ -31,12 +33,9 @@ sudo dnf install -y vim-default-editor
 bash $REPOS_FOLDER/dotfiles/fedora/setup_scripts/install_terraform.sh
 bash $REPOS_FOLDER/dotfiles/fedora/setup_scripts/setup_aws_cli_v2.sh
 
-# return to user
-exit
-
 # install flatpaks
-flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
-flatpak install -y flathub com.discordapp.Discord
+sudo flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
+sudo flatpak install -y flathub com.discordapp.Discord
 
 if [ $DESKTOP_SESSION == "gnome" ]; then
     flatpak install -y flathub org.gnome.Extensions

@@ -38,7 +38,6 @@ call plug#begin()
 " Themes
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
-Plug 'co1ncidence/gunmetal.vim'
 Plug 'habamax/vim-gruvbit'
 Plug 'artanikin/vim-synthwave84'
 Plug 'liuchengxu/space-vim-dark'

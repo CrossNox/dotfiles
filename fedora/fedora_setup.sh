@@ -3,8 +3,6 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-sudo su - $USER
-
 # clone this repo
 REPOS_FOLDER=~/repos
 mkdir -p $REPOS_FOLDER
@@ -152,3 +150,5 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.bashrc
 nvm install node
 npm install --global yarn
+
+cd

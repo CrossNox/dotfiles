@@ -3,6 +3,8 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+su "$SUDO_USER"
+
 # clone this repo
 REPOS_FOLDER=~/repos
 mkdir -p $REPOS_FOLDER
@@ -33,8 +35,8 @@ sudo systemctl enable powertop.service
 sudo dnf remove -y nano-default-editor
 sudo dnf install -y vim-default-editor
 
-bash $REPOS_FOLDER/dotfiles/fedora/setup_scripts/install_terraform.sh
-bash $REPOS_FOLDER/dotfiles/fedora/setup_scripts/setup_aws_cli_v2.sh
+$REPOS_FOLDER/dotfiles/fedora/setup_scripts/install_terraform.sh
+$REPOS_FOLDER/dotfiles/fedora/setup_scripts/setup_aws_cli_v2.sh
 
 # install flatpaks
 sudo flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
@@ -151,4 +153,5 @@ source ~/.bashrc
 nvm install node
 npm install --global yarn
 
-cd
+exit
+exit

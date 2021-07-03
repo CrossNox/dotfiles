@@ -3,7 +3,7 @@ You can import the JSON file on [QMK configurator](https://config.qmk.fm). It wi
 
 ## Add new folder
 ```bash
-ln -s ~/repos/dotfiles/lily58/minimal_vim/ /home/nox/qmk_firmware/keyboards/lily58/keymaps/minimal_vim
+ln -s ~/repos/dotfiles/lily58/minimal_vim/ $HOME/qmk_firmware/keyboards/lily58/keymaps/minimal_vim
 ```
 
 ## Convert into `keymap.c`

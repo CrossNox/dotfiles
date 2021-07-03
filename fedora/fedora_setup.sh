@@ -22,8 +22,8 @@ dnf install -y `cat dnf_pkgs`
 systemctl enable powertop.service
 
 # f33 default editor
-sudo dnf remove nano-default-editor
-sudo dnf install vim-default-editor
+sudo dnf remove -y nano-default-editor
+sudo dnf install -y vim-default-editor
 
 ./setup_scripts/install_terraform.sh
 ./setup_scripts/setup_aws_cli_v2.sh

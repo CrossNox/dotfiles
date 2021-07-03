@@ -1,8 +1,11 @@
 # clone this repo
 REPOS_FOLDER=~/repos
+mkdir -p $REPOS_FOLDER
 
-mkdir $REPOS_FOLDER
-git clone https://github.com/CrossNox/dotfiles.git $REPOS_FOLDER/dotfiles
+if [ ! -d "$REPOS_FOLDER/dotfiles" ] ; then
+    git clone https://github.com/CrossNox/dotfiles.git $REPOS_FOLDER/dotfiles
+fi
+
 cd $REPOS_FOLDER/dotfiles
 
 # set dnf repos

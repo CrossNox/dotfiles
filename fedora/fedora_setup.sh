@@ -28,8 +28,11 @@ systemctl enable powertop.service
 sudo dnf remove -y nano-default-editor
 sudo dnf install -y vim-default-editor
 
-./fedora/setup_scripts/install_terraform.sh
-./fedora/setup_scripts/setup_aws_cli_v2.sh
+bash $REPOS_FOLDER/dotfiles/fedora/setup_scripts/install_terraform.sh
+bash $REPOS_FOLDER/dotfiles/fedora/setup_scripts/setup_aws_cli_v2.sh
+
+# return to user
+exit
 
 # install flatpaks
 flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
@@ -38,10 +41,8 @@ flatpak install -y flathub com.discordapp.Discord
 if [ $DESKTOP_SESSION == "gnome" ]; then
     flatpak install -y flathub org.gnome.Extensions
 fi
-# return to user
-exit
 
-cd $REPOS/dotfiles
+cd $REPOS_FOLDER/dotfiles
 stow -vSt ~/.config .config
 stow -vSt ~ bash
 stow -vSt ~ git

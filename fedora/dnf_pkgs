@@ -23,6 +23,7 @@ make
 neovim
 numix-icon-theme-circle
 openssl-devel
+pass
 patch
 piper
 powerline-go
@@ -44,5 +45,6 @@ tlp
 tlp-rdw
 vim
 vivaldi-stable
+xclip
 zlib
 zlib-devel

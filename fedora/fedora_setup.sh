@@ -1,5 +1,6 @@
 # set dnf repos
 sudo -i
+
 dnf update -y
 dnf install -y fedora-workstation-repositories
 #dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -12,6 +13,10 @@ dnf install -y slack-repo
 # install packages
 dnf install -y `cat dnf_pkgs`
 systemctl enable powertop.service
+
+# f33 default editor
+sudo dnf remove nano-default-editor
+sudo dnf install vim-default-editor
 
 ./setup_scripts/install_terraform.sh
 ./setup_scripts/setup_aws_cli_v2.sh
@@ -62,7 +67,6 @@ pip install -r dotfiles/fedora/base_requirements.txt
 deactivate
 
 # add ssh key to github
-sudo dnf install -y xclip
 ssh-keygen -t rsa -b 4096 -C "ijmermet@gmail.com"
 xclip -sel clip < ~/.ssh/id_rsa.pub
 read -p "Add ssh key to github. Then press enter"
@@ -105,7 +109,6 @@ wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/
 
 # pass
 gpg --full-generate-key
-sudo dnf install pass
 GPG_KEY_ID=gpg --list-secret-keys | grep -A1 -E ^sec | grep -v sec | sed -e 's/^[ \t]*//' | xclip -sel clip
 pass init "$(echo GPG_KEY_ID)"
 
@@ -123,11 +126,6 @@ pipx install cookiecutter
 pipx install poetry
 pipx install sqlparse
 pipx install black
-
-# f33 default editor
-sudo dnf remove nano-default-editor
-sudo dnf install vim-default-editor
-
 # jedi
 pip3 install --user jedi
 

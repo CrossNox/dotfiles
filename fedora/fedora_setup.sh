@@ -15,36 +15,40 @@ fi
 
 cd $REPOS_FOLDER/dotfiles
 
+exit
+
 # set dnf repos
 
-sudo dnf update -y
-sudo dnf install -y fedora-workstation-repositories
+dnf update -y
+dnf install -y fedora-workstation-repositories
 #sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 #sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
-sudo dnf config-manager --set-enabled google-chrome
-sudo dnf copr enable evana/fira-code-fonts -y
-sudo dnf copr enable jdoss/slack-repo -y
-sudo dnf install -y slack-repo
+dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
+dnf config-manager --set-enabled google-chrome
+dnf copr enable evana/fira-code-fonts -y
+dnf copr enable jdoss/slack-repo -y
+dnf install -y slack-repo
 
 # install packages
-sudo dnf install -y `cat fedora/dnf_pkgs`
-sudo systemctl enable powertop.service
+dnf install -y `cat fedora/dnf_pkgs`
+systemctl enable powertop.service
 
 # f33 default editor
-sudo dnf remove -y nano-default-editor
-sudo dnf install -y vim-default-editor
+dnf remove -y nano-default-editor
+dnf install -y vim-default-editor
 
 $REPOS_FOLDER/dotfiles/fedora/setup_scripts/install_terraform.sh
 $REPOS_FOLDER/dotfiles/fedora/setup_scripts/setup_aws_cli_v2.sh
 
 # install flatpaks
-sudo flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
-sudo flatpak install -y flathub com.discordapp.Discord
+flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
+flatpak install -y flathub com.discordapp.Discord
 
 if [ $DESKTOP_SESSION == "gnome" ]; then
     flatpak install -y flathub org.gnome.Extensions
 fi
+
+su "$SUDO_USER"
 
 cd $REPOS_FOLDER/dotfiles
 stow -vSt ~/.config .config

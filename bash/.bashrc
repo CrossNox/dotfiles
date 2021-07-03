@@ -20,6 +20,7 @@ source /usr/share/autojump/autojump.bash
 source ~/.alias
 source ~/.config/powerline/.powerline
 
+eval "$(register-python-argcomplete pipx)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

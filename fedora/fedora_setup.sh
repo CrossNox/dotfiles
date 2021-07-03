@@ -21,15 +21,15 @@ dnf copr enable evana/fira-code-fonts -y
 dnf copr enable jdoss/slack-repo -y
 dnf install -y slack-repo
 # install packages
-dnf install -y `cat dnf_pkgs`
+dnf install -y `cat fedora/dnf_pkgs`
 systemctl enable powertop.service
 
 # f33 default editor
 sudo dnf remove -y nano-default-editor
 sudo dnf install -y vim-default-editor
 
-./setup_scripts/install_terraform.sh
-./setup_scripts/setup_aws_cli_v2.sh
+./fedora/setup_scripts/install_terraform.sh
+./fedora/setup_scripts/setup_aws_cli_v2.sh
 
 # install flatpaks
 flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref

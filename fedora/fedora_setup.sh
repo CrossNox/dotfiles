@@ -1,3 +1,10 @@
+# clone this repo
+REPOS_FOLDER=~/repos
+
+mkdir $REPOS_FOLDER
+git clone https://github.com/CrossNox/dotfiles.git $REPOS_FOLDER/dotfiles
+cd $REPOS_FOLDER/dotfiles
+
 # set dnf repos
 sudo -i
 
@@ -30,13 +37,6 @@ if [ $DESKTOP_SESSION == "gnome" ]; then
 fi
 # return to user
 exit
-
-# clone this repo
-REPOS_FOLDER=~/repos
-
-mkdir $REPOS_FOLDER
-git clone https://github.com/CrossNox/dotfiles.git $REPOS_FOLDER/dotfiles
-cd $REPOS_FOLDER/dotfiles
 
 stow -vSt ~/.config .config
 stow -vSt ~ bash

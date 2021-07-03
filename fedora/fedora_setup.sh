@@ -79,11 +79,6 @@ source venv/bin/activate
 pip install -r $REPOS_FOLDER/dotfiles/fedora/base_requirements.txt
 deactivate
 
-# add ssh key to github
-#ssh-keygen -t rsa -b 4096 -C "ijmermet@gmail.com"
-#xclip -sel clip < ~/.ssh/id_rsa.pub
-#read -p "Add ssh key to github. Then press enter"
-
 # extensions
 if [ $DESKTOP_SESSION == "gnome" ]; then
   cd $REPOS_FOLDER
@@ -119,11 +114,6 @@ fi
 
 cd ~/Pictures
 wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png
-
-# pass
-# gpg --full-generate-key
-# GPG_KEY_ID=gpg --list-secret-keys | grep -A1 -E ^sec | grep -v sec | sed -e 's/^[ \t]*//' | xclip -sel clip
-# pass init "$(echo GPG_KEY_ID)"
 
 # glances
 curl -L https://bit.ly/glances | /bin/bash

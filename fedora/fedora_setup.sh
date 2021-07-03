@@ -41,11 +41,11 @@ $REPOS_FOLDER/dotfiles/fedora/setup_scripts/install_terraform.sh
 $REPOS_FOLDER/dotfiles/fedora/setup_scripts/setup_aws_cli_v2.sh
 
 # install flatpaks
-flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.flatpakref
-flatpak install -y flathub com.discordapp.Discord
+flatpak install -y --noninteractive com.spotify.Client
+flatpak install -y --noninteractive com.discordapp.Discord
 
 if [ $DESKTOP_SESSION == "gnome" ]; then
-    flatpak install -y flathub org.gnome.Extensions
+    flatpak install -y --noninteractive org.gnome.Extensions
 fi
 
 su "$SUDO_USER"

@@ -33,11 +33,12 @@ flatpak install -y --from https://flathub.org/repo/appstream/com.spotify.Client.
 flatpak install -y flathub com.discordapp.Discord
 
 if [ $DESKTOP_SESSION == "gnome" ]; then
-    flatpak install flathub org.gnome.Extensions
+    flatpak install -y flathub org.gnome.Extensions
 fi
 # return to user
 exit
 
+cd $REPOS/dotfiles
 stow -vSt ~/.config .config
 stow -vSt ~ bash
 stow -vSt ~ git

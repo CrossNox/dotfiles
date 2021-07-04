@@ -30,7 +30,7 @@ dnf copr enable jdoss/slack-repo -y
 dnf install -y slack-repo
 
 # install packages
-dnf install -y `cat fedora/dnf_pkgs`
+dnf install -y `cat $REPOS_FOLDER/dotfiles/fedora/dnf_pkgs`
 systemctl enable powertop.service
 
 # f33 default editor

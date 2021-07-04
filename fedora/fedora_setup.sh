@@ -8,7 +8,10 @@ su "$SUDO_USER"
 # clone this repo
 echo "Cloning repo"
 REPOS_FOLDER=~/repos
-mkdir -p $REPOS_FOLDER
+
+if [ ! -d "$REPOS_FOLDER" ] ; then
+    mkdir -p $REPOS_FOLDER
+fi
 
 if [ ! -d "$REPOS_FOLDER/dotfiles" ] ; then
     git clone https://github.com/CrossNox/dotfiles.git $REPOS_FOLDER/dotfiles
@@ -19,7 +22,7 @@ cd $REPOS_FOLDER/dotfiles
 exit
 
 SUDO_USER_HOME="$(eval echo "~$SUDO_USER")"
-DOTFILES_FOLDER=$SUDO_USER/repos/dotfiles
+DOTFILES_FOLDER=$SUDO_USER_HOME/repos/dotfiles
 
 # set dnf repos
 echo "Setting repos"

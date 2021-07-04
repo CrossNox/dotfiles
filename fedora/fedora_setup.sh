@@ -18,7 +18,8 @@ cd $REPOS_FOLDER/dotfiles
 
 exit
 
-DOTFILES_FOLDER=eval echo "~$SUDO_USER/repos/dotfiles"
+SUDO_USER_HOME=$(eval "~$SUDO_USER")
+DOTFILES_FOLDER=$SUDO_USER/repos/dotfiles
 
 # set dnf repos
 echo "Setting repos"

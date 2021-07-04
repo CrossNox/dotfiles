@@ -6,6 +6,7 @@ fi
 su "$SUDO_USER"
 
 # clone this repo
+echo "Cloning repo"
 REPOS_FOLDER=~/repos
 mkdir -p $REPOS_FOLDER
 
@@ -17,8 +18,10 @@ cd $REPOS_FOLDER/dotfiles
 
 exit
 
-# set dnf repos
+DOTFILES_FOLDER=eval echo "~$SUDO_USER/repos/dotfiles"
 
+# set dnf repos
+echo "Setting repos"
 dnf update -y
 dnf install -y fedora-workstation-repositories
 #sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -30,17 +33,20 @@ dnf copr enable jdoss/slack-repo -y
 dnf install -y slack-repo
 
 # install packages
-dnf install -y `cat $REPOS_FOLDER/dotfiles/fedora/dnf_pkgs`
+echo "Installing DNF packages"
+dnf install -y `cat $DOTFILES_FOLDER/fedora/dnf_pkgs`
 systemctl enable powertop.service
 
 # f33 default editor
+echo "Nano -> vim"
 dnf remove -y nano-default-editor
 dnf install -y vim-default-editor
 
-$REPOS_FOLDER/dotfiles/fedora/setup_scripts/install_terraform.sh
-$REPOS_FOLDER/dotfiles/fedora/setup_scripts/setup_aws_cli_v2.sh
+$DOTFILES_FOLDER/fedora/setup_scripts/install_terraform.sh
+$DOTFILES_FOLDER/fedora/setup_scripts/setup_aws_cli_v2.sh
 
 # install flatpaks
+echo "Installing flatpaks"
 flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord
 
@@ -50,15 +56,14 @@ fi
 
 su "$SUDO_USER"
 
+echo "Linking dotfiles with stow"
 cd $REPOS_FOLDER/dotfiles
 stow -vSt ~/.config .config
 stow -vSt ~ bash
 stow -vSt ~ git
 
-# install kitty
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-
 # rvm
+echo "Installing rvm"
 curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -
 curl -L get.rvm.io | bash -s stable
@@ -68,11 +73,14 @@ rvm install 2.7.0
 rvm --default use 2.7.0
 
 # kitty
+echo "Installing kitty"
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
 cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications
 sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hicolor\/256x256\/apps\/kitty.png/g" ~/.local/share/applications/kitty.desktop
 
 # set up dev env
+echo "Setting devenv"
 cd $REPOS_FOLDER
 virtualenv -p python3 venv
 source venv/bin/activate
@@ -81,6 +89,9 @@ deactivate
 
 # extensions
 if [ $DESKTOP_SESSION == "gnome" ]; then
+
+  echo "Installing gnome extensions"
+
   cd $REPOS_FOLDER
   git clone https://github.com/micheleg/dash-to-dock.git
   cd dash-to-dock/
@@ -112,16 +123,19 @@ if [ $DESKTOP_SESSION == "gnome" ]; then
   #read -p "Dark theme. Then press enter"
 fi
 
+echo "Getting a nice wallpaper"
 cd ~/Pictures
 wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png
 
 # glances
+echo "Installing glances"
 curl -L https://bit.ly/glances | /bin/bash
 systemctl --user daemon-reload
 systemctl --user enable glances.service
 systemctl --user start glances.service
 
 # pipx
+echo "Installing pipx and some apps"
 python3 -m pip install --user pipx
 python3 -m pipx ensurepath
 pipx completions
@@ -135,6 +149,7 @@ pipx install git+https://github.com/dsanson/termpdf.py.git
 pip3 install --user jedi
 
 # fonts
+echo "Downloading fonts"
 mkdir -p /.local/share/fonts
 
 curl -fLo "Droid Sans Mono Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
@@ -144,6 +159,7 @@ curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasi
 fc-cache -v
 
 # nvm
+echo "Install nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.bashrc
 nvm install node

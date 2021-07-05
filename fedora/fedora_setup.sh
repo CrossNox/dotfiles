@@ -49,10 +49,14 @@ dnf install -y vim-default-editor
 $DOTFILES_FOLDER/fedora/setup_scripts/install_terraform.sh
 $DOTFILES_FOLDER/fedora/setup_scripts/setup_aws_cli_v2.sh
 
+echo "adding flatpak remote"
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
 su "$SUDO_USER"
 
+REPOS_FOLDER=~/repos
+
 echo "Installing flatpaks"
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord
 

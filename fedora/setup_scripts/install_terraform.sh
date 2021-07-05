@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Installing terraform"
 mkdir -p ~/bin
 cd ~/bin

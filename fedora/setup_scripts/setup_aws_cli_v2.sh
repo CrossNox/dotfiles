@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "Installing AWS CLI v2"
 sudo -i
 cd /tmp

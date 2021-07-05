@@ -49,16 +49,16 @@ dnf install -y vim-default-editor
 $DOTFILES_FOLDER/fedora/setup_scripts/install_terraform.sh
 $DOTFILES_FOLDER/fedora/setup_scripts/setup_aws_cli_v2.sh
 
-# install flatpaks
+su "$SUDO_USER"
+
 echo "Installing flatpaks"
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord
 
 if [ $DESKTOP_SESSION == "gnome" ]; then
     flatpak install -y --noninteractive org.gnome.Extensions
 fi
-
-su "$SUDO_USER"
 
 echo "Linking dotfiles with stow"
 cd $REPOS_FOLDER/dotfiles

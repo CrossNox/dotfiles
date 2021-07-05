@@ -18,6 +18,7 @@ if [ ! -d "$REPOS_FOLDER/dotfiles" ] ; then
 fi
 
 cd $REPOS_FOLDER/dotfiles
+git pull
 
 exit
 
@@ -65,6 +66,7 @@ if [ $DESKTOP_SESSION == "gnome" ]; then
 fi
 
 echo "Linking dotfiles with stow"
+rm ~/.bashrc
 cd $REPOS_FOLDER/dotfiles
 stow -vSt ~/.config .config
 stow -vSt ~ bash

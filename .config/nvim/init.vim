@@ -115,8 +115,8 @@ endif
 
 hi Comment cterm=ITALIC
 
-colorscheme synthwave84
-let g:airline_theme='synthwave84'
+colorscheme gruvbit
+let g:airline_theme='gruvbit'
 
 " Colorizer
 " let g:colorizer_auto_color = 1
@@ -229,3 +229,9 @@ nmap <leader>gs :G<CR>
 nmap <leader>gj :diffget //3<CR>
 nmap <leader>gf :diffget //3<CR>
 nmap <leader>gM :vert Gdiffsplit!<CR>
+
+" Buffer navigation
+" TAB in general mode will move to text buffer
+nnoremap <TAB> :bnext<CR>
+" SHIFT-TAB will go back
+nnoremap <S-TAB> :bprevious<CR>

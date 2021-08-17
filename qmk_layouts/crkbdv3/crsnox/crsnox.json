@@ -42,7 +42,7 @@
       "KC_COMM",
       "KC_DOT",
       "KC_SLSH",
-      "KC_QUOT",
+      "KC_EQL",
       "KC_LGUI",
       "MO(1)",
       "KC_SPC",
@@ -90,7 +90,7 @@
       "KC_LGUI",
       "KC_TRNS",
       "KC_NO",
-      "KC_NO",
+      "KC_QUOT",
       "MO(3)",
       "OSM(MOD_RALT)"
     ],

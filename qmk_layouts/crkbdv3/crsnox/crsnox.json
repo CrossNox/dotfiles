@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "notes": "",
+  "notes": "My awesome keymap",
   "documentation": "\"This file is a QMK Configurator export. You can import this at <https://config.qmk.fm>. It can also be used directly with QMK's source code.\n\nTo setup your QMK environment check out the tutorial: <https://docs.qmk.fm/#/newbs>\n\nYou can convert this file to a keymap.c using this command: `qmk json2c {keymap}`\n\nYou can compile this keymap using this command: `qmk compile {keymap}`\"\n",
   "keyboard": "crkbd/rev1",
   "keymap": "crsnox",
@@ -66,9 +66,9 @@
       "KC_LSFT",
       "KC_NO",
       "KC_NO",
+      "KC_UP",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
+      "KC_EQL",
       "KC_LEFT",
       "KC_DOWN",
       "KC_UP",
@@ -77,10 +77,10 @@
       "KC_TAB",
       "KC_LCTL",
       "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
-      "KC_NO",
+      "KC_LEFT",
+      "KC_DOWN",
+      "KC_RGHT",
+      "KC_MINS",
       "KC_NO",
       "KC_NO",
       "KC_PGUP",
@@ -109,10 +109,10 @@
       "KC_NO",
       "KC_LSFT",
       "KC_NO",
-      "KC_LEFT",
-      "KC_DOWN",
-      "KC_UP",
-      "KC_RGHT",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
+      "KC_NO",
       "KC_MINS",
       "KC_EQL",
       "KC_LBRC",
@@ -183,5 +183,5 @@
       "KC_RALT"
     ]
   ],
-  "author": ""
+  "author": "crossnox"
 }

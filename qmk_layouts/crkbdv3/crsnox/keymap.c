@@ -29,30 +29,54 @@ oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   return rotation;
 }
 
-#define L_BASE 0
-#define L_LOWER 2
-#define L_RAISE 4
-#define L_ADJUST 8
+enum layer_number {
+  _DEFAULT = 0,
+  _LOWER = 2,
+  _RAISE = 3,
+  _ADJUST = 4,
+};
+
+enum layout {
+  _QWERTY = 1,
+  _WORKMAN = 2,
+};
+
+void keyboard_post_init_user(void) { default_layer_set(_QWERTY); }
+
+const char *get_layout(void) {
+  switch (default_layer_state) {
+  case _QWERTY:
+    return "QWERTY";
+  case _WORKMAN:
+    return "Workman";
+  default:
+    return "Error";
+  }
+}
+
+const char *get_layer(void) {
+  switch (get_highest_layer(layer_state)) {
+  case _DEFAULT:
+    return "Default";
+  case _LOWER:
+    return "Lower";
+  case _RAISE:
+    return "Raise";
+  case _ADJUST:
+    return "Adjust";
+  default:
+    return "Error";
+  }
+}
 
 void oled_render_layer_state(void) {
-  oled_write_P(PSTR("Layer: "), false);
-  switch (layer_state) {
-  case L_BASE:
-    oled_write_ln_P(PSTR("Default"), false);
-    break;
-  case L_LOWER:
-    oled_write_ln_P(PSTR("Lower"), false);
-    break;
-  case L_RAISE:
-    oled_write_ln_P(PSTR("Raise"), false);
-    break;
-  case L_ADJUST:
-  case L_ADJUST | L_LOWER:
-  case L_ADJUST | L_RAISE:
-  case L_ADJUST | L_LOWER | L_RAISE:
-    oled_write_ln_P(PSTR("Adjust"), false);
-    break;
-  }
+  char buf[30];
+
+  snprintf(buf, sizeof(buf), "Layout: %s", get_layout());
+  oled_write_ln(buf, false);
+
+  snprintf(buf, sizeof(buf), "Layer: %s", get_layer());
+  oled_write_ln(buf, false);
 }
 
 static void render_rgbmatrix_status(bool full) {

@@ -154,6 +154,7 @@ pipx install poetry
 pipx install sqlparse
 pipx install black
 pipx install git+https://github.com/dsanson/termpdf.py.git
+pipx install termdown
 
 # jedi
 pip3 install --user jedi

@@ -70,7 +70,7 @@ const char *get_layer(void) {
 }
 
 void oled_render_layer_state(void) {
-  char buf[30];
+  char buf[16];
 
   snprintf(buf, sizeof(buf), "Layout: %s", get_layout());
   oled_write_ln(buf, false);
@@ -81,9 +81,9 @@ void oled_render_layer_state(void) {
 
 static void render_rgbmatrix_status(bool full) {
 #ifdef RGB_MATRIX_ENABLE
-  char buf[30];
+  char buf[23];
   if (rgb_matrix_is_enabled()) {
-    snprintf(buf, sizeof(buf), "RGB %2d: %d, %d, %d ", rgblight_get_mode(),
+    snprintf(buf, sizeof(buf), "RGB %2d: %d, %d, %d", rgblight_get_mode(),
              rgblight_get_hue(), rgblight_get_sat(), rgblight_get_val());
     oled_write_ln(buf, false);
   }

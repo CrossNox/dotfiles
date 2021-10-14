@@ -6,6 +6,7 @@ set spelllang=en_us,es
 set number
 syntax on
 set bs=2
+set ts=4 sw=4
 
 " set cursorcolumn
 set cursorline
@@ -76,6 +77,7 @@ Plug 'petobens/poet-v'
 call plug#end()
 
 let g:poetv_executables = ['poetry']
+let g:poetv_auto_activate = 1
 
 " let g:indentLine_setColors = 0
 let g:indentLine_defaultGroup = 'SpecialKey'
@@ -86,6 +88,7 @@ let g:coc_global_extensions = [
       \ 'coc-jedi',
       \ 'coc-metals',
       \ 'coc-vimtex',
+      \ 'coc-java'
       \ ]
 
 let g:ale_linters = {
@@ -94,9 +97,10 @@ let g:ale_linters = {
 
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \    'python': ['black', 'isort'],
+      \    'python': ['black', 'isort', 'autoimport'],
       \    'json': ['jq'],
       \    'html': ['html-beautify'],
+      \    'java': ['google_java_format'],
       \}
 
 nmap <F6> :ALEFix<CR>
@@ -156,6 +160,7 @@ let g:SimpylFold_fold_import = 0
 " airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#poetv#update = 1
 
 set guifont=FiraCode\ Nerd\ Font
 

@@ -21,6 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "layout.c"
 
+// #define USB_MAX_POWER_CONSUMPTION 600
+
 #ifdef OLED_DRIVER_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
   if (!is_keyboard_master()) {
@@ -90,6 +92,21 @@ static void render_rgbmatrix_status(bool full) {
 #endif
 }
 
+unsigned long uptime = 0;
+unsigned int iters = 0;
+
+void render_uptime(void) {
+  iters++;
+  if ((iters % 10) == 0) {
+    uptime++;
+    iters = 0;
+  }
+
+  char buf[32];
+  snprintf(buf, sizeof(buf), "Uptime: %lu0", uptime);
+  oled_write_ln(buf, false);
+}
+
 void oled_render_logo(void) {
   static const char PROGMEM crkbd_logo[] = {
       0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a,
@@ -105,6 +122,7 @@ void oled_task_user(void) {
   if (is_keyboard_master()) {
     oled_render_layer_state();
     render_rgbmatrix_status(true);
+    render_uptime();
   } else {
     oled_render_logo();
   }

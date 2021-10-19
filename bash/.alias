@@ -16,3 +16,4 @@ alias weather="curl -s v2.wttr.in/Buenos_Aires | sed '30s/ \{2,\}/ /g' | sed '30
 alias vi="nvim"
 alias vim="nvim"
 alias tsa="tmux new-session -A -s"
+alias kdiff="kitty +kitten diff"

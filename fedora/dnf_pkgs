@@ -5,6 +5,7 @@ automake
 bison
 breeze-cursor-theme
 bzip2
+cargo
 cmake
 fira-code-fonts
 flatpak

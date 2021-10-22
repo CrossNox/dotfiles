@@ -133,6 +133,25 @@ if [ $DESKTOP_SESSION == "gnome" ]; then
   #read -p "Dark theme. Then press enter"
 fi
 
+# Install mdcat
+git clone git@github.com:lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
+cd $REPOS_FOLDER/mdcat
+cargo install mdcat
+
+# Install onefetch
+cargo install onefetch
+
+# nnn
+git clone git@github.com:jarun/nnn.git $REPOS_FOLDER/nnn
+cd $REPOS_FOLDER/nnn
+make O_NERD=1
+mv nnn $HOME/.local/bin/
+
+git clone
+curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
+
+
+# Get pretty wallpaper
 echo "Getting a nice wallpaper"
 cd ~/Pictures
 wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png

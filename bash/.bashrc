@@ -36,4 +36,29 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export EDITOR=vim
+# Load cargo
+export PATH="$PATH:$HOME/.cargo/bin"
+
+export EDITOR=nvim
+
+BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06"
+export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
+export NNN_OPTS="de"
+export LC_COLLATE="C"
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_PLUG="p:preview-tui"
+export SPLIT="v"
+
+# n () # to cd on quit
+# {
+#     if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+#         echo "nnn is already running"
+#         return
+#     fi
+#     export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+#     nnn "$@"
+#     if [ -f "$NNN_TMPFILE" ]; then
+#             . "$NNN_TMPFILE"
+#             rm -f "$NNN_TMPFILE" > /dev/null
+#     fi
+# }

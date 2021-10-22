@@ -60,6 +60,7 @@ REPOS_FOLDER=~/repos
 echo "Installing flatpaks"
 flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord
+flatpak install -y --noninteractive com.github.wwmm.easyeffects
 
 if [ $DESKTOP_SESSION == "gnome" ]; then
     flatpak install -y --noninteractive org.gnome.Extensions

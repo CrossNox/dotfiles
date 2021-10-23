@@ -62,7 +62,7 @@ flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord
 flatpak install -y --noninteractive com.github.wwmm.easyeffects
 
-if [ $DESKTOP_SESSION == "gnome" ]; then
+if [ "$DESKTOP_SESSION" = "gnome" ]; then
     flatpak install -y --noninteractive org.gnome.Extensions
 fi
 
@@ -99,7 +99,7 @@ pip install -r $REPOS_FOLDER/dotfiles/fedora/base_requirements.txt
 deactivate
 
 # extensions
-if [ $DESKTOP_SESSION == "gnome" ]; then
+if [ "$DESKTOP_SESSION" = "gnome" ]; then
 
   echo "Installing gnome extensions"
 
@@ -135,7 +135,7 @@ if [ $DESKTOP_SESSION == "gnome" ]; then
 fi
 
 # Install mdcat
-git clone git@github.com:lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
+git clone https://github.com/lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
 cd $REPOS_FOLDER/mdcat
 cargo install mdcat
 
@@ -143,7 +143,7 @@ cargo install mdcat
 cargo install onefetch
 
 # nnn
-git clone git@github.com:jarun/nnn.git $REPOS_FOLDER/nnn
+git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
 cd $REPOS_FOLDER/nnn
 make O_NERD=1
 mv nnn $HOME/.local/bin/

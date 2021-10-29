@@ -105,6 +105,7 @@ let g:ale_fixers = {
 
 nmap <F6> :ALEFix<CR>
 nmap <F5> :ALENext<CR>
+nmap <F4> :ALEPrevious<CR>
 let g:ale_fix_on_save = 1
 
 " SQL

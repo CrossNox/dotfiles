@@ -66,6 +66,7 @@ Plug 'lervag/vimtex'
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'CrossNox/coc-sql-plus-jinja', {'do': 'yarn install --frozen-lockfile'}
+Plug 'hashivim/vim-terraform'
 
 " Python
 Plug 'psf/black'
@@ -102,6 +103,10 @@ let g:ale_fixers = {
       \    'html': ['html-beautify'],
       \    'java': ['google_java_format'],
       \}
+
+let g:terraform_fmt_on_save=1
+let g:terraform_align=1
+let g:hcl_align=1
 
 nmap <F6> :ALEFix<CR>
 nmap <F5> :ALENext<CR>

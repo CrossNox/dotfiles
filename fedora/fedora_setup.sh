@@ -175,6 +175,8 @@ pipx install sqlparse
 pipx install black
 pipx install git+https://github.com/dsanson/termpdf.py.git
 pipx install termdown
+pipx install git+ssh://git@github.com/CrossNox/nbtodos.git
+
 
 # jedi
 pip3 install --user jedi
@@ -195,6 +197,12 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 source ~/.bashrc
 nvm install node
 npm install --global yarn
+
+curl -L https://raw.github.com/xwmx/nb/master/nb -o /usr/local/bin/nb &&
+  chmod +x /usr/local/bin/nb &&
+  nb completions install
+
+nb env install && nb completions install --download
 
 exit
 exit

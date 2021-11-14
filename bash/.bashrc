@@ -64,3 +64,9 @@ export SPLIT="v"
 # }
 
 export PATH="$PATH:$HOME/go/bin"
+
+source /home/nox/.bash_completions/odd.sh
+
+NB_COLOR_THEME=ocean
+
+nbtodos

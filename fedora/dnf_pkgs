@@ -8,6 +8,7 @@ breeze-cursor-theme
 bzip2
 cargo
 cmake
+docker-podman
 fira-code-fonts
 flatpak
 gcc-c++

@@ -68,6 +68,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'CrossNox/coc-sql-plus-jinja', {'do': 'yarn install --frozen-lockfile'}
 Plug 'hashivim/vim-terraform'
 
+Plug 'puremourning/vimspector'
+
 " Python
 Plug 'psf/black'
 Plug 'glench/vim-jinja2-syntax'
@@ -89,7 +91,8 @@ let g:coc_global_extensions = [
       \ 'coc-jedi',
       \ 'coc-metals',
       \ 'coc-vimtex',
-      \ 'coc-java'
+      \ 'coc-java',
+      \ 'coc-java-debug'
       \ ]
 
 let g:ale_linters = {
@@ -250,3 +253,19 @@ nmap <leader>gM :vert Gdiffsplit!<CR>
 nnoremap <TAB> :bnext<CR>
 " SHIFT-TAB will go back
 nnoremap <S-TAB> :bprevious<CR>
+
+function! JavaStartDebugCallback(err, port)
+  execute "cexpr! 'Java debug started on port: " . a:port . "'"
+  call vimspector#LaunchWithSettings({ "configuration": "Java Attach", "AdapterPort": a:port })
+endfunction
+
+function JavaStartDebug()
+  call CocActionAsync('runCommand', 'vscode.java.startDebugSession', function('JavaStartDebugCallback'))
+endfunction
+
+nmap <F1> :call JavaStartDebug()<CR>
+" nmap <F1> :CocCommand java.debug.vimspector.start<CR>
+nmap <F2> <Plug>VimspectorToggleBreakpoint
+nmap <F3> <Plug>VimspectorContinue
+nmap <F7> <Plug>VimspectorStepOver
+nmap <F7> <Plug>VimspectorStepInto

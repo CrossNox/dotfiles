@@ -71,7 +71,7 @@ Plug 'hashivim/vim-terraform'
 Plug 'puremourning/vimspector'
 
 " Python
-Plug 'psf/black'
+Plug 'psf/black', {'tag': '21.12b0'}
 Plug 'glench/vim-jinja2-syntax'
 Plug 'vim-scripts/dbext.vim'
 Plug 'tmhedberg/SimpylFold'
@@ -91,8 +91,8 @@ let g:coc_global_extensions = [
       \ 'coc-jedi',
       \ 'coc-metals',
       \ 'coc-vimtex',
-      \ 'coc-java',
-      \ 'coc-java-debug'
+	  \ 'coc-java',
+	  \ 'coc-java-debug',
       \ ]
 
 let g:ale_linters = {
@@ -117,7 +117,7 @@ nmap <F4> :ALEPrevious<CR>
 let g:ale_fix_on_save = 1
 
 " SQL
-:autocmd BufWritePost *.sql call CocAction('format')
+" :autocmd BufWritePost *.sql call CocAction('format')
 
 " colorscheme
 if exists('+termguicolors')

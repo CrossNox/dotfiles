@@ -36,7 +36,6 @@ python3-neovim
 python3-virtualenv
 readline
 readline-devel
-slack
 smbios-utils-python
 snapd
 sqlite-devel

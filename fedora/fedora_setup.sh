@@ -3,57 +3,57 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-su "$SUDO_USER"
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+
+set -e
+# keep track of the last executed command
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+# echo an error message before exiting
+trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
+
+SUDO_USER_HOME="$(eval echo "~$SUDO_USER")"
+REPOS_FOLDER=$SUDO_USER_HOME/repos
+DOTFILES_FOLDER=$SUDO_USER_HOME/repos/dotfiles
 
 # clone this repo
 echo "Cloning repo"
-REPOS_FOLDER=~/repos
 
 if [ ! -d "$REPOS_FOLDER" ] ; then
     mkdir -p $REPOS_FOLDER
 fi
 
 if [ ! -d "$REPOS_FOLDER/dotfiles" ] ; then
-    git clone https://github.com/CrossNox/dotfiles.git $REPOS_FOLDER/dotfiles
+    git clone https://github.com/CrossNox/dotfiles.git $DOTFILES_FOLDER
 fi
 
-cd $REPOS_FOLDER/dotfiles
+cd $DOTFILES_FOLDER
 git pull
 
-exit
-
-SUDO_USER_HOME="$(eval echo "~$SUDO_USER")"
-DOTFILES_FOLDER=$SUDO_USER_HOME/repos/dotfiles
 
 # set dnf repos
 echo "Setting repos"
-dnf update -y
-dnf install -y fedora-workstation-repositories
+sudo dnf update -y
+sudo dnf install -y fedora-workstation-repositories
 #sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 #sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
-dnf config-manager --set-enabled google-chrome
-dnf copr enable evana/fira-code-fonts -y
-dnf copr enable jdoss/slack-repo -y
-dnf install -y slack-repo
+sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
+sudo dnf config-manager --set-enabled google-chrome
 
 # install packages
 echo "Installing DNF packages"
-dnf install -y `cat $DOTFILES_FOLDER/fedora/dnf_pkgs`
-systemctl enable powertop.service
+sudo dnf install -y `cat $DOTFILES_FOLDER/fedora/dnf_pkgs`
+sudo systemctl enable powertop.service
 
 # f33 default editor
 echo "Nano -> vim"
-dnf remove -y nano-default-editor
-dnf install -y vim-default-editor
+sudo dnf remove -y nano-default-editor
+sudo dnf install -y vim-default-editor
 
 $DOTFILES_FOLDER/fedora/setup_scripts/install_terraform.sh
 $DOTFILES_FOLDER/fedora/setup_scripts/setup_aws_cli_v2.sh
 
 echo "adding flatpak remote"
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
-su "$SUDO_USER"
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 REPOS_FOLDER=~/repos
 
@@ -61,6 +61,7 @@ echo "Installing flatpaks"
 flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord
 flatpak install -y --noninteractive com.github.wwmm.easyeffects
+flatpak install -y --noninteractive com.slack.Slack
 
 if [ "$DESKTOP_SESSION" = "gnome" ]; then
     flatpak install -y --noninteractive org.gnome.Extensions
@@ -179,7 +180,7 @@ pipx install git+ssh://git@github.com/CrossNox/nbtodos.git
 
 
 # jedi
-pip3 install --user jedi
+pipx install --user jedi
 
 # fonts
 echo "Downloading fonts"
@@ -203,6 +204,3 @@ curl -L https://raw.github.com/xwmx/nb/master/nb -o /usr/local/bin/nb &&
   nb completions install
 
 nb env install && nb completions install --download
-
-exit
-exit

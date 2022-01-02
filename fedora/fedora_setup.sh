@@ -175,6 +175,8 @@ nb env install && nb completions install --download
 
 npm install -g sass
 
+source ~/.bashrc
+
 # extensions
 if [ "$DESKTOP_SESSION" = "gnome" ]; then
 

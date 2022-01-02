@@ -124,7 +124,6 @@ cd $REPOS_FOLDER/nnn
 make O_NERD=1
 mv nnn $HOME/.local/bin/
 
-git clone
 curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 
 # Get pretty wallpaper

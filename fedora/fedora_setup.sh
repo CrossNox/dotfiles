@@ -111,7 +111,9 @@ nvm install node
 npm install --global yarn
 
 # Install mdcat
-git clone https://github.com/lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
+if [ ! -d "$REPOS_FOLDER/mdcat" ] ; then
+	git clone https://github.com/lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
+fi
 cd $REPOS_FOLDER/mdcat
 cargo install mdcat
 
@@ -119,7 +121,9 @@ cargo install mdcat
 cargo install onefetch
 
 # nnn
-git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
+if [ ! -d "$REPOS_FOLDER/nnn" ] ; then
+	git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
+fi
 cd $REPOS_FOLDER/nnn
 make O_NERD=1
 mv nnn $HOME/.local/bin/
@@ -179,7 +183,9 @@ if [ "$DESKTOP_SESSION" = "gnome" ]; then
   echo "Installing gnome extensions"
 
   cd $REPOS_FOLDER
-  git clone https://github.com/micheleg/dash-to-dock.git
+  if [ ! -d "$REPOS_FOLDER/dash-to-dock" ] ; then
+	  git clone https://github.com/micheleg/dash-to-dock.git
+  fi
   cd dash-to-dock/
   make
   make install
@@ -188,13 +194,17 @@ if [ "$DESKTOP_SESSION" = "gnome" ]; then
   git clone --depth 1 https://github.com/shumingch/gnome-email-notifications ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com
 
   cd $REPOS_FOLDER
-  git clone https://github.com/RensAlthuis/vertical-overview.git
+  if [ ! -d "$REPOS_FOLDER/vertical-overview" ] ; then
+	  git clone https://github.com/RensAlthuis/vertical-overview.git
+  fi
   cd vertical-overview
   make
   make install
 
   cd $REPOS_FOLDER
-  git clone https://github.com/aunetx/blur-my-shell
+  if [ ! -d "$REPOS_FOLDER/blur-my-shell" ] ; then
+	  git clone https://github.com/aunetx/blur-my-shell
+  fi
   cd blur-my-shell
   make install
 

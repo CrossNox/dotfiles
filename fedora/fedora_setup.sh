@@ -1,7 +1,7 @@
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root, use sudo "$0" instead" 1>&2
-   exit 1
-fi
+# if [[ $EUID -ne 0 ]]; then
+#    echo "This script must be run as root, use sudo "$0" instead" 1>&2
+#    exit 1
+# fi
 
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
@@ -36,8 +36,8 @@ git pull
 echo "Setting repos"
 sudo dnf update -y
 sudo dnf install -y fedora-workstation-repositories
-#sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-#sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+# sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+# sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
 sudo dnf config-manager --set-enabled vivaldi
 sudo dnf config-manager --set-enabled google-chrome

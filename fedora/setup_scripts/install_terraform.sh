@@ -5,7 +5,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-TF_VERSION=1.0.5
+TF_VERSION=1.1.2
 SUDO_USER_HOME="$(eval echo "~$SUDO_USER")"
 echo "Installing terraform"
 mkdir -p $SUDO_USER_HOME/bin
@@ -13,7 +13,7 @@ cd $SUDO_USER_HOME/bin
 echo $(pwd)
 
 if [ ! -d "terraform" ]; then
-	rm terraform*zip
+	rm -rf terraform*
     wget https://releases.hashicorp.com/terraform/"$TF_VERSION"/terraform_"$TF_VERSION"_linux_amd64.zip
     unzip terraform_"$TF_VERSION"_linux_amd64.zip
     rm terraform*zip

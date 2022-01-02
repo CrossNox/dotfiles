@@ -13,6 +13,7 @@ cd $SUDO_USER_HOME/bin
 echo $(pwd)
 
 if [ ! -d "terraform" ]; then
+	rm terraform*zip
     wget https://releases.hashicorp.com/terraform/"$TF_VERSION"/terraform_"$TF_VERSION"_linux_amd64.zip
     unzip terraform_"$TF_VERSION"_linux_amd64.zip
     rm terraform*zip

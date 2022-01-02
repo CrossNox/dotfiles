@@ -29,7 +29,7 @@ if [ ! -d "$REPOS_FOLDER/dotfiles" ] ; then
 fi
 
 cd $DOTFILES_FOLDER
-su $SUDO_USER -c "git pull"
+git pull
 
 
 # set dnf repos

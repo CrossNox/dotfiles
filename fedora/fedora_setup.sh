@@ -56,7 +56,7 @@ $DOTFILES_FOLDER/fedora/setup_scripts/install_terraform.sh
 $DOTFILES_FOLDER/fedora/setup_scripts/setup_aws_cli_v2.sh
 
 echo "adding flatpak remote"
-sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 REPOS_FOLDER=~/repos
 

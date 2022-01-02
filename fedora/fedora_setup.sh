@@ -156,7 +156,7 @@ pipx install termdown
 # pipx install git+https://github.com/CrossNox/nbtodos.git
 
 # jedi
-pipx install jedi
+pip3 install --user jedi
 
 # fonts
 echo "Downloading fonts"

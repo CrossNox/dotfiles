@@ -1,16 +1,9 @@
-#!/usr/bin/env bash
-
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root, use sudo "$0" instead" 1>&2
-   exit 1
-fi
+#!/usr/bin/env sh
 
 TF_VERSION=1.1.2
-SUDO_USER_HOME="$(eval echo "~$SUDO_USER")"
 echo "Installing terraform"
-mkdir -p $SUDO_USER_HOME/bin
-cd $SUDO_USER_HOME/bin
-echo $(pwd)
+mkdir -p $HOME/bin
+cd $HOME/bin
 
 if [ ! -d "terraform" ]; then
 	rm -rf terraform*

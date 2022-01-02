@@ -37,6 +37,7 @@ sudo dnf install -y fedora-workstation-repositories
 #sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 #sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 sudo dnf config-manager --add-repo https://repo.vivaldi.com/archive/vivaldi-fedora.repo
+sudo dnf config-manager --set-enabled vivaldi-fedora
 sudo dnf config-manager --set-enabled google-chrome
 
 # install packages

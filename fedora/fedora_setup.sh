@@ -19,15 +19,13 @@ DOTFILES_FOLDER=$SUDO_USER_HOME/repos/dotfiles
 echo "Cloning repo"
 
 if [ ! -d "$REPOS_FOLDER" ] ; then
-	su $SUDO_USER
     mkdir -p $REPOS_FOLDER
-	exit
+	chown "$SUDO_USER" $REPOS_FOLDER
 fi
 
 if [ ! -d "$REPOS_FOLDER/dotfiles" ] ; then
-	su $SUDO_USER
     git clone https://github.com/CrossNox/dotfiles.git $DOTFILES_FOLDER
-	exit
+	chown "$SUDO_USER" $REPOS_FOLDER
 fi
 
 cd $DOTFILES_FOLDER

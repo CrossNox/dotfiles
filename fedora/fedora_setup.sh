@@ -192,7 +192,7 @@ if [ "$DESKTOP_SESSION" = "gnome" ]; then
   make install
 
   cd $REPOS_FOLDER
-  if [ ! -d "~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com" ] ; then
+  if [ ! -d ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com ] ; then
   	git clone --depth 1 https://github.com/shumingch/gnome-email-notifications ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com
   fi
 

@@ -153,7 +153,7 @@ pipx install sqlparse
 pipx install black
 pipx install git+https://github.com/dsanson/termpdf.py.git
 pipx install termdown
-pipx install git+ssh://git@github.com/CrossNox/nbtodos.git
+pipx install git+https://github.com/CrossNox/nbtodos.git
 
 # jedi
 pipx install --user jedi

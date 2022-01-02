@@ -67,7 +67,7 @@ flatpak install -y --noninteractive com.github.wwmm.easyeffects
 flatpak install -y --noninteractive com.slack.Slack
 
 if [ "$DESKTOP_SESSION" = "gnome" ]; then
-    flatpak install -y --noninteractive org.gnome.Extensions
+    flatpak install -y --noninteractive flathub org.gnome.Extensions
 fi
 
 echo "Linking dotfiles with stow"

@@ -103,6 +103,77 @@ source venv/bin/activate
 pip install -r $DOTFILES_FOLDER/fedora/base_requirements.txt
 deactivate
 
+# nvm
+echo "Install nvm"
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.bashrc
+nvm install node
+npm install --global yarn
+
+# Install mdcat
+git clone https://github.com/lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
+cd $REPOS_FOLDER/mdcat
+cargo install mdcat
+
+# Install onefetch
+cargo install onefetch
+
+# nnn
+git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
+cd $REPOS_FOLDER/nnn
+make O_NERD=1
+mv nnn $HOME/.local/bin/
+
+git clone
+curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
+
+# Get pretty wallpaper
+echo "Getting a nice wallpaper"
+cd ~/Pictures
+wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png
+
+# glances
+echo "Installing glances"
+curl -L https://bit.ly/glances | /bin/bash
+systemctl --user daemon-reload
+systemctl --user enable glances.service
+systemctl --user start glances.service
+
+# pipx
+echo "Installing pipx and some apps"
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+pipx completions
+pipx install cookiecutter
+pipx install poetry
+pipx install sqlparse
+pipx install black
+pipx install git+https://github.com/dsanson/termpdf.py.git
+pipx install termdown
+pipx install git+ssh://git@github.com/CrossNox/nbtodos.git
+
+# jedi
+pipx install --user jedi
+
+# fonts
+echo "Downloading fonts"
+mkdir -p /.local/share/fonts
+
+curl -fLo "Droid Sans Mono Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
+
+curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
+
+fc-cache -v
+
+# NB
+curl -L https://raw.github.com/xwmx/nb/master/nb -o /usr/local/bin/nb &&
+  chmod +x /usr/local/bin/nb &&
+  nb completions install
+
+nb env install && nb completions install --download
+
+npm install -g sass
+
 # extensions
 if [ "$DESKTOP_SESSION" = "gnome" ]; then
 
@@ -138,73 +209,3 @@ if [ "$DESKTOP_SESSION" = "gnome" ]; then
   #read -p "Maximize windows. Then press enter"
   #read -p "Dark theme. Then press enter"
 fi
-
-# Install mdcat
-git clone https://github.com/lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
-cd $REPOS_FOLDER/mdcat
-cargo install mdcat
-
-# Install onefetch
-cargo install onefetch
-
-# nnn
-git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
-cd $REPOS_FOLDER/nnn
-make O_NERD=1
-mv nnn $HOME/.local/bin/
-
-git clone
-curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
-
-
-# Get pretty wallpaper
-echo "Getting a nice wallpaper"
-cd ~/Pictures
-wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png
-
-# glances
-echo "Installing glances"
-curl -L https://bit.ly/glances | /bin/bash
-systemctl --user daemon-reload
-systemctl --user enable glances.service
-systemctl --user start glances.service
-
-# pipx
-echo "Installing pipx and some apps"
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-pipx completions
-pipx install cookiecutter
-pipx install poetry
-pipx install sqlparse
-pipx install black
-pipx install git+https://github.com/dsanson/termpdf.py.git
-pipx install termdown
-pipx install git+ssh://git@github.com/CrossNox/nbtodos.git
-
-
-# jedi
-pipx install --user jedi
-
-# fonts
-echo "Downloading fonts"
-mkdir -p /.local/share/fonts
-
-curl -fLo "Droid Sans Mono Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
-
-curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
-
-fc-cache -v
-
-# nvm
-echo "Install nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-source ~/.bashrc
-nvm install node
-npm install --global yarn
-
-curl -L https://raw.github.com/xwmx/nb/master/nb -o /usr/local/bin/nb &&
-  chmod +x /usr/local/bin/nb &&
-  nb completions install
-
-nb env install && nb completions install --download

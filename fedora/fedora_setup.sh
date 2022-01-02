@@ -187,6 +187,7 @@ if [ "$DESKTOP_SESSION" = "gnome" ]; then
 	  git clone https://github.com/micheleg/dash-to-dock.git
   fi
   cd dash-to-dock/
+  export SASS=dart
   make
   make install
 

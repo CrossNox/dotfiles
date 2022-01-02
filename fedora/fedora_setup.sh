@@ -192,7 +192,9 @@ if [ "$DESKTOP_SESSION" = "gnome" ]; then
   make install
 
   cd $REPOS_FOLDER
-  git clone --depth 1 https://github.com/shumingch/gnome-email-notifications ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com
+  if [ ! -d "~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com" ] ; then
+  	git clone --depth 1 https://github.com/shumingch/gnome-email-notifications ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com
+  fi
 
   cd $REPOS_FOLDER
   if [ ! -d "$REPOS_FOLDER/vertical-overview" ] ; then

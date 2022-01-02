@@ -23,9 +23,9 @@ if [ ! -d "$REPOS_FOLDER" ] ; then
 	chown "$SUDO_USER" $REPOS_FOLDER
 fi
 
-if [ ! -d "$REPOS_FOLDER/dotfiles" ] ; then
+if [ ! -d "$DOTFILES_FOLDER" ] ; then
     git clone https://github.com/CrossNox/dotfiles.git $DOTFILES_FOLDER
-	chown "$SUDO_USER" $REPOS_FOLDER
+	chown "$SUDO_USER" $DOTFILES_FOLDER
 fi
 
 cd $DOTFILES_FOLDER
@@ -72,7 +72,7 @@ fi
 
 echo "Linking dotfiles with stow"
 rm ~/.bashrc
-cd $REPOS_FOLDER/dotfiles
+cd $DOTFILES_FOLDER
 stow -vSt ~/.config .config
 stow -vSt ~ bash
 stow -vSt ~ git
@@ -99,7 +99,7 @@ echo "Setting devenv"
 cd $REPOS_FOLDER
 virtualenv -p python3 venv
 source venv/bin/activate
-pip install -r $REPOS_FOLDER/dotfiles/fedora/base_requirements.txt
+pip install -r $DOTFILES_FOLDER/fedora/base_requirements.txt
 deactivate
 
 # extensions

@@ -136,11 +136,11 @@ cd ~/Pictures
 wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png
 
 # glances
-echo "Installing glances"
-curl -L https://bit.ly/glances | /bin/bash
-systemctl --user daemon-reload
-systemctl --user enable glances.service
-systemctl --user start glances.service
+# echo "Installing glances"
+# curl -L https://bit.ly/glances | /bin/bash
+# systemctl --user daemon-reload
+# systemctl --user enable glances.service
+# systemctl --user start glances.service
 
 # pipx
 echo "Installing pipx and some apps"

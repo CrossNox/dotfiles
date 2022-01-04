@@ -65,6 +65,7 @@ flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord
 flatpak install -y --noninteractive com.github.wwmm.easyeffects
 flatpak install -y --noninteractive com.slack.Slack
+flatpak install -y --noninteractive org.telegram.desktop
 
 if [ "$DESKTOP_SESSION" = "gnome" ]; then
     flatpak install -y --noninteractive flathub org.gnome.Extensions

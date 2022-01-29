@@ -43,6 +43,7 @@ Plug 'habamax/vim-gruvbit'
 Plug 'artanikin/vim-synthwave84'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
+Plug 'dylanaraps/wal.vim'
 
 " Utils
 Plug 'scrooloose/nerdtree'
@@ -134,6 +135,7 @@ hi Comment cterm=ITALIC
 
 colorscheme gruvbit
 let g:airline_theme='gruvbit'
+" colorscheme wal
 
 " Colorizer
 " let g:colorizer_auto_color = 1

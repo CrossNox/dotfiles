@@ -77,6 +77,12 @@ cd $DOTFILES_FOLDER
 stow -vSt ~/.config .config
 stow -vSt ~ bash
 stow -vSt ~ git
+stow -vST ~/.gnupg .gnupg
+sudo stow -vsT /etc etc
+sudo stow -vsT /usr usr
+
+# For udev rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
 
 # rvm
 echo "Installing rvm"
@@ -128,6 +134,7 @@ fi
 cd $REPOS_FOLDER/nnn
 make O_NERD=1
 mv nnn $HOME/.local/bin/
+sudo make install-desktop
 
 curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 

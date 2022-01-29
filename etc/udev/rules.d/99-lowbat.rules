@@ -1,0 +1,25 @@
+SUBSYSTEM=="power_supply", \
+KERNEL=="AC", \
+ACTION=="change", \
+ATTR{online}=="0", \
+RUN+="/usr/local/bin/send_battery_notification low 'Charger Disconnected'"
+
+SUBSYSTEM=="power_supply", \
+KERNEL=="AC", \
+ACTION=="change", \
+ATTR{online}=="1", \
+RUN+="/usr/local/bin/send_battery_notification low 'Charger Connected'"
+
+SUBSYSTEM=="power_supply", \
+KERNEL=="BAT0", \
+ACTION=="change", \
+ATTR{status}=="Discharging", \
+ATTR{capacity}=="1[0-5]", \
+RUN+="/usr/local/bin/send_battery_notification normal 'Low Battery ($attr{capacity}%)'"
+
+SUBSYSTEM=="power_supply", \
+KERNEL=="BAT0", \
+ACTION=="change", \
+ATTR{status}=="Discharging", \
+ATTR{capacity}=="[0-9]", \
+RUN+="/usr/local/bin/send_battery_notification urgent 'Critical Battery Level ($attr{capacity}%)'"

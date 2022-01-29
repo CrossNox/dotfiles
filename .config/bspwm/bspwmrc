@@ -7,7 +7,8 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) ex
 # change it into a useful key
 setxkbmap -option caps:escape
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+pkill sxhkd
+sxhkd &
 
 # TODO: grep xrandr -q for 4k
 # xrandr --output eDP1 --scale 0.5x0.5 --mode 3840x2160
@@ -28,8 +29,10 @@ $HOME/.config/dunst/launchdunst.sh
 $HOME/.config/polybar/scripts/launch.sh
 
 # picom
+pkill picom
 picom &
 
+pkill xbanish
 xbanish &
 
 bspc monitor -d 1 2 3 4 5

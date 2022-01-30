@@ -23,6 +23,9 @@ super + e
 super + p
     rofi-pass
 
+super + c
+    rofi -show calc -modi calc -no-show-match -no-sort -no-persistent-history
+
 alt + r
     $HOME/.config/bspwm/bspwmrc
 

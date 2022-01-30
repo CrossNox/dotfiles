@@ -36,6 +36,11 @@ blue = #81a1c1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+wm-restack = bspwm
+override-redirect = true
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [bar/example]
 width = 100%
 height = 22
@@ -58,7 +63,7 @@ font-0 = "FiraCode Nerd Font:size=12;3"
 
 ; MODULES SETUP
 modules-left = bspwm
-modules-center = windowtitle spotify
+modules-center = spotify
 modules-right = cpu memory volume date battery shutdown
 
 ;tray-position = center
@@ -72,26 +77,26 @@ cursor-scroll = pointer
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %name%
-label-focused-background = ${colors.pink}
+label-focused = 
+label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
-label-focused-foreground = ${colors.foreground-alt}
-label-focused-padding = 2
+label-focused-foreground = ${colors.pink}
+label-focused-padding = 1
 
-label-occupied = %name%
+label-occupied = 
 label-occupied-background = ${colors.background}
-label-occupied-foreground = #e5e9f0
-label-occupied-padding = 2
+label-occupied-foreground = ${colors.magenta}
+label-occupied-padding = 1
 
-label-urgent = %name%
+label-urgent = 
 label-urgent-background = ${colors.magenta}
 label-urgent-foreground = #e5e9f0
-label-urgent-padding = 2
+label-urgent-padding = 1
 
-label-empty = %name%
+label-empty = 
 label-empty-background = ${colors.background}
 label-empty-foreground = #e5e9f0
-label-empty-padding = 2
+label-empty-padding = 1
 
 ; Separator in between workspaces
 label-separator =

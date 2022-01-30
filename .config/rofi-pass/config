@@ -102,6 +102,7 @@ edit_new_pass="true"
 
 # default_user is also used for password files that have no user field.
 default_user="${ROFI_PASS_DEFAULT_USER-$(whoami)}"
+default_user2="ijmermet@gmail.com"
 password_length=22
 
 # Custom Keybindings

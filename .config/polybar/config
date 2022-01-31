@@ -201,7 +201,7 @@ type = internal/memory
 ; Seconds to sleep between updates
 interval = 3
 
-label = " %percentage_used%%"
+label = " %percentage_used%%"
 
 format-prefix-padding = 2
 format-prefix-font = 2

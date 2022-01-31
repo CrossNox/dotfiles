@@ -37,8 +37,8 @@ xbanish &
 
 bspc monitor -d 1 2 3 4 5
 
-bspc config border_width		1
-bspc config window_gap			12
+bspc config border_width		4
+bspc config window_gap			14
 bspc config split_ratio			0.52
 bspc config borderless_monocle	true
 bspc config gapless_monocle		false

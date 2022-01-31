@@ -1,5 +1,8 @@
 alias ls='nnn -de'
-alias l="/usr/bin/ls"
+function l ()
+{
+	command /usr/bin/ls "$@";
+}
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias devenv='source $HOME/repos/venv/bin/activate'
 alias aliases="awk '!/aliases/ && /alias/' $HOME/.alias"

@@ -11,6 +11,7 @@ cmake
 fira-code-fonts
 flatpak
 gcc-c++
+git-delta
 gnome-shell
 gnome-tweaks
 google-chrome-stable

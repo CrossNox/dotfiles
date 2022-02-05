@@ -237,7 +237,7 @@ type = internal/cpu
 
 interval = 1
 format = <label>
-label = "   %percentage%%  "
+label = "  %percentage%%  "
 
 format-background = ${colors.pink}
 format-foreground = ${colors.background}

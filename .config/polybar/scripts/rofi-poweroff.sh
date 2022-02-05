@@ -1,15 +1,11 @@
 #!/bin/bash
 
-rofi_poweroff_menu () {
-    echo -e "Logout\nReboot\nShutdown" | rofi -font "FiraCode Nerd Font 12" -show drun -show-icons -width 20 -lines 3 -dmenu -i
-}
+chosen=$(printf "\tLog out\n\tPower Off\n\tRestart\n\tLock" | rofi -dmenu -i -theme-str '@import "power.rasi"')
 
-chosen=$(rofi_poweroff_menu)
-
-if [[ $chosen = "Logout" ]]; then
-    bspc quit
-elif [[ $chosen = "Shutdown" ]]; then
-	systemctl poweroff
-elif [[ $chosen = "Reboot" ]]; then
-	systemctl reboot
-fi
+case "$chosen" in
+	"\tLog out" ) bspc quit ;;
+	"\tPower Off") systemctl poweroff ;;
+	"\tRestart") systemctl reboot ;;
+	"\tLock") slock ;;
+	*) exit 1 ;;
+esac

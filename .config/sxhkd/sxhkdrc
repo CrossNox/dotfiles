@@ -24,7 +24,7 @@ super + p
     rofi-pass
 
 super + c
-    rofi -show calc -modi calc -no-show-match -no-sort -no-persistent-history
+	rofi -show calc -modi calc -no-show-match -no-sort -no-unicode -no-persistent-history -calc-command "echo -n '\{result\}' | awk '\{ print \$NF \}' | xclip -sel clipboard -rmlastnl"
 
 alt + r
     $HOME/.config/bspwm/bspwmrc

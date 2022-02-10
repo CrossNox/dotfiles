@@ -1,5 +1,8 @@
-alias l='ls -GFh'
-alias la='ls -la'
+alias ls='nnn -de'
+function l ()
+{
+	command /usr/bin/ls "$@";
+}
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias devenv='source $HOME/repos/venv/bin/activate'
 alias aliases="awk '!/aliases/ && /alias/' $HOME/.alias"
@@ -18,3 +21,4 @@ alias kdiff="kitty +kitten diff"
 alias n="nnn"
 alias docker="podman"
 alias docker-compose="podman-compose"
+alias d="cd ~/repos/dotfiles"

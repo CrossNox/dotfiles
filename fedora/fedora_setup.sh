@@ -77,6 +77,13 @@ cd $DOTFILES_FOLDER
 stow -vSt ~/.config .config
 stow -vSt ~ bash
 stow -vSt ~ git
+stow -vSt ~/.gnupg .gnupg
+
+sudo stow -vSt /etc etc
+sudo stow -vSt /usr usr
+
+# For udev rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
 
 # rvm
 echo "Installing rvm"
@@ -128,7 +135,9 @@ fi
 cd $REPOS_FOLDER/nnn
 make O_NERD=1
 mv nnn $HOME/.local/bin/
-
+sudo make install-desktop
+sudo sed -i 's!Icon=nnn!Icon=/usr/local/share/icons/hicolor/64x64/apps/nnn.png!g' /usr/local/share/applications/nnn.desktop
+sudo sed -i 's!Exec=nnn!Exec=bash -lc "nnn %f"!g' /usr/local/share/applications/nnn.desktop
 curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | sh
 
 # Get pretty wallpaper

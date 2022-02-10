@@ -20,6 +20,11 @@ source /usr/share/autojump/autojump.bash
 source ~/.alias
 source ~/.config/powerline/.powerline
 
+if [ "$DESKTOP_SESSION" = "bspwm" ]; then
+	source ~/.config/wallpaper
+	wal -q -i "$WP"
+fi
+
 eval "$(register-python-argcomplete pipx)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -41,13 +46,20 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 export EDITOR=nvim
 
-BLK="0B" CHR="0B" DIR="04" EXE="06" REG="00" HARDLINK="06" SYMLINK="06" MISSING="00" ORPHAN="09" FIFO="06" SOCK="0B" OTHER="06"
-export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
-export NNN_OPTS="de"
+
+NNN_FCOLORS_VENV=${PIPX_HOME:-/home/nox/.local/pipx}/venvs/pywal/bin/python
+export NNN_FCOLORS=$( $NNN_FCOLORS_VENV ~/.config/wal/rgb2xterm256.py )
+export NNN_OPTS="deH"
 export LC_COLLATE="C"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_PLUG="p:preview-tui"
-export SPLIT="v"
+export NNN_STARTUP_PLUGINS="p"
+export SPLIT="h"
+
+function nnn ()
+{
+	command nnn -P $NNN_STARTUP_PLUGINS "$@";
+}
 
 # n () # to cd on quit
 # {
@@ -74,6 +86,10 @@ if [ -f '/opt/google-cloud-sdk/path.bash.inc' ]; then . '/opt/google-cloud-sdk/p
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/opt/google-cloud-sdk/completion.bash.inc' ]; then . '/opt/google-cloud-sdk/completion.bash.inc'; fi
+
+
+
+export PATH="$PATH:$HOME/.spicetify"
 
 
 # BEGIN_KITTY_SHELL_INTEGRATION

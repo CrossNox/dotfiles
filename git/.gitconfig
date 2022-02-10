@@ -3,6 +3,7 @@
 # Please adapt and uncomment the following lines:
 	name = CrossNox
 	email = ijmermet@gmail.com
+
 [pull]
 	rebase = false
 
@@ -35,5 +36,5 @@
 [merge]
     conflictstyle = diff3
 
-[diff]
-    colorMoved = default
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret

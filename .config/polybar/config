@@ -41,12 +41,12 @@ override-redirect = true
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-[bar/example]
+[bar/statusbar]
 width = 99%
 offset-x = 0.5%
 height = 2%
 offset-y = 0.5%
-radius = 12.0
+radius = 0.0
 fixed-center = true
 
 background = ${colors.background}
@@ -65,8 +65,8 @@ font-0 = "FiraCode Nerd Font:size=12;3"
 
 ; MODULES SETUP
 modules-left = bspwm
-modules-center = spotify
-modules-right = cpu memory volume date battery shutdown
+modules-center = date
+modules-right = spotify volume battery shutdown
 
 ;tray-position = center
 ;tray-padding = 2
@@ -102,41 +102,27 @@ label-empty-padding = 1
 
 ; Separator in between workspaces
 label-separator =
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-[module/windowtitle]
-type = internal/xwindow
-format = <label>
-format-background = ${colors.cyan}
-format-foreground = ${colors.background}
-format-padding = 4
-label = "  %title%"
-label-maxlen = 100
-label-empty = "  "
-label-separator = " "
-label-empty-foreground = ${colors.background}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 [module/volume]
 type = internal/pulseaudio
 format-volume =  "<ramp-volume> <label-volume> "
-ramp-volume-0 =
+ramp-volume-0 = 
 ramp-volume-0-font = 2
-ramp-volume-1 =墳
+ramp-volume-1 = 墳
 ramp-volume-1-font = 2
-ramp-volume-2 =墳
+ramp-volume-2 = 墳
 ramp-volume-2-font = 2
-format-volume-background = ${colors.cyan}
-format-volume-foreground = ${colors.background}
+format-volume-background = ${colors.background}
+format-volume-foreground = ${colors.foreground}
 format-volume-padding = 1
 
 format-muted = <label-muted>
-format-muted-background = ${colors.white}
-format-muted-foreground = ${colors.background}
+format-muted-background = ${colors.background}
+format-muted-foreground = ${colors.foreground}
 label-muted ="  "
 format-muted-font = 2
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/battery]
 type = internal/battery
@@ -145,44 +131,25 @@ adapter = AC
 full-at = 100
 
 format-charging = <label-charging>
-format-charging-prefix = "  "
+format-charging-prefix = " "
 format-charging-prefix-font = 2
 label-charging = "%percentage%%  "
 
 format-discharging = <label-discharging>
 label-discharging = "%percentage%% "
-format-discharging-prefix = "  "
+format-discharging-prefix = " "
 format-discharging-prfix-font = 2
 
-format-discharging-background = ${colors.aqua}
-format-discharging-foreground = ${colors.background}
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.orange}
 
-format-charging-background = ${colors.orange}
-format-charging-foreground = ${colors.background}
+format-charging-background = ${colors.background}
+format-charging-foreground = ${colors.green}
 
-label-full = "  "
-format-full-background = ${colors.green}
-format-full-foreground = ${colors.background}
+label-full = " "
+format-full-background = ${colors.background}
+format-full-foreground = ${colors.foreground}
 format-full-prefix-font = 1
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-[module/network]
-type = internal/network
-interface = wlp2s0
-format-connected = <label-connected>
-format-connected-prefix = " "
-format-connected-prefix-font = 2
-label-connected = " %essid%%downspeed:9% "
-label-connected-font = 1
-
-format-disconnected = <label-disconnected>
-label-disconnected = 
-label-disconnected-font = 2
-
-format-connected-background = ${colors.cyan}
-format-connected-foreground = ${colors.background}
-format-disconnected-background = ${colors.white}
-format-disconnected-foreground = ${colors.background}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/spotify]
@@ -197,52 +164,6 @@ format-padding = 4
 exec = python3 $HOME/.config/polybar/modules/spotify/spotify_status.py -t 65 -qf '{artist}: {song}'
 format-underline = #1db954
 click-left = bspc desktop -f '^8' --follow
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-[module/memory]
-type = internal/memory
-; Seconds to sleep between updates
-interval = 3
-
-label = " %percentage_used%%"
-
-format-prefix-padding = 2
-format-prefix-font = 2
-format-prefix-foreground = #ffffff
-format-background = ${colors.background}
-format-foreground = ${colors.foreground}
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[module/wired-network]
-type = internal/network
-interface = enp4s0
-interval = 3.0
-
-udspeed-minwidth = 5
-
-accumulate-stats = true
-unknown-as-up = true
-
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
-
-label-connected = "  %downspeed%  "
-label-connected-foreground = ${colors.background}
-label-connected-background = ${colors.green}
-
-label-disconnected = "  "
-label-disconnected-foreground = ${colors.background}
-label-disconnected-background = ${colors.white}
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-[module/cpu]
-type = internal/cpu
-
-interval = 1
-format = <label>
-label = "  %percentage%%  "
-
-format-background = ${colors.pink}
-format-foreground = ${colors.background}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/date]
@@ -263,13 +184,14 @@ format-background = ${colors.background}
 format-foreground = ${colors.foreground}
 
 label = %date% %time%
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/shutdown]
 type = custom/text
-content = "ﴚ"
-content-background = ${colors.red}
-content-foreground = ${colors.background}
-content-padding = 2
+content = ""
+content-background = ${colors.background}
+content-foreground = ${colors.white}
+content-padding = 1
 click-left = $HOME/.config/polybar/scripts/rofi-poweroff.sh
 click-right = $HOME/.config/polybar/scripts/rofi-poweroff.sh
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -1,11 +1,11 @@
 #!/bin/bash
 
-chosen=$(printf " Log out\n  Power Off\n  Restart\n  Lock" | rofi -dmenu -i -theme-str '@import "power.rasi"')
+chosen=$(printf "\tLog out\n\tPower Off\n\tRestart\n\tLock" | rofi -dmenu -i -theme-str '@import "power.rasi"')
 
 case "$chosen" in
-	" Log out" ) bspc quit ;;
-	"  Power Off") systemctl poweroff ;;
-	"  Restart") systemctl reboot ;;
-	"  Lock") slock ;;
+	"\tLog out" ) bspc quit ;;
+	"\tPower Off") systemctl poweroff ;;
+	"\tRestart") systemctl reboot ;;
+	"\tLock") slock ;;
 	*) exit 1 ;;
 esac

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-chosen=$(printf "  Power Off\n  Restart\n  Lock" | rofi -dmenu -i -theme-str '@import "power.rasi"')
+chosen=$(printf " Log out\n  Power Off\n  Restart\n  Lock" | rofi -dmenu -i -theme-str '@import "power.rasi"')
 
 case "$chosen" in
-	# "\tLog out" ) bspc quit ;;
+	" Log out" ) bspc quit ;;
 	"  Power Off") systemctl poweroff ;;
 	"  Restart") systemctl reboot ;;
 	"  Lock") slock ;;

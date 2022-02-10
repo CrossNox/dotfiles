@@ -1,4 +1,4 @@
-sudo dnf install bspwm rofi polybar feh sxhkd dbus-devel gcc git libconfig-devel libdrm-devel libev-devel libX11-devel libX11-xcb libXext-devel libxcb-devel mesa-libGL-devel meson pcre-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel lxappearance libxcb-devel xcb-util-keysyms-devel xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel dunst xinput playerctl neofetch rofi-devel autoconf automake libtool libXt-devel libXfixes-devel libXi-devel qalculate
+sudo dnf install bspwm rofi polybar feh sxhkd dbus-devel gcc git libconfig-devel libdrm-devel libev-devel libX11-devel libX11-xcb libXext-devel libxcb-devel mesa-libGL-devel meson pcre-devel pixman-devel uthash-devel xcb-util-image-devel xcb-util-renderutil-devel xorg-x11-proto-devel lxappearance libxcb-devel xcb-util-keysyms-devel xcb-util-devel xcb-util-wm-devel xcb-util-cursor-devel dunst xinput playerctl neofetch rofi-devel autoconf automake libtool libXt-devel libXfixes-devel libXi-devel qalculate xsetroot
 
 pipx install pywal
 

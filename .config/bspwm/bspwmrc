@@ -13,6 +13,7 @@ sxhkd &
 # TODO: grep xrandr -q for 4k
 # xrandr --output eDP1 --scale 0.5x0.5 --mode 3840x2160
 xrandr --output eDP1 --scale 1.0x1.0 --mode 1920x1080
+xsetroot -cursor_name left_ptr &
 
 # wallpaper
 source $HOME/.config/wallpaper

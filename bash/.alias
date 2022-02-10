@@ -1,4 +1,5 @@
 alias ls='nnn -de'
+alias cat='bat'
 function l ()
 {
 	command /usr/bin/ls "$@";

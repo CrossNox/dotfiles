@@ -67,10 +67,6 @@ flatpak install -y --noninteractive com.github.wwmm.easyeffects
 flatpak install -y --noninteractive com.slack.Slack
 flatpak install -y --noninteractive org.telegram.desktop
 
-if [ "$DESKTOP_SESSION" = "gnome" ]; then
-    flatpak install -y --noninteractive flathub org.gnome.Extensions
-fi
-
 echo "Linking dotfiles with stow"
 rm ~/.bashrc
 cd $DOTFILES_FOLDER
@@ -163,6 +159,7 @@ pipx install sqlparse
 pipx install black
 pipx install git+https://github.com/dsanson/termpdf.py.git
 pipx install termdown
+pipx install pywal
 # pipx install git+https://github.com/CrossNox/nbtodos.git
 
 # jedi
@@ -187,48 +184,41 @@ npm install -g sass
 
 source ~/.bashrc
 
-# extensions
-if [ "$DESKTOP_SESSION" = "gnome" ]; then
+git clone git@github.com:ibhagwan/picom.git ~/repos/picom
+cd ~/repos/picom
+git submodule update --init --recursive
+meson --buildtype=release . build
+ninja -C build
+sudo ninja -C build install
 
-  echo "Installing gnome extensions"
+git clone https://github.com/baskerville/xdo.git ~/repos/xdo
+cd ~/repos/xdo
+make
+sudo make install
 
-  cd $REPOS_FOLDER
-  if [ ! -d "$REPOS_FOLDER/dash-to-dock" ] ; then
-	  git clone https://github.com/micheleg/dash-to-dock.git
-  fi
-  cd dash-to-dock/
-  export SASS=dart
-  make
-  make install
+curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
+sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
+sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 
-  cd $REPOS_FOLDER
-  if [ ! -d ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com ] ; then
-  	git clone --depth 1 https://github.com/shumingch/gnome-email-notifications ~/.local/share/gnome-shell/extensions/GmailMessageTray@shuming0207.gmail.com
-  fi
+git clone git@github.com:Mange/rofi-emoji.git ~/repos/rofi-emoji
+cd ~/repos/rofi-emoji
+autoreconf -i
+mkdir build
+cd build/
+../configure
+make
+sudo make install
 
-  cd $REPOS_FOLDER
-  if [ ! -d "$REPOS_FOLDER/vertical-overview" ] ; then
-	  git clone https://github.com/RensAlthuis/vertical-overview.git
-  fi
-  cd vertical-overview
-  make
-  make install
+git clone git@github.com:jcs/xbanish.git ~/repos/xbanish
+cd ~/repos/xbanish/
+make
+mv xbanish ~/.local/bin/
 
-  cd $REPOS_FOLDER
-  if [ ! -d "$REPOS_FOLDER/blur-my-shell" ] ; then
-	  git clone https://github.com/aunetx/blur-my-shell
-  fi
-  cd blur-my-shell
-  make install
-
-  dbus-send --type=method_call --print-reply --dest=org.gnome.Shell /org/gnome/Shell org.gnome.Shell.Eval string:'global.reexec_self()'
-  gnome-extensions enable vertical-overview@RensAlthuis.github.com
-  gnome-extensions enable dash-to-dock@micxgx.gmail.com
-  gnome-extensions enable blur-my-shell@aunetx
-
-  #read -p "Tap to click. Then press enter"
-  #read -p "Enable extensions. Then press enter"
-  #read -p "Mayus as esc. Then press enter"
-  #read -p "Maximize windows. Then press enter"
-  #read -p "Dark theme. Then press enter"
-fi
+git clone git@github.com:svenstaro/rofi-calc.git ~/repos/rofi-calc
+cd ~/repos/rofi-calc
+autoreconf -i
+mkdir build
+cd build/
+../configure
+make
+sudo make install

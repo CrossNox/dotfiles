@@ -77,9 +77,10 @@ cd $DOTFILES_FOLDER
 stow -vSt ~/.config .config
 stow -vSt ~ bash
 stow -vSt ~ git
-stow -vST ~/.gnupg .gnupg
-sudo stow -vsT /etc etc
-sudo stow -vsT /usr usr
+stow -vSt ~/.gnupg .gnupg
+
+sudo stow -vSt /etc etc
+sudo stow -vSt /usr usr
 
 # For udev rules
 sudo udevadm control --reload-rules && sudo udevadm trigger

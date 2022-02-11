@@ -6,6 +6,7 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) ex
 # caps is a useless key
 # change it into a useful key
 setxkbmap -option caps:escape
+setxkbmap -layout us -variant altgr-intl
 
 pkill sxhkd
 sxhkd &

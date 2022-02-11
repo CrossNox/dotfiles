@@ -6,16 +6,24 @@ class=$2
 instance=$3
 consequences=$4
 
+declare -A desktops
+
+if [[ "$HOSTNAME" == "dell-xps" ]]; then
+    desktops=( ["Spotify"]="3" ["TelegramDesktop"]="2" ["Slack"]="2")
+elif [[ "$HOSTNAME" == "shootingstar" ]]; then
+	desktops=( ["Spotify"]="3" ["TelegramDesktop"]="7" ["Slack"]="2" )
+fi
+
 main() {
     case "$class" in
         Spotify)
-            echo "state=tiled desktop=3 follow=on"
+			echo "state=tiled desktop=${desktops['Spotify']} follow=on"
             ;;
 		TelegramDesktop)
-		    echo "state=tiled desktop=2 follow=on"
+		    echo "state=tiled desktop=${desktops['TelegramDesktop']}  follow=on"
 			;;
 		Slack)
-			echo "state=tiled desktop=2 follow=on"
+			echo "state=tiled desktop=${desktops['Slack']}  follow=on"
 			;;
 		"")
             sleep 0.5

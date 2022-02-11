@@ -36,18 +36,19 @@ blue = #81a1c1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
+[bar/statusbar]
 wm-restack = bspwm
 override-redirect = true
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-[bar/statusbar]
 width = 99%
-offset-x = 0.5%
-height = 2%
-offset-y = 0.5%
+offset-x = 7
+height = 22
+offset-y = 7
 radius = 0.0
 fixed-center = true
+
+monitor = ${env:MONITOR:}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -74,6 +75,8 @@ modules-right = spotify volume battery shutdown
 
 cursor-click = pointer
 cursor-scroll = pointer
+
+pin-workspaces = true
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/bspwm]
@@ -163,7 +166,7 @@ format-padding = 4
 
 exec = python3 $HOME/.config/polybar/modules/spotify/spotify_status.py -t 65 -qf '{artist}: {song}'
 format-underline = #1db954
-click-left = bspc desktop -f '^8' --follow
+click-left = bspc desktop -f '^3' --follow
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/date]
@@ -195,6 +198,7 @@ content-padding = 1
 click-left = $HOME/.config/polybar/scripts/rofi-poweroff.sh
 click-right = $HOME/.config/polybar/scripts/rofi-poweroff.sh
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 [settings]
 screenchange-reload = true
 ;compositing-background = xor

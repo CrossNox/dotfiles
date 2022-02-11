@@ -160,6 +160,7 @@ pipx install black
 pipx install git+https://github.com/dsanson/termpdf.py.git
 pipx install termdown
 pipx install pywal
+pipx install bspcq
 # pipx install git+https://github.com/CrossNox/nbtodos.git
 
 # jedi
@@ -225,4 +226,9 @@ sudo make install
 
 git clone https://github.com/carnager/rofi-pass.git ~/repos/rofi-pass
 cd ~/repos/rofi-pass
+sudo make install
+
+git clone git@github.com:baskerville/xtitle.git ~/repos/xtitle
+cd ~/repos/xtitle
+sudo make
 sudo make install

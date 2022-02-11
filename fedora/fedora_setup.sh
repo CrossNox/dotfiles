@@ -222,3 +222,7 @@ cd build/
 ../configure
 make
 sudo make install
+
+git clone https://github.com/carnager/rofi-pass.git ~/repos/rofi-pass
+cd ~/repos/rofi-pass
+sudo make install

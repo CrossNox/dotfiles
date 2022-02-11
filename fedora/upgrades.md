@@ -29,4 +29,10 @@ See what you got and `ln -s /usr/lib64/libcudart.so /usr/lib64/libcudart.so.10.1
 
 If might have died on update, and it will tell you to run `sudo postgresql-setup --upgrade`. If `postgis` doesn't let you update, you are out of luck. You can start/kill old/new versions of postgres with `/usr/lib64/pgsql/postgresql-11/bin/pg_ctl -D /var/lib/pgsql/data/ stop` or something like that. Create a dump of the conflicting db, drop it and run the upgrade script again.
 
+## pipx
+```bash
+rm -rf ~/.local/pipx
+pipx reinstall-all
+```
 
+Or, just reinstall from script instructions.

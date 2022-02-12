@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+TMPBG=$HOME/.config/i3lock/resources/lock.png
+
+source $HOME/.cache/wal/colors.sh
+
+FONT="Fira Code"
+
+LAYOUT_SIZE=16
+GREETER_SIZE=38
+TIME_SIZE=74
+DATE_SIZE=48
+BASE_OFFSET=50
+PADDING=48
+
+i3lock \
+	--tiling \
+	--image=$HOME/.config/i3lock/resources/lock.png \
+	--beep \
+	--ignore-empty-password \
+	--screen 0 \
+	--clock \
+	--indicator \
+	--radius=132.0 \
+	--ring-width 8.0 \
+	--inside-color 00000000 \
+	--ring-color 00000000 \
+	--insidever-color "2e9eff00" \
+	--ringver-color "0062b795" \
+	--insidewrong-color "ff616600" \
+	--ringwrong-color "ff2e3595" \
+	--line-color 00000000 \
+	--keyhl-color "${color2//#}90" \
+	--bshl-color "${color3//#}95" \
+	--separator-color "${color6//#}99" \
+	--verif-color "${background//#}99" \
+	--wrong-color "${background//#}99" \
+	--modif-color "${background//#}99" \
+	--layout-color "${foreground//#}99" \
+	--time-color "${background//#}99" \
+	--date-color "${background//#}99" \
+	--greeter-color "${background//#}99" \
+	--keylayout 0 \
+	--time-str "%H:%M" \
+	--date-str "%A, %d/%m/%Y" \
+	--verif-text="verifying password" \
+	--wrong-text "wrong password" \
+	--noinput-text "" \
+	--lock-text "locking" \
+	--lockfailed-text="lock failed!" \
+	--greeter-text "Welcome, $USER" \
+	--{time,date,verif,wrong,modif,greeter}-align 0 \
+	--{time,date,layout,verif,wrong,greeter,modif}outline-color=00000000 \
+	--{time,date,layout,verif,wrong,greeter}-font "$FONT" \
+	--greeter-pos "ix:iy+r+$BASE_OFFSET" --greeter-size "$GREETER_SIZE" \
+	--time-pos "ix:iy+r+$BASE_OFFSET+$GREETER_SIZE+$PADDING" --time-size "$TIME_SIZE" \
+	--date-pos "ix:iy+r+$BASE_OFFSET+$GREETER_SIZE+$TIME_SIZE+$PADDING" --date-size "$DATE_SIZE" \
+	--time-font "$FONT" \
+	--pass-screen-keys \
+	--composite \
+	--verif-pos "ix:iy-r-50" \
+	--wrong-pos "ix:iy-r-50" \
+	--layout-pos "x+50:y+h-50" --layout-size $LAYOUT_SIZE --layout-align 1

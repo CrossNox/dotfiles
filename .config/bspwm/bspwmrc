@@ -26,6 +26,9 @@ picom &
 pkill xbanish
 xbanish &
 
+pkill xautolock
+xautolock -time 5 -locker noxlock &
+
 if [[ "$HOSTNAME" == "dell-xps" ]]; then
     bspc monitor -d 1 2 3 4 5
 elif [[ "$HOSTNAME" == "shootingstar" ]]; then
@@ -60,6 +63,7 @@ source $HOME/.config/wallpaper
 feh --bg-fill "$WP"
 wal -i "$WP" &
 . "${HOME}/.cache/wal/colors.sh"
+~/.config/i3lock/cache_bg.sh &
 
 sleep 0.5
 

@@ -6,6 +6,6 @@ case "$chosen" in
 	" Log out" ) bspc quit ;;
 	" Power Off") systemctl poweroff ;;
 	" Restart") systemctl reboot ;;
-	" Lock") slock ;;
+	" Lock") noxlock ;;
 	*) exit 1 ;;
 esac

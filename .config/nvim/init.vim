@@ -183,12 +183,13 @@ let g:airline_right_sep = "\uE0C7"
 " nnn.nvim
 
 lua << EOF
-require("nnn").setup({
+local builtin = require("nnn").builtin
+local cfg = {
 	explorer = {
 		cmd = "nnn -G",    -- command overrride (-F1 flag is implied, -a flag is invalid!)
 		width = 24,        -- width of the vertical split
 		side = "topleft",  -- or "botright", location of the explorer window
-		session = "",      -- or "global" / "local" / "shared"
+		session = "shared",      -- or "global" / "local" / "shared"
 		tabs = true,       -- seperate nnn instance per tab
 	},
 	picker = {
@@ -198,9 +199,9 @@ require("nnn").setup({
 			height = 0.8,    -- ^
 			xoffset = 0.5,   -- ^
 			yoffset = 0.5,   -- ^
-			border = "single"-- border decoration for example "rounded"(:h nvim_open_win)
+			border = "rounded"-- border decoration for example "rounded"(:h nvim_open_win)
 		},
-		session = "",      -- or "global" / "local" / "shared"
+		session = "shared",      -- or "global" / "local" / "shared"
 	},
 	auto_open = {
 		setup = nil,       -- or "explorer" / "picker", auto open on setup function
@@ -212,22 +213,18 @@ require("nnn").setup({
 	},
 	auto_close = true,  -- close tabpage/nvim when nnn is last window
 	replace_netrw = nil, -- or "explorer" / "picker"
-    mappings = {},
+    mappings = {
+		{ "t", builtin.open_in_tab },       -- open file(s) in tab
+		{ "s", builtin.open_in_split },     -- open file(s) in split
+		{ "v", builtin.open_in_vsplit },    -- open file(s) in vertical split
+		{ "y", builtin.copy_to_clipboard }, -- copy file(s) to clipboard
+	},
 	windownav = {        -- window movement mappings to navigate out of nnn
 		left = "<C-Left>",
 		right = "<C-Right>"
 	},
-})
-EOF
-
-lua << EOF
-local builtin = require("nnn").builtin
-mappings = {
-	{ "<C-t>", builtin.open_in_tab },       -- open file(s) in tab
-	{ "<C-s>", builtin.open_in_split },     -- open file(s) in split
-	{ "<C-v>", builtin.open_in_vsplit },    -- open file(s) in vertical split
-	{ "<C-y>", builtin.copy_to_clipboard }, -- copy file(s) to clipboard
 }
+require("nnn").setup(cfg)
 EOF
 
 tnoremap <C-o> <cmd>NnnPicker<CR>

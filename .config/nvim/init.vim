@@ -193,7 +193,7 @@ local cfg = {
 		tabs = true,       -- seperate nnn instance per tab
 	},
 	picker = {
-		cmd = "tmux new-session nnn -Pp -G",       -- command override (-p flag is implied)
+		cmd = "tmux new-session -e SPLIT=v nnn -Pp -G",       -- command override (-p flag is implied)
 		style = {
 			width = 0.9,     -- percentage relative to terminal size when < 1, absolute otherwise
 			height = 0.8,    -- ^

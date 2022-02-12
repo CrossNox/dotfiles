@@ -54,7 +54,7 @@ export LC_COLLATE="C"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_PLUG="p:preview-tui"
 export NNN_STARTUP_PLUGINS="p"
-export SPLIT="h"
+export SPLIT="v"
 
 function nnn ()
 {

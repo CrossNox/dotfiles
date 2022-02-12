@@ -71,6 +71,7 @@ echo "Linking dotfiles with stow"
 rm ~/.bashrc
 cd $DOTFILES_FOLDER
 stow -vSt ~/.config .config
+stow -vSt ~/.local .local
 stow -vSt ~ bash
 stow -vSt ~ git
 stow -vSt ~/.gnupg .gnupg
@@ -232,3 +233,7 @@ git clone git@github.com:baskerville/xtitle.git ~/repos/xtitle
 cd ~/repos/xtitle
 sudo make
 sudo make install
+
+git clone https://github.com/Raymo111/i3lock-color.git ~/repos/i3lock-color
+cd ~/repos/i3lock-color
+./install-i3lock-color.sh

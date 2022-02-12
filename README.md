@@ -46,3 +46,6 @@ The unorthodox terminal file manager
 
 ## [delta](https://github.com/dandavison/delta)
 A syntax-highlighting pager for git, diff, and grep output
+
+## [i3lock-color](https://github.com/Raymo111/i3lock-color)
+The world's most popular non-default computer lockscreen.

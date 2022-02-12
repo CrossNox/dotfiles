@@ -26,6 +26,9 @@ super + p
 super + c
 	rofi -show calc -modi calc -no-show-match -no-sort -no-unicode -no-persistent-history -calc-command "echo -n '\{result\}' | awk '\{ print \$NF \}' | xclip -sel clipboard -rmlastnl"
 
+super + l
+    noxlock
+
 alt + r
     $HOME/.config/bspwm/bspwmrc
 

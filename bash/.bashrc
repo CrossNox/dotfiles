@@ -22,7 +22,7 @@ source ~/.config/powerline/.powerline
 
 if [ "$DESKTOP_SESSION" = "bspwm" ]; then
 	source ~/.config/wallpaper
-	wal -q -e -i "$WP"
+	wal -q -e -n -i "$WP" &
 fi
 
 eval "$(register-python-argcomplete pipx)"
@@ -49,7 +49,7 @@ export EDITOR=nvim
 
 NNN_FCOLORS_VENV=${PIPX_HOME:-/home/nox/.local/pipx}/venvs/pywal/bin/python
 export NNN_FCOLORS=$( $NNN_FCOLORS_VENV ~/.config/wal/rgb2xterm256.py )
-export NNN_OPTS="deH"
+export NNN_OPTS="deHG"
 export LC_COLLATE="C"
 export NNN_FIFO="/tmp/nnn.fifo"
 export NNN_PLUG="p:preview-tui"

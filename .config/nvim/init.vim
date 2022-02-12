@@ -46,7 +46,7 @@ Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'dylanaraps/wal.vim'
 
 " Utils
-Plug 'scrooloose/nerdtree'
+Plug 'luukvbaal/nnn.nvim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline'
@@ -180,9 +180,55 @@ set guifont=FiraCode\ Nerd\ Font
 let g:airline_left_sep = "\uE0C6"
 let g:airline_right_sep = "\uE0C7"
 
-" nerdtree
-map <C-o> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+" nnn.nvim
+
+lua << EOF
+local builtin = require("nnn").builtin
+local cfg = {
+	explorer = {
+		cmd = "nnn -G",    -- command overrride (-F1 flag is implied, -a flag is invalid!)
+		width = 24,        -- width of the vertical split
+		side = "topleft",  -- or "botright", location of the explorer window
+		session = "shared",      -- or "global" / "local" / "shared"
+		tabs = true,       -- seperate nnn instance per tab
+	},
+	picker = {
+		cmd = "tmux new-session -e SPLIT=v nnn -Pp -G",       -- command override (-p flag is implied)
+		style = {
+			width = 0.9,     -- percentage relative to terminal size when < 1, absolute otherwise
+			height = 0.8,    -- ^
+			xoffset = 0.5,   -- ^
+			yoffset = 0.5,   -- ^
+			border = "rounded"-- border decoration for example "rounded"(:h nvim_open_win)
+		},
+		session = "shared",      -- or "global" / "local" / "shared"
+	},
+	auto_open = {
+		setup = nil,       -- or "explorer" / "picker", auto open on setup function
+		tabpage = nil,     -- or "explorer" / "picker", auto open when opening new tabpage
+		empty = false,     -- only auto open on empty buffer
+		ft_ignore = {      -- dont auto open for these filetypes
+			"gitcommit",
+		}
+	},
+	auto_close = true,  -- close tabpage/nvim when nnn is last window
+	replace_netrw = nil, -- or "explorer" / "picker"
+    mappings = {
+		{ "t", builtin.open_in_tab },       -- open file(s) in tab
+		{ "s", builtin.open_in_split },     -- open file(s) in split
+		{ "v", builtin.open_in_vsplit },    -- open file(s) in vertical split
+		{ "y", builtin.copy_to_clipboard }, -- copy file(s) to clipboard
+	},
+	windownav = {        -- window movement mappings to navigate out of nnn
+		left = "<C-Left>",
+		right = "<C-Right>"
+	},
+}
+require("nnn").setup(cfg)
+EOF
+
+tnoremap <C-o> <cmd>NnnPicker<CR>
+nnoremap <C-o> <cmd>NnnPicker<CR>
 
 nnoremap <C-Down> <C-W><C-J>
 nnoremap <C-Up> <C-W><C-K>

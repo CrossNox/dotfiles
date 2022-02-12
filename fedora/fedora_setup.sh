@@ -130,7 +130,7 @@ if [ ! -d "$REPOS_FOLDER/nnn" ] ; then
 	git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
 fi
 cd $REPOS_FOLDER/nnn
-make O_NERD=1
+make O_NERD=1 O_GITSTATUS=1
 mv nnn $HOME/.local/bin/
 sudo make install-desktop
 sudo sed -i 's!Icon=nnn!Icon=/usr/local/share/icons/hicolor/64x64/apps/nnn.png!g' /usr/local/share/applications/nnn.desktop

@@ -22,14 +22,14 @@ source ~/.config/powerline/.powerline
 
 if [ "$DESKTOP_SESSION" = "bspwm" ]; then
 	source ~/.config/wallpaper
-	wal -q -i "$WP"
+	wal -q -e -i "$WP"
 fi
 
 eval "$(register-python-argcomplete pipx)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
-source ~/.rvm/scripts/rvm
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 PATH="/home/nox/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/nox/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;

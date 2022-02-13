@@ -79,12 +79,11 @@ cursor-scroll = pointer
 
 pin-workspaces = true
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;https://github.com/polybar/polybar/wiki/Module:-network
 [module/wired-network]
 type = internal/network
 interface = enp4s0
-interval = 5.0
-ping-interval = 12
+interval = 1
+ping-interval = 5
 accumulate-stats = false
 unknown-as-up = false
 
@@ -100,13 +99,13 @@ label-disconnected-foreground = ${colors.foreground}
 [module/wireless-network]
 type = internal/network
 interface = wlp2s0
-interval = 5
-ping-interval = 12
+interval = 1
+ping-interval = 5
 accumulate-stats = false
 unknown-as-up = false
 
-format-connected = <ramp-signal> <label-connected>
-format-disconnected = <label-disconnected>
+format-connected = %{A1:$HOME/.config/polybar/scripts/rofi-network-manager.sh:}<ramp-signal> <label-connected>%{A}
+format-disconnected = %{A1:$HOME/.config/polybar/scripts/rofi-network-manager.sh:}<label-disconnected>%{A}
 
 label-connected = %essid%
 label-connected-foreground = ${color.foreground}

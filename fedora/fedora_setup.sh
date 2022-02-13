@@ -260,3 +260,10 @@ Exec=$HOME/AppImages/Ultimaker_Cura-4.13.1.AppImage
 Terminal=false
 Categories=Design
 EOF
+
+git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
+cd ~/repos/rofi-network-manager
+chmod +x rofi-network-manager.sh
+cp rofi-network-manager.sh ~/.config/polybar/scripts/
+cp rofi-network-manager.rasi ~/.config/rofi/
+cp rofi-network-manager.conf ~/.config/rofi/

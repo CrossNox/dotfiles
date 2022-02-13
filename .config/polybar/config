@@ -63,6 +63,7 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = "FiraCode Nerd Font:size=12;3"
+font-1 = DejaVu Sans Mono wifi ramp:size=12
 
 ; MODULES SETUP
 modules-left = bspwm
@@ -98,7 +99,29 @@ label-disconnected-foreground = ${colors.foreground}
 
 [module/wireless-network]
 type = internal/network
-interface = wlsp3
+interface = wlp2s0
+interval = 5
+ping-interval = 12
+accumulate-stats = false
+unknown-as-up = false
+
+format-connected = <ramp-signal> <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = %essid%
+label-connected-foreground = ${color.foreground}
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.foreground}
+
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/bluetooth]

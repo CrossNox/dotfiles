@@ -237,3 +237,7 @@ sudo make install
 git clone https://github.com/Raymo111/i3lock-color.git ~/repos/i3lock-color
 cd ~/repos/i3lock-color
 ./install-i3lock-color.sh
+
+git clone git@github.com:ClydeDroid/rofi-bluetooth.git ~/repos/rofi-bluetooth
+cd ~/repos/rofi-bluetooth
+cp rofi-bluetooth ~/.local/bin

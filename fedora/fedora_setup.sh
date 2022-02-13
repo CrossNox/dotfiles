@@ -241,3 +241,20 @@ cd ~/repos/i3lock-color
 git clone git@github.com:ClydeDroid/rofi-bluetooth.git ~/repos/rofi-bluetooth
 cd ~/repos/rofi-bluetooth
 cp rofi-bluetooth ~/.local/bin
+
+mkdir ~/AppImages
+cd ~/AppImages
+wget https://github.com/Ultimaker/Cura/releases/download/4.13.1/Ultimaker_Cura-4.13.1.AppImage
+chmod +x Ultimaker_Cura-4.13.1.AppImage
+wget https://raw.githubusercontent.com/Ultimaker/Cura/master/icons/cura-64.png
+
+cat >> ~/.local/share/applications/UltimakerCura.desktop<< EOF
+[Desktop Entry]
+Type=Application
+Name=Ultimaker Cura
+Comment=Ultimaker Cura
+Icon=$HOME/AppImages/cura-64.png
+Exec=$HOME/AppImages/Ultimaker_Cura-4.13.1.AppImage
+Terminal=false
+Categories=Design
+EOF

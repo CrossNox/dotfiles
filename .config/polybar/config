@@ -67,7 +67,7 @@ font-0 = "FiraCode Nerd Font:size=12;3"
 ; MODULES SETUP
 modules-left = bspwm
 modules-center = date
-modules-right = spotify bluetooth volume battery shutdown
+modules-right = spotify bluetooth wired-network wireless-network volume battery shutdown
 
 ;tray-position = center
 ;tray-padding = 2
@@ -77,6 +77,28 @@ cursor-click = pointer
 cursor-scroll = pointer
 
 pin-workspaces = true
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;https://github.com/polybar/polybar/wiki/Module:-network
+[module/wired-network]
+type = internal/network
+interface = enp4s0
+interval = 5.0
+ping-interval = 12
+accumulate-stats = false
+unknown-as-up = false
+
+format-connected = <label-connected>
+format-disconnected = <label-disconnected>
+
+label-connected = ""
+label-connected-foreground = ${colors.foreground}
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.foreground}
+
+[module/wireless-network]
+type = internal/network
+interface = wlsp3
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 [module/bluetooth]

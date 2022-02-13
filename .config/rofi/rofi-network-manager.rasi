@@ -2,7 +2,7 @@
 configuration {
 	show-icons:		false;
 	sidebar-mode: 	false;
-	font:			"FiraCode Nerd Font 14";
+	font:			"FiraCode Nerd Font 11";
 }
 *{
 	//Colors

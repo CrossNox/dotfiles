@@ -87,8 +87,8 @@ ping-interval = 5
 accumulate-stats = false
 unknown-as-up = false
 
-format-connected = <label-connected>
-format-disconnected = <label-disconnected>
+format-connected = %{A1:$HOME/.config/polybar/scripts/rofi-network-manager.sh:}<label-connected>%{A}
+format-disconnected = %{A1:$HOME/.config/polybar/scripts/rofi-network-manager.sh:}<label-disconnected>%{A}
 
 label-connected = ""
 label-connected-foreground = ${colors.foreground}

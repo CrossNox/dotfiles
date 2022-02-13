@@ -214,10 +214,10 @@ local cfg = {
 	auto_close = true,  -- close tabpage/nvim when nnn is last window
 	replace_netrw = nil, -- or "explorer" / "picker"
     mappings = {
-		{ "t", builtin.open_in_tab },       -- open file(s) in tab
-		{ "s", builtin.open_in_split },     -- open file(s) in split
-		{ "v", builtin.open_in_vsplit },    -- open file(s) in vertical split
-		{ "y", builtin.copy_to_clipboard }, -- copy file(s) to clipboard
+		{ "<C-t>", builtin.open_in_tab },       -- open file(s) in tab
+		{ "<C-s>", builtin.open_in_split },     -- open file(s) in split
+		{ "<C-v>", builtin.open_in_vsplit },    -- open file(s) in vertical split
+		{ "<C-y>", builtin.copy_to_clipboard }, -- copy file(s) to clipboard
 	},
 	windownav = {        -- window movement mappings to navigate out of nnn
 		left = "<C-Left>",

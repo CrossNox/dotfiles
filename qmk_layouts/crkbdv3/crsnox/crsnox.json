@@ -134,7 +134,7 @@
       "KC_LGUI",
       "KC_TRNS",
       "KC_NO",
-      "KC_ENT",
+      "LSA(KC_NO)",
       "MO(4)",
       "OSM(MOD_RALT)"
     ],

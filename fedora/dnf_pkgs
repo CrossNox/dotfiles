@@ -9,6 +9,7 @@ bspwm
 bzip2
 cairo-devel
 cargo
+clang-tools-extra
 cmake
 dbus-devel
 dunst

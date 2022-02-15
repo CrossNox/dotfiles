@@ -58,6 +58,9 @@ $DOTFILES_FOLDER/fedora/setup_scripts/setup_aws_cli_v2.sh
 echo "adding flatpak remote"
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
+flatpak --user override --filesystem=/home/$USER/.icons/:ro
+flatpak --user override --filesystem=/usr/share/icons/:ro
+
 REPOS_FOLDER=~/repos
 
 echo "Installing flatpaks"

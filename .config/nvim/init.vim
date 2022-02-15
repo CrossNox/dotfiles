@@ -189,7 +189,7 @@ local cfg = {
 		cmd = "nnn -G",    -- command overrride (-F1 flag is implied, -a flag is invalid!)
 		width = 24,        -- width of the vertical split
 		side = "topleft",  -- or "botright", location of the explorer window
-		session = "shared",      -- or "global" / "local" / "shared"
+		session = "local",      -- or "global" / "local" / "shared"
 		tabs = true,       -- seperate nnn instance per tab
 	},
 	picker = {
@@ -201,7 +201,7 @@ local cfg = {
 			yoffset = 0.5,   -- ^
 			border = "rounded"-- border decoration for example "rounded"(:h nvim_open_win)
 		},
-		session = "shared",      -- or "global" / "local" / "shared"
+		session = "local",      -- or "global" / "local" / "shared"
 	},
 	auto_open = {
 		setup = nil,       -- or "explorer" / "picker", auto open on setup function
@@ -228,7 +228,7 @@ require("nnn").setup(cfg)
 EOF
 
 tnoremap <C-o> <cmd>NnnPicker<CR>
-nnoremap <C-o> <cmd>NnnPicker<CR>
+nnoremap <C-o> <cmd>NnnPicker %:p:h<CR>
 
 nnoremap <C-Down> <C-W><C-J>
 nnoremap <C-Up> <C-W><C-K>

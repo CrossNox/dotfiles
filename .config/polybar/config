@@ -227,8 +227,8 @@ interval = 1
 date =
 date-alt = "  﨟  %A, %b %d -"
 
-time = "  %I:%M %p "
-time-alt = "%I:%M:%S %p  "
+time = "  %H:%M"
+time-alt = "%H:%M:%S  "
 
 ;format-prefix = ""
 format-prefix-padding = 2

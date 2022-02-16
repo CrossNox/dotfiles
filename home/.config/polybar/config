@@ -15,10 +15,8 @@
 ;   \____\___/|_____\___/|_| \_\____/
 
 [colors]
-background = #282e3a
-background-alt = #d1c4e99
-foreground = #e5e9f0
-foreground-alt = #282e3a
+background = ${xrdb:background}
+foreground = ${xrdb:foreground}
 
 primary = #ffb52a
 secondary = #e60053
@@ -116,11 +114,16 @@ unknown-as-up = false
 format-connected = %{A1:$HOME/.config/polybar/scripts/rofi-network-manager.sh:}<ramp-signal> <label-connected>%{A}
 format-disconnected = %{A1:$HOME/.config/polybar/scripts/rofi-network-manager.sh:}<label-disconnected>%{A}
 
+format-connected-padding = ${globals.padding}
+format-disconnected-padding = ${globals.padding}
+
 label-connected = %essid%
-label-connected-foreground = ${colors.background}
+format-connected-foreground = ${xrdb:foreground}
+format-connected-background = ${xrdb:color4}
 
 label-disconnected = 
-label-disconnected-foreground = ${colors.background}
+format-disconnected-foreground = ${xrdb:foreground}
+format-disconnected-background = ${xrdb:color4}
 
 
 ramp-signal-0 = 
@@ -138,8 +141,8 @@ exec = rofi-bluetooth --status
 interval = 1
 click-left = rofi-bluetooth &
 
-format-background = ${colors.aqua}
-format-foreground = ${colors.background}
+format-background = ${xrdb:color5}
+format-foreground = ${xrdb:foreground}
 format-padding = ${globals.padding}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -149,22 +152,22 @@ type = internal/bspwm
 label-focused = 
 label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
-label-focused-foreground = ${colors.pink}
+label-focused-foreground = ${xrdb:color4}
 label-focused-padding = 1
 
 label-occupied = 
 label-occupied-background = ${colors.background}
-label-occupied-foreground = ${colors.magenta}
+label-occupied-foreground = ${xrdb:color3}
 label-occupied-padding = 1
 
 label-urgent = 
-label-urgent-background = ${colors.magenta}
-label-urgent-foreground = #e5e9f0
+label-urgent-background = ${colors.background}
+label-urgent-foreground = ${xrdb:color8}
 label-urgent-padding = 1
 
 label-empty = 
 label-empty-background = ${colors.background}
-label-empty-foreground = #e5e9f0
+label-empty-foreground = ${colors.foreground}
 label-empty-padding = 1
 
 ; Separator in between workspaces
@@ -180,13 +183,13 @@ ramp-volume-1 = 墳
 ramp-volume-1-font = 2
 ramp-volume-2 = 墳
 ramp-volume-2-font = 2
-format-volume-background = ${colors.green}
-format-volume-foreground = ${colors.background}
+format-volume-background = ${xrdb:color3}
+format-volume-foreground = ${colors.foreground}
 format-volume-padding = ${globals.padding}
 
 format-muted = <label-muted>
-format-muted-background = ${colors.red}
-format-muted-foreground = ${colors.background}
+format-muted-background = ${xrdb:color3}
+format-muted-foreground = ${colors.foreground}
 label-muted =" "
 format-muted-font = 2
 format-muted-padding = ${globals.padding}
@@ -198,23 +201,25 @@ battery = BAT0
 adapter = AC
 full-at = 100
 
+format-discharging-padding = ${globals.padding}
+format-charging-padding = ${globals.padding}
+format-full-padding = ${globals.padding}
+
 format-charging = <label-charging>
 format-charging-prefix = " "
 format-charging-prefix-font = 2
-label-charging = "%percentage%%  "
-
-format-discharging = <label-discharging>
-label-discharging = "%percentage%% "
-format-discharging-prefix = " "
-format-discharging-prfix-font = 2
-
-format-discharging-background = ${colors.background}
-format-discharging-foreground = ${colors.orange}
-
+label-charging = "%percentage%%"
 format-charging-background = ${colors.background}
 format-charging-foreground = ${colors.green}
 
-label-full = " "
+format-discharging = <label-discharging>
+label-discharging = "%percentage%%"
+format-discharging-prefix = " "
+format-discharging-prfix-font = 2
+format-discharging-background = ${colors.background}
+format-discharging-foreground = ${colors.orange}
+
+label-full = ""
 format-full-background = ${colors.background}
 format-full-foreground = ${colors.foreground}
 format-full-prefix-font = 1
@@ -257,8 +262,8 @@ label = %date% %time%
 [module/shutdown]
 type = custom/text
 content = ""
-content-background = ${colors.magenta}
-content-foreground = ${colors.background}
+content-background = ${xrdb:color2}
+content-foreground = ${colors.foreground}
 click-left = $HOME/.config/polybar/scripts/rofi-poweroff.sh
 click-right = $HOME/.config/polybar/scripts/rofi-poweroff.sh
 

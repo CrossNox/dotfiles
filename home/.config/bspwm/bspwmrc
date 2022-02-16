@@ -59,7 +59,7 @@ fi
 bspc config external_rules_command "$HOME/.config/bspwm/external-rules"
 
 # wallpaper
-$HOME/.config/wallpaper.sh
+$HOME/.config/wallpaper.sh &
 
 sleep 0.5
 

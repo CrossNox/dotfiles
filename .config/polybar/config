@@ -15,10 +15,10 @@
 ;   \____\___/|_____\___/|_| \_\____/
 
 [colors]
-background = #282e3a
-background-alt = #d1c4e99
-foreground = #e5e9f0
-foreground-alt = #282e3a
+background = ${xrdb:background}
+background-alt = ${xrdb:color1}
+foreground = ${xrdb:foreground}
+foreground-alt = ${xrdb:color2}
 primary = #ffb52a
 secondary = #e60053
 alert = #B48EAD
@@ -243,8 +243,13 @@ label = %date% %time%
 [module/shutdown]
 type = custom/text
 content = ""
-content-background = ${colors.background}
+
+format-background = ${colors.magenta}
+format-foreground = ${colors.background}
+
+content-background = ${colors.cyan}
 content-foreground = ${colors.white}
+
 content-padding = 1
 click-left = $HOME/.config/polybar/scripts/rofi-poweroff.sh
 click-right = $HOME/.config/polybar/scripts/rofi-poweroff.sh

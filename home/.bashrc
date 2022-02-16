@@ -20,10 +20,8 @@ source /usr/share/autojump/autojump.bash
 source ~/.alias
 source ~/.config/powerline/.powerline
 
-if [ "$DESKTOP_SESSION" = "bspwm" ]; then
-	source ~/.config/wallpaper
-	wal -q -e -n -i "$WP" &
-fi
+\cat ~/.cache/wal/sequences
+source ~/.cache/wal/colors-tty.sh
 
 eval "$(register-python-argcomplete pipx)"
 

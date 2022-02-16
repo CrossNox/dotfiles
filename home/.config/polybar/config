@@ -178,11 +178,11 @@ label-separator =
 type = internal/pulseaudio
 format-volume =  "<ramp-volume> <label-volume>"
 ramp-volume-0 = 
-ramp-volume-0-font = 2
+ramp-volume-0-font = 0
 ramp-volume-1 = 墳
-ramp-volume-1-font = 2
+ramp-volume-1-font = 0
 ramp-volume-2 = 墳
-ramp-volume-2-font = 2
+ramp-volume-2-font = 0
 format-volume-background = ${xrdb:color3}
 format-volume-foreground = ${colors.foreground}
 format-volume-padding = ${globals.padding}
@@ -191,7 +191,7 @@ format-muted = <label-muted>
 format-muted-background = ${xrdb:color3}
 format-muted-foreground = ${colors.foreground}
 label-muted =" "
-format-muted-font = 2
+format-muted-font = 0
 format-muted-padding = ${globals.padding}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

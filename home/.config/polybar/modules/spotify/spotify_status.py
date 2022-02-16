@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-import sys
-import dbus
 import argparse
+import sys
+
+import dbus
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-t", "--trunclen", type=int, metavar="trunclen")
@@ -103,7 +104,7 @@ try:
     album = fix_string(metadata["xesam:album"]) if metadata["xesam:album"] else ""
 
     if (quiet and status == "Paused") or (not artist and not song and not album):
-        print("")
+        print("Nothing playing")
     else:
         if font:
             artist = label_with_font.format(font=font, label=artist)

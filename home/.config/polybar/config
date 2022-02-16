@@ -70,7 +70,7 @@ font-2 = FiraCode Nerd Font:size=17;4
 ; MODULES SETUP
 modules-left = bspwm
 modules-center = date
-modules-right = spotify left-github github left-bluetooth bluetooth left-wired-network wired-network wireless-network left-volume volume battery left-shutdown shutdown
+modules-right = left-spotify spotify left-github github left-bluetooth bluetooth left-wired-network wired-network wireless-network left-volume volume battery left-shutdown shutdown
 
 ;tray-position = center
 ;tray-padding = 2
@@ -85,7 +85,7 @@ pin-workspaces = true
 [module/left-github]
 type = custom/text
 content = %{T3}%{T-}
-content-background = ${xrdb:background}
+content-background = ${colors.magenta}
 content-foreground = ${xrdb:color4}
 
 [module/github]
@@ -287,13 +287,19 @@ format-full-foreground = ${colors.foreground}
 format-full-prefix-font = 1
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/left-spotify]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:background}
+content-foreground = ${colors.magenta}
+
 [module/spotify]
 type = custom/script
 interval = 1
 format-prefix ="  "
 format = <label>
 format-background = ${colors.magenta}
-format-foreground = ${colors.background}
+format-foreground = ${xrdb:background}
 format-padding = 4
 
 exec = python3 $HOME/.config/polybar/modules/spotify/spotify_status.py -t 65 -qf '{artist}: {song}'

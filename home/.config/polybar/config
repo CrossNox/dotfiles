@@ -65,11 +65,12 @@ module-margin-right = 0
 
 font-0 = "FiraCode Nerd Font:size=12;3"
 font-1 = DejaVu Sans Mono wifi ramp:size=12
+font-2 = FiraCode Nerd Font:size=17;4
 
 ; MODULES SETUP
 modules-left = bspwm
 modules-center = date
-modules-right = spotify github bluetooth wired-network wireless-network volume battery shutdown
+modules-right = spotify left-github github left-bluetooth bluetooth left-wired-network wired-network wireless-network left-volume volume battery left-shutdown shutdown
 
 ;tray-position = center
 ;tray-padding = 2
@@ -80,6 +81,12 @@ cursor-scroll = pointer
 
 pin-workspaces = true
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/left-github]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:background}
+content-foreground = ${xrdb:color4}
 
 [module/github]
 type = internal/github
@@ -118,6 +125,12 @@ format-offline-foreground = ${xrdb:foreground}
 format-offline-background = ${xrdb:color4}
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/left-wired-network]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:color5}
+content-foreground = ${xrdb:color6}
+
 [module/wired-network]
 type = internal/network
 interface = enp4s0
@@ -133,12 +146,12 @@ label-connected-padding = ${globals.padding}
 label-disconnected-padding = ${globals.padding}
 
 label-connected = ""
-label-connected-background = ${colors.blue}
-label-connected-foreground = ${colors.background}
+label-connected-foreground = ${colors.foreground}
+label-connected-background = ${xrdb:color6}
 
 label-disconnected = 
-label-disconnected-background = ${colors.pink}
-label-disconnected-foreground = ${colors.background}
+label-disconnected-foreground = ${colors.foreground}
+label-disconnected-background = ${xrdb:color6}
 
 [module/wireless-network]
 type = internal/network
@@ -155,12 +168,12 @@ format-connected-padding = ${globals.padding}
 format-disconnected-padding = ${globals.padding}
 
 label-connected = %essid%
-format-connected-foreground = ${xrdb:foreground}
-format-connected-background = ${xrdb:color4}
+format-connected-foreground = ${xrdb:background}
+format-connected-background = ${xrdb:color6}
 
 label-disconnected = 
-format-disconnected-foreground = ${xrdb:foreground}
-format-disconnected-background = ${xrdb:color4}
+format-disconnected-foreground = ${xrdb:background}
+format-disconnected-background = ${xrdb:color6}
 
 
 ramp-signal-0 = 
@@ -171,6 +184,12 @@ ramp-signal-4 = 
 ramp-signal-5 = 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/left-bluetooth]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:color4}
+content-foreground = ${xrdb:color5}
 
 [module/bluetooth]
 type = custom/script
@@ -211,6 +230,12 @@ label-empty-padding = 1
 label-separator =
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/left-volume]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:color6}
+content-foreground = ${xrdb:color4}
+
 [module/volume]
 type = internal/pulseaudio
 format-volume =  "<ramp-volume> <label-volume>"
@@ -220,13 +245,13 @@ ramp-volume-1 = 墳
 ramp-volume-1-font = 0
 ramp-volume-2 = 墳
 ramp-volume-2-font = 0
-format-volume-background = ${xrdb:color3}
 format-volume-foreground = ${colors.foreground}
+format-volume-background = ${xrdb:color4}
 format-volume-padding = ${globals.padding}
 
 format-muted = <label-muted>
-format-muted-background = ${xrdb:color3}
 format-muted-foreground = ${colors.foreground}
+format-muted-background = ${xrdb:color4}
 label-muted =" "
 format-muted-font = 0
 format-muted-padding = ${globals.padding}
@@ -252,7 +277,7 @@ format-charging-foreground = ${colors.green}
 format-discharging = <label-discharging>
 label-discharging = "%percentage%%"
 format-discharging-prefix = " "
-format-discharging-prfix-font = 2
+format-discharging-prefix-font = 2
 format-discharging-background = ${colors.background}
 format-discharging-foreground = ${colors.orange}
 
@@ -296,6 +321,12 @@ format-foreground = ${colors.foreground}
 label = %date% %time%
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[module/left-shutdown]
+type = custom/text
+content = %{T3}%{T-}
+content-background = ${xrdb:color4}
+content-foreground = ${xrdb:color2}
+
 [module/shutdown]
 type = custom/text
 content = ""

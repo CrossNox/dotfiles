@@ -7,6 +7,7 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 
+echo "Launching polybar"
 # Launch polybar
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
@@ -15,3 +16,4 @@ if type "xrandr"; then
 else
   polybar --reload statusbar &
 fi
+echo "Polybar launched"

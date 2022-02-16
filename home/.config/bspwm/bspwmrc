@@ -8,7 +8,8 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) ex
 setxkbmap -option caps:escape
 setxkbmap -layout us -variant altgr-intl
 
-pkill sxhkd
+killall -q sxhkd
+while pgrep -u $UID -x sxhkd >/dev/null; do sleep 1; done
 sxhkd &
 
 if [[ "$HOSTNAME" == "dell-xps" ]]; then
@@ -62,9 +63,8 @@ fi
 bspc config external_rules_command "$HOME/.config/bspwm/external-rules"
 
 # wallpaper
-$HOME/.config/wallpaper.sh &
-
-sleep 0.5
+$HOME/.config/wallpaper.sh
+sleep 1.0
 
 # dunst
 $HOME/.config/dunst/launchdunst.sh

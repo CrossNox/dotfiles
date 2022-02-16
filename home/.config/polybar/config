@@ -69,7 +69,7 @@ font-1 = DejaVu Sans Mono wifi ramp:size=12
 ; MODULES SETUP
 modules-left = bspwm
 modules-center = date
-modules-right = spotify bluetooth wired-network wireless-network volume battery shutdown
+modules-right = spotify github bluetooth wired-network wireless-network volume battery shutdown
 
 ;tray-position = center
 ;tray-padding = 2
@@ -81,6 +81,43 @@ cursor-scroll = pointer
 pin-workspaces = true
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+[module/github]
+type = internal/github
+
+token = ${env:POLYBAR_GH_ACCESS_TOKEN}
+user = crossnox
+empty-notifications = true
+interval = 60
+
+; Available tags:
+;   <label> (default)
+format = " <label>"
+
+; Available tokens:
+;   %notifications% (default)
+; Default: Notifications: %notifications%
+label = %notifications%
+
+; Used when GitHub can't be reached
+; Available tags:
+;   <label-offline> (default)
+format-offline = <label-offline>
+
+; Available tokens:
+;   None
+; Default: Offline
+label-offline = " "
+
+format-padding = ${globals.padding}
+format-offline-padding = ${globals.padding}
+
+format-foreground = ${xrdb:foreground}
+format-background = ${xrdb:color4}
+
+format-offline-foreground = ${xrdb:foreground}
+format-offline-background = ${xrdb:color4}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 [module/wired-network]
 type = internal/network
 interface = enp4s0
@@ -278,8 +315,6 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 ;pseudo-transparency = false
-
-
 
 [global/wm]
 ;margin-top = 5

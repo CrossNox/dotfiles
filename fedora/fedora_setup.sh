@@ -73,12 +73,7 @@ flatpak install -y --noninteractive org.telegram.desktop
 echo "Linking dotfiles with stow"
 rm ~/.bashrc
 cd $DOTFILES_FOLDER
-stow -vSt ~/.config .config
-stow -vSt ~/.local .local
-stow -vSt ~ bash
-stow -vSt ~ git
-stow -vSt ~/.gnupg .gnupg
-
+stow -vSt ~ home
 sudo stow -vSt /etc etc
 sudo stow -vSt /usr usr
 

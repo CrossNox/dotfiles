@@ -302,7 +302,7 @@ format-background = ${colors.magenta}
 format-foreground = ${xrdb:background}
 format-padding = 4
 
-exec = python3 $HOME/.config/polybar/modules/spotify/spotify_status.py -t 65 -qf '{artist}: {song}'
+exec = python3 $HOME/.config/polybar/modules/spotify/spotify_status.py -t 65 -f '{artist}: {song}'
 format-underline = #1db954
 click-left = bspc desktop -f '3' --follow
 

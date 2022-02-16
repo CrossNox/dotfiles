@@ -20,13 +20,16 @@ fi
 xsetroot -cursor_name left_ptr &
 
 # picom
-pkill picom
+killall -q picom
+while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 picom &
 
-pkill xbanish
+killall -q xbanish
+while pgrep -u $UID -x xbanish >/dev/null; do sleep 1; done
 xbanish &
 
-pkill xautolock
+killall -q xautolock
+while pgrep -u $UID -x xautolock >/dev/null; do sleep 1; done
 xautolock -time 5 -locker noxlock &
 
 if [[ "$HOSTNAME" == "dell-xps" ]]; then

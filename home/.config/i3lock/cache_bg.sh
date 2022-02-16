@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-source $HOME/.config/wallpaper
 
+WP=$1
 ICON=$HOME/.config/i3lock/resources/icon.png
 TMPBG=$HOME/.config/i3lock/resources/lock.png
 

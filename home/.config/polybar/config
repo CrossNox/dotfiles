@@ -300,7 +300,7 @@ format-prefix ="  "
 format = <label>
 format-background = ${colors.magenta}
 format-foreground = ${xrdb:background}
-format-padding = 4
+format-padding = ${globals.padding}
 
 exec = python3 $HOME/.config/polybar/modules/spotify/spotify_status.py -t 65 -f '{artist}: {song}'
 format-underline = #1db954

@@ -70,7 +70,7 @@ font-2 = FiraCode Nerd Font:size=17;4
 ; MODULES SETUP
 modules-left = bspwm
 modules-center = date
-modules-right = left-spotify spotify left-github github left-bluetooth bluetooth left-wired-network wired-network wireless-network left-volume volume battery left-shutdown shutdown
+modules-right = left-spotify spotify left-github github left-bluetooth bluetooth left-wired-network wired-network wireless-network left-volume volume left-shutdown battery shutdown
 
 ;tray-position = center
 ;tray-padding = 2
@@ -168,11 +168,11 @@ format-connected-padding = ${globals.padding}
 format-disconnected-padding = ${globals.padding}
 
 label-connected = %essid%
-format-connected-foreground = ${xrdb:background}
+format-connected-foreground = ${xrdb:foreground}
 format-connected-background = ${xrdb:color6}
 
 label-disconnected = 
-format-disconnected-foreground = ${xrdb:background}
+format-disconnected-foreground = ${xrdb:foreground}
 format-disconnected-background = ${xrdb:color6}
 
 
@@ -271,18 +271,18 @@ format-charging = <label-charging>
 format-charging-prefix = " "
 format-charging-prefix-font = 2
 label-charging = "%percentage%%"
-format-charging-background = ${colors.background}
+format-charging-background = ${xrdb:color2}
 format-charging-foreground = ${colors.green}
 
 format-discharging = <label-discharging>
 label-discharging = "%percentage%%"
 format-discharging-prefix = " "
 format-discharging-prefix-font = 2
-format-discharging-background = ${colors.background}
+format-discharging-background = ${xrdb:color2}
 format-discharging-foreground = ${colors.orange}
 
 label-full = ""
-format-full-background = ${colors.background}
+format-full-background = ${xrdb:color2}
 format-full-foreground = ${colors.foreground}
 format-full-prefix-font = 1
 

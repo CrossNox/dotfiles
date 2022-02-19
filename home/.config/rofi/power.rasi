@@ -1,7 +1,26 @@
-inputbar {
-  children: [entry];
+@import "config.rasi"
+
+configuration {
+	font: "FiraCode Nerd Font 48";
+	columns: 5;
+	lines: 1;
+}
+
+window {
+	width: 10em;
+}
+
+mainbox {
+	border: 0;
+	padding: 0;
+	children: [listview];
 }
 
 listview {
-	lines: 4;
+	layout: horizontal;
+	expand: true;
+}
+
+element {
+	expand: true;
 }

@@ -32,13 +32,13 @@ i3lock \
 	--keyhl-color "${color2//#}90" \
 	--bshl-color "${color3//#}95" \
 	--separator-color "${color6//#}99" \
-	--verif-color "${background//#}99" \
-	--wrong-color "${background//#}99" \
-	--modif-color "${background//#}99" \
+	--verif-color "${foreground//#}99" \
+	--wrong-color "${foreground//#}99" \
+	--modif-color "${foreground//#}99" \
 	--layout-color "${foreground//#}99" \
-	--time-color "${background//#}99" \
-	--date-color "${background//#}99" \
-	--greeter-color "${background//#}99" \
+	--time-color "${foreground//#}99" \
+	--date-color "${foreground//#}99" \
+	--greeter-color "${foreground//#}99" \
 	--keylayout 0 \
 	--time-str "%H:%M" \
 	--date-str "%A, %d/%m/%Y" \

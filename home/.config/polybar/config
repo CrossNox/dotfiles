@@ -112,7 +112,7 @@ interval = 60
 
 ; Available tags:
 ;   <label> (default)
-format = " <label>"
+format = %{A1:xdg-open https\://github.com/notifications:} <label>%{A}
 
 ; Available tokens:
 ;   %notifications% (default)

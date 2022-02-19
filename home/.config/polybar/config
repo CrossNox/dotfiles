@@ -63,7 +63,7 @@ border-color = ${colors.background}
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = "FiraCode Nerd Font:size=12;3"
+font-0 = "FiraCode Nerd Font:size=12;2"
 font-1 = DejaVu Sans Mono wifi ramp:size=12
 font-2 = FiraCode Nerd Font:size=17;4
 

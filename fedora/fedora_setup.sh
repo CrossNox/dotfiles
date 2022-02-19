@@ -172,6 +172,8 @@ cd ~/.local/share/fonts
 curl -fLo "Droid Sans Mono Nerd Font Complete.otf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DroidSansMono/complete/Droid%20Sans%20Mono%20Nerd%20Font%20Complete.otf
 curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf
 curl -fLo "DejaVu Sans Mono wifi ramp" https://github.com/isaif/polybar-wifi-ramp-icons/raw/main/DejaVuSansMono-wifi-ramp.ttf
+curl -fLo "WeatherIcons Regular" https://github.com/erikflowers/weather-icons/raw/master/font/weathericons-regular-webfont.ttf
+curl -fLo "MaterialIcons Regular" https://github.com/google/material-design-icons/raw/master/font/MaterialIcons-Regular.ttf
 
 fc-cache -v
 
@@ -265,3 +267,8 @@ chmod +x rofi-network-manager.sh
 cp rofi-network-manager.sh ~/.config/polybar/scripts/
 cp rofi-network-manager.rasi ~/.config/rofi/
 cp rofi-network-manager.conf ~/.config/rofi/
+
+cd /tmp
+curl -fLo "ntfd" https://github.com/kamek-pf/ntfd/releases/download/0.2.2/ntfd-x86_64-unknown-linux-musl
+chmod +x ntfd
+mv ntfd ~/.local/bin

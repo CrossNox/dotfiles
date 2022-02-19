@@ -69,5 +69,10 @@ sleep 1.0
 # dunst
 $HOME/.config/dunst/launchdunst.sh
 
+killall -q ntfd
+while pgrep -u $UID -x ntfd >/dev/null; do sleep 1; done
+
+OWM_API_KEY="$(pass openweathermap.org/api_keys/ntfd)" ntfd &
+
 # polybar
 $HOME/.config/polybar/scripts/launch.sh

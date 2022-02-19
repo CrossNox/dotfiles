@@ -35,6 +35,12 @@ alt + Delete
 super + n
     kitty -e "nnn"
 
+Print
+	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png'
+
+ctrl + shift + Print
+	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png' --select capture -l opacity=0
+
 #
 # bspwm hotkeys
 #

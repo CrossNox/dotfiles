@@ -73,6 +73,7 @@ readline
 readline-devel
 rofi
 rofi-devel
+scrot
 smbios-utils-python
 snapd
 sqlite-devel

@@ -38,9 +38,11 @@ super + n
 Print
 	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png'
 
-ctrl + shift + Print
-	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png' --select capture -l opacity=0
+shift + Print
+	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png' --select=capture -l opacity=0
 
+ctrl + shift + Print
+	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png' --select=capture -l opacity=0 -e 'xclip -selection clipboard -t image/png -i "$f"'
 #
 # bspwm hotkeys
 #

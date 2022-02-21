@@ -58,6 +58,9 @@ if [[ "$HOSTNAME" == "dell-xps" ]]; then
     xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
     xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
     xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1
+else if [[ "$HOSTNAME" == "shootingstar" ]]; then
+	xinput map-to-output 24 DP-1
+	xinput map-to-output 17 DP-1
 fi
 
 bspc config external_rules_command "$HOME/.config/bspwm/external-rules"

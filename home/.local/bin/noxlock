@@ -41,7 +41,7 @@ i3lock \
 	--greeter-color "${foreground//#}99" \
 	--keylayout 0 \
 	--time-str "%H:%M" \
-	--date-str "%A, %d/%m/%Y" \
+	--date-str "%A, %d %b %Y" \
 	--verif-text="verifying password" \
 	--wrong-text "wrong password" \
 	--noinput-text "" \

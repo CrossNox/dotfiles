@@ -1,0 +1,13 @@
+[display]
+base_currency = "ars"
+format = "{price} {change1h:+.2f}% {change24h:+.2f}%"
+separator = " "
+
+[coins.bitcoin]
+icon = ""
+
+[coins.ethereum]
+icon = ""
+
+[coins.dai]
+icon = ""

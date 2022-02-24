@@ -174,6 +174,7 @@ curl -fLo "Fira Code Regular Nerd Font Complete.ttf" https://github.com/ryanoasi
 curl -fLo "DejaVu Sans Mono wifi ramp" https://github.com/isaif/polybar-wifi-ramp-icons/raw/main/DejaVuSansMono-wifi-ramp.ttf
 curl -fLo "WeatherIcons Regular" https://github.com/erikflowers/weather-icons/raw/master/font/weathericons-regular-webfont.ttf
 curl -fLo "MaterialIcons Regular" https://github.com/google/material-design-icons/raw/master/font/MaterialIcons-Regular.ttf
+curl -fLo "CryptoFont" https://github.com/monzanifabio/cryptofont/raw/master/fonts/cryptofont.ttf
 
 fc-cache -v
 

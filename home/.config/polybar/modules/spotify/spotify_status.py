@@ -123,6 +123,6 @@ try:
 
 except Exception as e:
     if isinstance(e, dbus.exceptions.DBusException):
-        print("")
+        exit(1)
     else:
         print(e)

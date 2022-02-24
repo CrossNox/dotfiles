@@ -41,8 +41,8 @@ elif [[ "$HOSTNAME" == "shootingstar" ]]; then
 	bspc monitor HDMI-0 -d X
 fi
 
-bspc config top_padding 36
-bspc config bottom_padding 36
+bspc config top_padding 34
+bspc config bottom_padding 34
 bspc config border_width		4
 bspc config window_gap			14
 bspc config split_ratio			0.52

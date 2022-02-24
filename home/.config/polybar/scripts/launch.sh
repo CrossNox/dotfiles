@@ -11,9 +11,9 @@ echo "Launching polybar"
 # Launch polybar
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-	  POLYBAR_GH_ACCESS_TOKEN=$(pass github/tokens/polybar) MONITOR=$m polybar --reload statusbar &
+	  POLYBAR_GH_ACCESS_TOKEN=$(pass github/tokens/polybar) MONITOR=$m polybar --reload --config=$HOME/.config/polybar/statusbar.ini statusbar &
   done
 else
-  polybar --reload statusbar &
+  polybar --reload statusbar --config $HOME/.config/polybar/statusbar.ini &
 fi
 echo "Polybar launched"

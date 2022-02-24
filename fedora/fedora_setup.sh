@@ -105,6 +105,7 @@ virtualenv -p python3 venv
 source venv/bin/activate
 pip install -r $DOTFILES_FOLDER/fedora/base_requirements.txt
 deactivate
+pip install toml
 
 # nvm
 echo "Install nvm"
@@ -137,7 +138,8 @@ curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs | s
 
 # Get pretty wallpaper
 echo "Getting a nice wallpaper"
-cd ~/Pictures
+mkdir -p ~/Pictures/Wallpapers
+cd ~/Pictures/Wallpapers
 wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/wallpaper_mikael_gustafsson.png
 
 # glances

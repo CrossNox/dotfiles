@@ -3,7 +3,11 @@
 #    exit 1
 # fi
 
-while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+while true; do
+	sudo -n true
+	sleep 60
+	kill -0 "$$" || exit
+done 2>/dev/null &
 
 set -e
 # keep track of the last executed command
@@ -18,19 +22,18 @@ DOTFILES_FOLDER=$SUDO_USER_HOME/repos/dotfiles
 # clone this repo
 echo "Cloning repo"
 
-if [ ! -d "$REPOS_FOLDER" ] ; then
-    mkdir -p $REPOS_FOLDER
+if [ ! -d "$REPOS_FOLDER" ]; then
+	mkdir -p $REPOS_FOLDER
 	chown "$SUDO_USER" $REPOS_FOLDER
 fi
 
-if [ ! -d "$DOTFILES_FOLDER" ] ; then
-    git clone https://github.com/CrossNox/dotfiles.git $DOTFILES_FOLDER
+if [ ! -d "$DOTFILES_FOLDER" ]; then
+	git clone https://github.com/CrossNox/dotfiles.git $DOTFILES_FOLDER
 	chown "$SUDO_USER" $DOTFILES_FOLDER
 fi
 
 cd $DOTFILES_FOLDER
 git pull
-
 
 # set dnf repos
 echo "Setting repos"
@@ -44,7 +47,7 @@ sudo dnf config-manager --set-enabled google-chrome
 
 # install packages
 echo "Installing DNF packages"
-sudo dnf install -y `cat $DOTFILES_FOLDER/fedora/dnf_pkgs`
+sudo dnf install -y $(cat $DOTFILES_FOLDER/fedora/dnf_pkgs)
 sudo systemctl enable powertop.service
 
 # f33 default editor
@@ -117,7 +120,7 @@ nvm install node
 npm install --global yarn
 
 # Install mdcat
-if [ ! -d "$REPOS_FOLDER/mdcat" ] ; then
+if [ ! -d "$REPOS_FOLDER/mdcat" ]; then
 	git clone https://github.com/lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
 fi
 cd $REPOS_FOLDER/mdcat
@@ -127,7 +130,7 @@ cargo install mdcat
 cargo install onefetch
 
 # nnn
-if [ ! -d "$REPOS_FOLDER/nnn" ] ; then
+if [ ! -d "$REPOS_FOLDER/nnn" ]; then
 	git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
 fi
 cd $REPOS_FOLDER/nnn
@@ -185,8 +188,8 @@ fc-cache -v
 
 # NB
 curl -L https://raw.github.com/xwmx/nb/master/nb -o /usr/local/bin/nb &&
-  chmod +x /usr/local/bin/nb &&
-  nb completions install
+	chmod +x /usr/local/bin/nb &&
+	nb completions install
 
 nb env install && nb completions install --download
 
@@ -256,7 +259,7 @@ wget https://github.com/Ultimaker/Cura/releases/download/4.13.1/Ultimaker_Cura-4
 chmod +x Ultimaker_Cura-4.13.1.AppImage
 wget https://raw.githubusercontent.com/Ultimaker/Cura/master/icons/cura-64.png
 
-cat >> ~/.local/share/applications/UltimakerCura.desktop<< EOF
+cat >>~/.local/share/applications/UltimakerCura.desktop <<EOF
 [Desktop Entry]
 Type=Application
 Name=Ultimaker Cura

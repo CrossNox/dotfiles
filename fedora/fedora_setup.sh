@@ -162,6 +162,7 @@ pipx install git+https://github.com/dsanson/termpdf.py.git
 pipx install termdown
 pipx install pywal
 pipx install bspcq
+pipx install gsutil
 # pipx install git+https://github.com/CrossNox/nbtodos.git
 
 # jedi

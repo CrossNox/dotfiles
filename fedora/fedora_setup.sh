@@ -74,8 +74,8 @@ echo "Linking dotfiles with stow"
 rm ~/.bashrc
 cd $DOTFILES_FOLDER
 stow -vSt ~ home
-sudo stow -vSt /etc etc
-sudo stow -vSt /usr usr
+sudo stow -vSt / root
+sudo stow -vSt / hosts/$HOSTNAME
 
 # For udev rules
 sudo udevadm control --reload-rules && sudo udevadm trigger

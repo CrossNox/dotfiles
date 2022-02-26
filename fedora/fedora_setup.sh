@@ -79,7 +79,9 @@ cd $DOTFILES_FOLDER
 stow -vSt ~ home
 
 for x in $(find root -type f); do
+	echo "Checking for /$x"
 	if [ -f "/$x" ] && [ ! -L "/$x" ]; then
+		echo "removing /$x"
 		sudo rm "/$x"
 	fi
 done
@@ -89,7 +91,9 @@ for x in "shootingstar" "dell-xps"; do
 	if [ $x = $HOSTNAME ]; then
 		cd hosts
 		for x in $(find $HOSTNAME -type f); do
+			echo "Checking for $x"
 			if [ -f "/$x" ] && [ ! -L "/$x" ]; then
+				echo "removing /$x"
 				sudo rm "/$x"
 			fi
 		done
@@ -140,6 +144,7 @@ if [ ! -d "$REPOS_FOLDER/mdcat" ]; then
 	git clone https://github.com/lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
 fi
 cd $REPOS_FOLDER/mdcat
+git pull
 cargo install mdcat
 
 # Install onefetch
@@ -149,6 +154,7 @@ cargo install onefetch
 if [ ! -d "$REPOS_FOLDER/nnn" ]; then
 	git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
 fi
+git pull
 cd $REPOS_FOLDER/nnn
 make O_NERD=1 O_GITSTATUS=1
 mv nnn $HOME/.local/bin/
@@ -216,6 +222,7 @@ source ~/.bashrc
 if [ ! -d "$REPOS_FOLDER/picom" ]; then
 	git clone git@github.com:ibhagwan/picom.git ~/repos/picom
 fi
+git pull
 cd ~/repos/picom
 git submodule update --init --recursive
 meson --buildtype=release . build
@@ -225,6 +232,7 @@ sudo ninja -C build install
 if [ ! -d "$REPOS_FOLDER/xdo" ]; then
 	git clone https://github.com/baskerville/xdo.git ~/repos/xdo
 fi
+git pull
 cd ~/repos/xdo
 make
 sudo make install
@@ -236,6 +244,7 @@ sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/
 if [ ! -d "$REPOS_FOLDER/rofi-emoji" ]; then
 	git clone git@github.com:Mange/rofi-emoji.git ~/repos/rofi-emoji
 fi
+git pull
 cd ~/repos/rofi-emoji
 autoreconf -i
 mkdir build
@@ -247,6 +256,7 @@ sudo make install
 if [ ! -d "$REPOS_FOLDER/xbanish" ]; then
 	git clone git@github.com:jcs/xbanish.git ~/repos/xbanish
 fi
+git pull
 cd ~/repos/xbanish/
 make
 mv xbanish ~/.local/bin/
@@ -254,6 +264,7 @@ mv xbanish ~/.local/bin/
 if [ ! -d "$REPOS_FOLDER/rofi-calc" ]; then
 	git clone git@github.com:svenstaro/rofi-calc.git ~/repos/rofi-calc
 fi
+git pull
 cd ~/repos/rofi-calc
 autoreconf -i
 mkdir build
@@ -265,12 +276,14 @@ sudo make install
 if [ ! -d "$REPOS_FOLDER/rofi-pass" ]; then
 	git clone https://github.com/carnager/rofi-pass.git ~/repos/rofi-pass
 fi
+git pull
 cd ~/repos/rofi-pass
 sudo make install
 
 if [ ! -d "$REPOS_FOLDER/xtitle" ]; then
 	git clone git@github.com:baskerville/xtitle.git ~/repos/xtitle
 fi
+git pull
 cd ~/repos/xtitle
 sudo make
 sudo make install
@@ -278,12 +291,14 @@ sudo make install
 if [ ! -d "$REPOS_FOLDER/i3lock-color" ]; then
 	git clone https://github.com/Raymo111/i3lock-color.git ~/repos/i3lock-color
 fi
+git pull
 cd ~/repos/i3lock-color
 ./install-i3lock-color.sh
 
 if [ ! -d "$REPOS_FOLDER/rofi-bluetooth" ]; then
 	git clone git@github.com:ClydeDroid/rofi-bluetooth.git ~/repos/rofi-bluetooth
 fi
+git pull
 cd ~/repos/rofi-bluetooth
 cp rofi-bluetooth ~/.local/bin
 
@@ -307,6 +322,7 @@ EOF
 if [ ! -d "$REPOS_FOLDER/rofi-network-manager" ]; then
 	git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
 fi
+git pull
 cd ~/repos/rofi-network-manager
 chmod +x rofi-network-manager.sh
 cp rofi-network-manager.sh ~/.config/polybar/scripts/

@@ -79,7 +79,7 @@ cd $DOTFILES_FOLDER
 stow -vSt ~ home
 
 cd root
-for x in $(find root -type f); do
+for x in $(find . -type f); do
 	echo "Checking for /$x"
 	if [ -f "/$x" ] && [ ! -L "/$x" ]; then
 		echo "removing /$x"
@@ -92,7 +92,7 @@ sudo stow -vSt / root
 for x in "shootingstar" "dell-xps"; do
 	if [ $x = $HOSTNAME ]; then
 		cd hosts/$HOSTNAME
-		for x in $(find $HOSTNAME -type f); do
+		for x in $(find . -type f); do
 			echo "Checking for $x;"
 			if [ -f "/$x" ] && [ ! -L "/$x" ]; then
 				echo "removing /$x"

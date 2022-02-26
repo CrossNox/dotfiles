@@ -21,5 +21,12 @@ SUBSYSTEM=="power_supply", \
 KERNEL=="BAT0", \
 ACTION=="change", \
 ATTR{status}=="Discharging", \
-ATTR{capacity}=="[0-9]", \
+ATTR{capacity}=="[4-9]", \
 RUN+="/usr/local/bin/send_battery_notification urgent 'Critical Battery Level ($attr{capacity}%)'"
+
+SUBSYSTEM=="power_supply", \
+KERNEL=="BAT0", \
+ACTION=="change", \
+ATTR{status}=="Discharging", \
+ATTR{capacity}=="[0-3]", \
+RUN+="systemctl suspend"

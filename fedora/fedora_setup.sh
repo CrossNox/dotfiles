@@ -75,7 +75,9 @@ rm ~/.bashrc
 cd $DOTFILES_FOLDER
 stow -vSt ~ home
 sudo stow -vSt / root
-sudo stow -vSt / hosts/$HOSTNAME
+cd hosts
+sudo stow -vSt / $HOSTNAME
+cd ..
 
 # For udev rules
 sudo udevadm control --reload-rules && sudo udevadm trigger

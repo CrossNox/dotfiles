@@ -29,11 +29,11 @@ eval "$(register-python-argcomplete pipx)"
 export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-PATH="/home/nox/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/nox/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/nox/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/nox/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/nox/perl5"; export PERL_MM_OPT;
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -45,7 +45,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export EDITOR=nvim
 
 
-NNN_FCOLORS_VENV=${PIPX_HOME:-/home/nox/.local/pipx}/venvs/pywal/bin/python
+NNN_FCOLORS_VENV=${PIPX_HOME:-$HOME/.local/pipx}/venvs/pywal/bin/python
 export NNN_FCOLORS=$( $NNN_FCOLORS_VENV ~/.config/wal/rgb2xterm256.py )
 export NNN_OPTS="deHG"
 export LC_COLLATE="C"

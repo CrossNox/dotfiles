@@ -79,25 +79,25 @@ cd $DOTFILES_FOLDER
 stow -vSt ~ home
 
 for x in $(find root -type f); do
-	echo "Checking for /$x"
+	echo "Checking for /$x";
 	if [ -f "/$x" ] && [ ! -L "/$x" ]; then
-		echo "removing /$x"
-		sudo rm "/$x"
+		echo "removing /$x";
+		sudo rm "/$x";
 	fi
 done
 sudo stow -vSt / root
 
 for x in "shootingstar" "dell-xps"; do
 	if [ $x = $HOSTNAME ]; then
-		cd hosts
+		cd hosts;
 		for x in $(find $HOSTNAME -type f); do
-			echo "Checking for $x"
+			echo "Checking for $x;"
 			if [ -f "/$x" ] && [ ! -L "/$x" ]; then
-				echo "removing /$x"
-				sudo rm "/$x"
+				echo "removing /$x";
+				sudo rm "/$x";
 			fi
 		done
-		sudo stow -vSt / $HOSTNAME
+		sudo stow -vSt / $HOSTNAME;
 		cd ..
 	fi
 done

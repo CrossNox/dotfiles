@@ -77,12 +77,22 @@ echo "Linking dotfiles with stow"
 rm ~/.bashrc
 cd $DOTFILES_FOLDER
 stow -vSt ~ home
-sudo rm /etc/gdm/custom.conf
-sudo rm /etc/systemd/journald.conf
+
+for x in $(find root -type f); do
+	if [ -f "/$x" ] && [ ! -L "/$x" ]; then
+		sudo rm "/$x"
+	fi
+done
 sudo stow -vSt / root
+
 for x in "shootingstar" "dell-xps"; do
 	if [ $x = $HOSTNAME ]; then
 		cd hosts
+		for x in $(find $HOSTNAME -type f); do
+			if [ -f "/$x" ] && [ ! -L "/$x" ]; then
+				sudo rm "/$x"
+			fi
+		done
 		sudo stow -vSt / $HOSTNAME
 		cd ..
 	fi

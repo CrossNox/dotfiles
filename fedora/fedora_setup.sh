@@ -78,26 +78,29 @@ rm ~/.bashrc
 cd $DOTFILES_FOLDER
 stow -vSt ~ home
 
+cd root
 for x in $(find root -type f); do
-	echo "Checking for /$x";
+	echo "Checking for /$x"
 	if [ -f "/$x" ] && [ ! -L "/$x" ]; then
-		echo "removing /$x";
-		sudo rm "/$x";
+		echo "removing /$x"
+		sudo rm "/$x"
 	fi
 done
+cd ..
 sudo stow -vSt / root
 
 for x in "shootingstar" "dell-xps"; do
 	if [ $x = $HOSTNAME ]; then
-		cd hosts;
+		cd hosts/$HOSTNAME
 		for x in $(find $HOSTNAME -type f); do
 			echo "Checking for $x;"
 			if [ -f "/$x" ] && [ ! -L "/$x" ]; then
-				echo "removing /$x";
-				sudo rm "/$x";
+				echo "removing /$x"
+				sudo rm "/$x"
 			fi
 		done
-		sudo stow -vSt / $HOSTNAME;
+		cd ..
+		sudo stow -vSt / $HOSTNAME
 		cd ..
 	fi
 done

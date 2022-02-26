@@ -106,6 +106,7 @@ let g:ale_fixers = {
       \    'json': ['jq'],
       \    'html': ['html-beautify'],
       \    'java': ['google_java_format'],
+	  \    'sh': ['shfmt'],
       \}
 
 let g:terraform_fmt_on_save=1

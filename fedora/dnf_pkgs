@@ -74,6 +74,7 @@ readline-devel
 rofi
 rofi-devel
 scrot
+shfmt
 smbios-utils-python
 snapd
 sqlite-devel

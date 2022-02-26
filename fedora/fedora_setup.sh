@@ -64,7 +64,7 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak --user override --filesystem=/home/$USER/.icons/:ro
 flatpak --user override --filesystem=/usr/share/icons/:ro
 
-REPOS_FOLDER=$REPOS_FOLDER
+REPOS_FOLDER=~/repos
 
 echo "Installing flatpaks"
 flatpak install -y --noninteractive com.spotify.Client
@@ -77,10 +77,16 @@ echo "Linking dotfiles with stow"
 rm ~/.bashrc
 cd $DOTFILES_FOLDER
 stow -vSt ~ home
+sudo rm /etc/gdm/custom.conf
+sudo rm /etc/systemd/journald.conf
 sudo stow -vSt / root
-cd hosts
-sudo stow -vSt / $HOSTNAME
-cd ..
+for x in "shootingstar" "dell-xps"; do
+	if [ $x = $HOSTNAME ]; then
+		cd hosts
+		sudo stow -vSt / $HOSTNAME
+		cd ..
+	fi
+done
 
 # For udev rules
 sudo udevadm control --reload-rules && sudo udevadm trigger
@@ -198,18 +204,18 @@ npm install -g sass
 source ~/.bashrc
 
 if [ ! -d "$REPOS_FOLDER/picom" ]; then
-	git clone git@github.com:ibhagwan/picom.git $REPOS_FOLDER/picom
+	git clone git@github.com:ibhagwan/picom.git ~/repos/picom
 fi
-cd $REPOS_FOLDER/picom
+cd ~/repos/picom
 git submodule update --init --recursive
 meson --buildtype=release . build
 ninja -C build
 sudo ninja -C build install
 
 if [ ! -d "$REPOS_FOLDER/xdo" ]; then
-	git clone https://github.com/baskerville/xdo.git $REPOS_FOLDER/xdo
+	git clone https://github.com/baskerville/xdo.git ~/repos/xdo
 fi
-cd $REPOS_FOLDER/xdo
+cd ~/repos/xdo
 make
 sudo make install
 
@@ -218,9 +224,9 @@ sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/fil
 sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 
 if [ ! -d "$REPOS_FOLDER/rofi-emoji" ]; then
-	git clone git@github.com:Mange/rofi-emoji.git $REPOS_FOLDER/rofi-emoji
+	git clone git@github.com:Mange/rofi-emoji.git ~/repos/rofi-emoji
 fi
-cd $REPOS_FOLDER/rofi-emoji
+cd ~/repos/rofi-emoji
 autoreconf -i
 mkdir build
 cd build/
@@ -229,16 +235,16 @@ make
 sudo make install
 
 if [ ! -d "$REPOS_FOLDER/xbanish" ]; then
-	git clone git@github.com:jcs/xbanish.git $REPOS_FOLDER/xbanish
+	git clone git@github.com:jcs/xbanish.git ~/repos/xbanish
 fi
-cd $REPOS_FOLDER/xbanish/
+cd ~/repos/xbanish/
 make
 mv xbanish ~/.local/bin/
 
 if [ ! -d "$REPOS_FOLDER/rofi-calc" ]; then
-	git clone git@github.com:svenstaro/rofi-calc.git $REPOS_FOLDER/rofi-calc
+	git clone git@github.com:svenstaro/rofi-calc.git ~/repos/rofi-calc
 fi
-cd $REPOS_FOLDER/rofi-calc
+cd ~/repos/rofi-calc
 autoreconf -i
 mkdir build
 cd build/
@@ -247,28 +253,28 @@ make
 sudo make install
 
 if [ ! -d "$REPOS_FOLDER/rofi-pass" ]; then
-	git clone https://github.com/carnager/rofi-pass.git $REPOS_FOLDER/rofi-pass
+	git clone https://github.com/carnager/rofi-pass.git ~/repos/rofi-pass
 fi
-cd $REPOS_FOLDER/rofi-pass
+cd ~/repos/rofi-pass
 sudo make install
 
 if [ ! -d "$REPOS_FOLDER/xtitle" ]; then
-	git clone git@github.com:baskerville/xtitle.git $REPOS_FOLDER/xtitle
+	git clone git@github.com:baskerville/xtitle.git ~/repos/xtitle
 fi
-cd $REPOS_FOLDER/xtitle
+cd ~/repos/xtitle
 sudo make
 sudo make install
 
 if [ ! -d "$REPOS_FOLDER/i3lock-color" ]; then
-	git clone https://github.com/Raymo111/i3lock-color.git $REPOS_FOLDER/i3lock-color
+	git clone https://github.com/Raymo111/i3lock-color.git ~/repos/i3lock-color
 fi
-cd $REPOS_FOLDER/i3lock-color
+cd ~/repos/i3lock-color
 ./install-i3lock-color.sh
 
 if [ ! -d "$REPOS_FOLDER/rofi-bluetooth" ]; then
-	git clone git@github.com:ClydeDroid/rofi-bluetooth.git $REPOS_FOLDER/rofi-bluetooth
+	git clone git@github.com:ClydeDroid/rofi-bluetooth.git ~/repos/rofi-bluetooth
 fi
-cd $REPOS_FOLDER/rofi-bluetooth
+cd ~/repos/rofi-bluetooth
 cp rofi-bluetooth ~/.local/bin
 
 mkdir ~/AppImages
@@ -289,9 +295,9 @@ Categories=Design
 EOF
 
 if [ ! -d "$REPOS_FOLDER/rofi-network-manager" ]; then
-	git clone https://github.com/P3rf/rofi-network-manager.git $REPOS_FOLDER/rofi-network-manager
+	git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
 fi
-cd $REPOS_FOLDER/rofi-network-manager
+cd ~/repos/rofi-network-manager
 chmod +x rofi-network-manager.sh
 cp rofi-network-manager.sh ~/.config/polybar/scripts/
 cp rofi-network-manager.rasi ~/.config/rofi/

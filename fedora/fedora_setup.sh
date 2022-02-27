@@ -72,6 +72,7 @@ flatpak install -y --noninteractive com.slack.Slack
 flatpak install -y --noninteractive org.telegram.desktop
 
 mkdir -p ~/.local/bin
+mkdir -p ~/.gnupg
 
 echo "Linking dotfiles with stow"
 cd $DOTFILES_FOLDER

@@ -73,7 +73,13 @@ flatpak install -y --noninteractive org.telegram.desktop
 
 echo "Linking dotfiles with stow"
 cd $DOTFILES_FOLDER
-stow -vSt ~ home
+
+if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+		echo "Removing $HOME/$x"
+		rm "$HOME/$x"
+	done
+fi
 sudo stow -vSt / root
 
 for x in "shootingstar" "dell-xps"; do

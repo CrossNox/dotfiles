@@ -76,6 +76,16 @@ flatpak install -y --noninteractive org.telegram.desktop
 echo "Linking dotfiles with stow"
 rm ~/.bashrc
 cd $DOTFILES_FOLDER
+
+cd home
+for x in $(find . -type f); do
+	echo "Checking for $HOME/$x"
+	if [ -f "$HOME/$x" ] && [ ! -L "$HOME/$x" ]; then
+		echo "removing $HOME/$x"
+		sudo rm "$HOME/$x"
+	fi
+done
+cd ..
 stow -vSt ~ home
 
 cd root

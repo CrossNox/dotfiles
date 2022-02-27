@@ -74,6 +74,7 @@ flatpak install -y --noninteractive org.telegram.desktop
 echo "Linking dotfiles with stow"
 cd $DOTFILES_FOLDER
 
+echo "Linking home files"
 if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
 	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
 		echo "Removing $HOME/$x"
@@ -82,6 +83,7 @@ if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
 fi
 stow -vSt $HOME home
 
+echo "Linking root files"
 if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
 	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
 		echo "Removing /$x"
@@ -90,6 +92,7 @@ if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
 fi
 sudo stow -vSt / root
 
+echo "Linking host specific files"
 for x in "shootingstar" "dell-xps"; do
 	if [ $x = $HOSTNAME ]; then
 		cd hosts

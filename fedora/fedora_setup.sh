@@ -97,7 +97,7 @@ for x in "shootingstar" "dell-xps"; do
 		if ! stow -nt / $HOSTNAME >/tmp/stow_stdout 2>/tmp/stow_stderr; then
 			for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
 				echo "Removing /$x"
-				rm "/$x"
+				sudo rm "/$x"
 			done
 		fi
 

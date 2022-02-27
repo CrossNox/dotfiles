@@ -79,7 +79,7 @@ for x in $(find . -type f); do
 	echo "Checking for $HOME/$x"
 	if [ -f "$HOME/$x" ] && [ ! -L "$HOME/$x" ]; then
 		echo "removing $HOME/$x"
-		sudo rm "$HOME/$x"
+		rm "$HOME/$x"
 	fi
 done
 cd ..

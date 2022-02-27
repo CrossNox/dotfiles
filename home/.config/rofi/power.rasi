@@ -7,7 +7,7 @@ configuration {
 }
 
 window {
-	width: 10em;
+	width: 11em;
 }
 
 mainbox {

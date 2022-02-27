@@ -52,8 +52,10 @@ export PATH="$PATH:$HOME/.cargo/bin"
 
 export EDITOR=nvim
 
-NNN_FCOLORS_VENV=${PIPX_HOME:-$HOME/.local/pipx}/venvs/pywal/bin/python
-export NNN_FCOLORS=$($NNN_FCOLORS_VENV ~/.config/wal/rgb2xterm256.py)
+if command wal &>/dev/null; then
+	NNN_FCOLORS_VENV=${PIPX_HOME:-$HOME/.local/pipx}/venvs/pywal/bin/python
+	export NNN_FCOLORS=$($NNN_FCOLORS_VENV ~/.config/wal/rgb2xterm256.py)
+fi
 export NNN_OPTS="deHG"
 export LC_COLLATE="C"
 export NNN_FIFO="/tmp/nnn.fifo"

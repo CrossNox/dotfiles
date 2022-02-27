@@ -205,8 +205,8 @@ source ~/.bashrc
 if [ ! -d "$REPOS_FOLDER/picom" ]; then
 	git clone https://github.com/ibhagwan/picom.git ~/repos/picom
 fi
-git pull
 cd ~/repos/picom
+git pull
 git submodule update --init --recursive
 meson --buildtype=release . build
 ninja -C build
@@ -215,8 +215,8 @@ sudo ninja -C build install
 if [ ! -d "$REPOS_FOLDER/xdo" ]; then
 	git clone https://github.com/baskerville/xdo.git ~/repos/xdo
 fi
-git pull
 cd ~/repos/xdo
+git pull
 make
 sudo make install
 
@@ -227,8 +227,8 @@ sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/
 if [ ! -d "$REPOS_FOLDER/rofi-emoji" ]; then
 	git clone https://github.com/Mange/rofi-emoji.git ~/repos/rofi-emoji
 fi
-git pull
 cd ~/repos/rofi-emoji
+git pull
 autoreconf -i
 mkdir build
 cd build/
@@ -239,16 +239,16 @@ sudo make install
 if [ ! -d "$REPOS_FOLDER/xbanish" ]; then
 	git clone https://github.com/jcs/xbanish.git ~/repos/xbanish
 fi
-git pull
 cd ~/repos/xbanish/
+git pull
 make
 mv xbanish ~/.local/bin/
 
 if [ ! -d "$REPOS_FOLDER/rofi-calc" ]; then
 	git clone https://github.com/svenstaro/rofi-calc.git ~/repos/rofi-calc
 fi
-git pull
 cd ~/repos/rofi-calc
+git pull
 autoreconf -i
 mkdir build
 cd build/
@@ -259,15 +259,15 @@ sudo make install
 if [ ! -d "$REPOS_FOLDER/rofi-pass" ]; then
 	git clone https://github.com/carnager/rofi-pass.git ~/repos/rofi-pass
 fi
-git pull
 cd ~/repos/rofi-pass
+git pull
 sudo make install
 
 if [ ! -d "$REPOS_FOLDER/xtitle" ]; then
 	git clone https://github.com/baskerville/xtitle.git ~/repos/xtitle
 fi
-git pull
 cd ~/repos/xtitle
+git pull
 sudo make
 sudo make install
 
@@ -281,8 +281,8 @@ cd ~/repos/i3lock-color
 if [ ! -d "$REPOS_FOLDER/rofi-bluetooth" ]; then
 	git clone https://github.com/ClydeDroid/rofi-bluetooth.git ~/repos/rofi-bluetooth
 fi
-git pull
 cd ~/repos/rofi-bluetooth
+git pull
 cp rofi-bluetooth ~/.local/bin
 
 mkdir ~/AppImages
@@ -305,8 +305,8 @@ EOF
 if [ ! -d "$REPOS_FOLDER/rofi-network-manager" ]; then
 	git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
 fi
-git pull
 cd ~/repos/rofi-network-manager
+git pull
 chmod +x rofi-network-manager.sh
 cp rofi-network-manager.sh ~/.config/polybar/scripts/
 cp rofi-network-manager.rasi ~/.config/rofi/

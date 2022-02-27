@@ -80,11 +80,27 @@ if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
 		rm "$HOME/$x"
 	done
 fi
+stow -vSt $HOME home
+
+if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+		echo "Removing /$x"
+		rm "/$x"
+	done
+fi
 sudo stow -vSt / root
 
 for x in "shootingstar" "dell-xps"; do
 	if [ $x = $HOSTNAME ]; then
 		cd hosts
+
+		if ! stow -nt / $HOSTNAME >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+			for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+				echo "Removing /$x"
+				rm "/$x"
+			done
+		fi
+
 		sudo stow -vSt / $HOSTNAME
 		cd ..
 	fi

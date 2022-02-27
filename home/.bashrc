@@ -22,7 +22,9 @@ source ~/.config/powerline/.powerline
 if [ -f ~/.cache/wal/sequences ]; then
 	\cat ~/.cache/wal/sequences
 fi
-source ~/.cache/wal/colors-tty.sh
+if [ -f ~/.cache/wal/colors-tty.sh ]; then
+	source ~/.cache/wal/colors-tty.sh
+fi
 
 eval "$(register-python-argcomplete pipx)"
 

@@ -334,8 +334,8 @@ cd ~/repos/rofi-network-manager
 git pull
 chmod +x rofi-network-manager.sh
 cp rofi-network-manager.sh ~/.config/polybar/scripts/
-cp rofi-network-manager.rasi ~/.config/rofi/
-cp rofi-network-manager.conf ~/.config/rofi/
+#cp rofi-network-manager.rasi ~/.config/rofi/
+#cp rofi-network-manager.conf ~/.config/rofi/
 
 cd /tmp
 curl -fLo "ntfd" https://github.com/kamek-pf/ntfd/releases/download/0.2.2/ntfd-x86_64-unknown-linux-musl

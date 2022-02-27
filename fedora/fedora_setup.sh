@@ -85,7 +85,7 @@ stow -vSt $HOME home
 if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
 	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
 		echo "Removing /$x"
-		rm "/$x"
+		sudo rm "/$x"
 	done
 fi
 sudo stow -vSt / root

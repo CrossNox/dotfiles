@@ -230,7 +230,7 @@ npm install -g sass
 source ~/.bashrc
 
 if [ ! -d "$REPOS_FOLDER/picom" ]; then
-	git clone git@github.com:ibhagwan/picom.git ~/repos/picom
+	git clone https://github.com/ibhagwan/picom.git ~/repos/picom
 fi
 git pull
 cd ~/repos/picom
@@ -252,7 +252,7 @@ sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/fil
 sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 
 if [ ! -d "$REPOS_FOLDER/rofi-emoji" ]; then
-	git clone git@github.com:Mange/rofi-emoji.git ~/repos/rofi-emoji
+	git clone https://github.com/Mange/rofi-emoji.git ~/repos/rofi-emoji
 fi
 git pull
 cd ~/repos/rofi-emoji
@@ -264,7 +264,7 @@ make
 sudo make install
 
 if [ ! -d "$REPOS_FOLDER/xbanish" ]; then
-	git clone git@github.com:jcs/xbanish.git ~/repos/xbanish
+	git clone https://github.com/jcs/xbanish.git ~/repos/xbanish
 fi
 git pull
 cd ~/repos/xbanish/
@@ -272,7 +272,7 @@ make
 mv xbanish ~/.local/bin/
 
 if [ ! -d "$REPOS_FOLDER/rofi-calc" ]; then
-	git clone git@github.com:svenstaro/rofi-calc.git ~/repos/rofi-calc
+	git clone https://github.com/svenstaro/rofi-calc.git ~/repos/rofi-calc
 fi
 git pull
 cd ~/repos/rofi-calc
@@ -291,7 +291,7 @@ cd ~/repos/rofi-pass
 sudo make install
 
 if [ ! -d "$REPOS_FOLDER/xtitle" ]; then
-	git clone git@github.com:baskerville/xtitle.git ~/repos/xtitle
+	git clone https://github.com/baskerville/xtitle.git ~/repos/xtitle
 fi
 git pull
 cd ~/repos/xtitle
@@ -306,7 +306,7 @@ cd ~/repos/i3lock-color
 ./install-i3lock-color.sh
 
 if [ ! -d "$REPOS_FOLDER/rofi-bluetooth" ]; then
-	git clone git@github.com:ClydeDroid/rofi-bluetooth.git ~/repos/rofi-bluetooth
+	git clone https://github.com/ClydeDroid/rofi-bluetooth.git ~/repos/rofi-bluetooth
 fi
 git pull
 cd ~/repos/rofi-bluetooth

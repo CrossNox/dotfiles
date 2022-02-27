@@ -24,12 +24,10 @@ echo "Cloning repo"
 
 if [ ! -d "$REPOS_FOLDER" ]; then
 	mkdir -p $REPOS_FOLDER
-	chown "$SUDO_USER" $REPOS_FOLDER
 fi
 
 if [ ! -d "$DOTFILES_FOLDER" ]; then
 	git clone https://github.com/CrossNox/dotfiles.git $DOTFILES_FOLDER
-	chown "$SUDO_USER" $DOTFILES_FOLDER
 fi
 
 cd $DOTFILES_FOLDER

@@ -74,7 +74,6 @@ flatpak install -y --noninteractive com.slack.Slack
 flatpak install -y --noninteractive org.telegram.desktop
 
 echo "Linking dotfiles with stow"
-rm ~/.bashrc
 cd $DOTFILES_FOLDER
 
 cd home

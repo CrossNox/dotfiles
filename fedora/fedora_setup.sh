@@ -161,6 +161,7 @@ wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/
 # pipx
 echo "Installing pipx and some apps"
 python3 -m pip install --user pipx
+python3 -m pip uninstall --user pipx
 python3 -m pipx ensurepath
 pipx completions
 pipx install cookiecutter

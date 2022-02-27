@@ -73,40 +73,12 @@ flatpak install -y --noninteractive org.telegram.desktop
 
 echo "Linking dotfiles with stow"
 cd $DOTFILES_FOLDER
-
-cd home
-for x in $(find . -type f); do
-	echo "Checking for $HOME/$x"
-	if [ -f "$HOME/$x" ] && [ ! -L "$HOME/$x" ]; then
-		echo "removing $HOME/$x"
-		rm "$HOME/$x"
-	fi
-done
-cd ..
 stow -vSt ~ home
-
-cd root
-for x in $(find . -type f); do
-	echo "Checking for /$x"
-	if [ -f "/$x" ] && [ ! -L "/$x" ]; then
-		echo "removing /$x"
-		sudo rm "/$x"
-	fi
-done
-cd ..
 sudo stow -vSt / root
 
 for x in "shootingstar" "dell-xps"; do
 	if [ $x = $HOSTNAME ]; then
-		cd hosts/$HOSTNAME
-		for x in $(find . -type f); do
-			echo "Checking for $x;"
-			if [ -f "/$x" ] && [ ! -L "/$x" ]; then
-				echo "removing /$x"
-				sudo rm "/$x"
-			fi
-		done
-		cd ..
+		cd hosts
 		sudo stow -vSt / $HOSTNAME
 		cd ..
 	fi

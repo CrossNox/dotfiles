@@ -220,7 +220,7 @@ git pull
 make
 sudo make install
 
-curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh -s -- 2.9.1
 sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
 sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 

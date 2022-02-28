@@ -35,6 +35,9 @@ alt + Delete
 super + n
     kitty -e "nnn"
 
+super + o
+	$HOME/.config/polybar/scripts/spotify_status.py switch-like
+
 Print
 	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png'
 

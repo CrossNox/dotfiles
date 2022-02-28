@@ -1,0 +1,8 @@
+[spotify-status]
+format="{artist}: {song}"
+paused=""
+playing=""
+notliked=""
+liked=""
+spotify_client_id="env:SPOTIFY_CLIENT_ID"
+spotify_client_secret="env:SPOTIFY_CLIENT_SECRET"

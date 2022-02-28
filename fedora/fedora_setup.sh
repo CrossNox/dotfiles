@@ -139,7 +139,7 @@ virtualenv -p python3 venv
 source venv/bin/activate
 pip install -r $DOTFILES_FOLDER/fedora/base_requirements.txt
 deactivate
-pip install toml
+pip install toml typer dbus-python flask
 
 # nvm
 echo "Install nvm"
@@ -343,3 +343,9 @@ cd /tmp
 curl -fLo "ntfd" https://github.com/kamek-pf/ntfd/releases/download/0.2.2/ntfd-x86_64-unknown-linux-musl
 chmod +x ntfd
 mv ntfd ~/.local/bin
+
+if [ ! -d "$REPOS_FOLDER/zscroll" ]; then
+	git clone https://github.com/noctuid/zscroll ~/repos/zscroll
+fi
+cd ~/repos/zscroll
+cp zscroll ~/.local/bin/

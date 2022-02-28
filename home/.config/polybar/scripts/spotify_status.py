@@ -10,7 +10,6 @@ import webbrowser
 from functools import wraps
 from queue import Queue
 
-import dbus
 import requests
 import toml
 import typer
@@ -18,6 +17,8 @@ from flask import Flask
 from flask import cli as flask_cli
 from flask import redirect, request
 from werkzeug.serving import make_server
+
+import dbus
 
 app = typer.Typer()
 
@@ -35,18 +36,24 @@ DEFAULT_CONFIG = {
 
 
 def read_config():
+    cfg = DEFAULT_CONFIG
+
     cfg_file = pathlib.Path.home() / ".config" / "spotify-status.toml"
-    if not cfg_file.exists():
-        return DEFAULT_CONFIG
-    with open(cfg_file.resolve()) as f:
-        return toml.load(f)
+    if cfg_file.exists():
+        with open(cfg_file.resolve()) as f:
+            cfg = toml.load(f)
+
+    cfg = cfg["spotify-status"]
+    cfg["spotify_client_id"] = override_env(cfg["spotify_client_id"])
+    cfg["spotify_client_secret"] = override_env(cfg["spotify_client_secret"])
+    return cfg
 
 
 def handle_spotify_not_running(function):
     @wraps(function)
     def _handle(*args, **kwargs):
         try:
-            function(*args, **kwargs)
+            return function(*args, **kwargs)
         except dbus.DBusException:
             print("Spotify is not running")
         except Exception as e:
@@ -55,11 +62,29 @@ def handle_spotify_not_running(function):
     return _handle
 
 
-def authorize():
+def handle_refresh_token(function):
+    @wraps(function)
+    def _handle(*args, **kwargs):
+        try:
+            return function(*args, **kwargs)
+        except requests.HTTPError as e:
+            if e.response.status != 401:
+                raise
+            refresh_auth()
+            return function(*args, **kwargs)
+
+    return _handle
+
+
+def read_creds():
     path = pathlib.Path.home() / ".cache" / "spotify_status.json"
     with open(path) as f:
         data = json.load(f)
-        return data.get("access_token")
+        return data
+
+
+def authorize():
+    return read_creds()["access_token"]
 
 
 def override_env(s):
@@ -71,19 +96,37 @@ def override_env(s):
 
 def build_b64_secret():
     cfg = read_config()
-    client_id = cfg["spotify-status"]["spotify_client_id"]
-    client_id = override_env(client_id)
-    client_secret = cfg["spotify-status"]["spotify_client_secret"]
-    client_secret = override_env(client_secret)
+    client_id = cfg["spotify_client_id"]
+    client_secret = cfg["spotify_client_secret"]
 
     return base64.b64encode(f"{client_id}:{client_secret}".encode()).decode()
+
+
+def refresh_auth():
+    b64_secret = build_b64_secret()
+    refresh_token = read_creds()["refrest_token"]
+
+    headers = {
+        "Authorization": f"Basic {b64_secret}",
+        "Content-Type": "application/x-www-form-urlencoded",
+    }
+    data = {
+        "grant_type": "refresh_token",
+        "refresh_token": refresh_token,
+    }
+    r = requests.post(
+        "https://accounts.spotify.com/api/token", data=data, headers=headers
+    )
+    r.raise_for_status()
+    path = pathlib.Path.home() / ".cache" / "spotify_status.json"
+    with open(path, "w") as f:
+        json.dump(r.json(), f, indent=4)
 
 
 @app.command()
 def auth():
     b64_secret = build_b64_secret()
-    client_id = read_config()["spotify-status"]["spotify_client_id"]
-    client_id = override_env(client_id)
+    client_id = read_config()["spotify_client_id"]
 
     flask_cli.show_server_banner = lambda *x: None
     server = Flask(__name__)
@@ -121,7 +164,7 @@ def auth():
         r.raise_for_status()
         path = pathlib.Path.home() / ".cache" / "spotify_status.json"
         with open(path, "w") as f:
-            json.dump(r.json(), f)
+            json.dump(r.json(), f, indent=4)
         q.put(r.json())
         return """
 <p id="time"></p>
@@ -180,6 +223,7 @@ def get_current_trackid():
 
 @app.command()
 @handle_spotify_not_running
+@handle_refresh_token
 def switch_like():
     track_id = get_current_trackid()
     token = authorize()
@@ -197,6 +241,7 @@ def switch_like():
     r.raise_for_status()
 
 
+@handle_refresh_token
 def get_like_status():
     track_id = get_current_trackid()
     token = authorize()
@@ -225,12 +270,12 @@ def get_player():
 @app.command()
 @handle_spotify_not_running
 def like_status():
-    liked = get_like_status()
     cfg = read_config()
+    liked = get_like_status()
     if liked is True:
-        print(cfg["spotify-status"]["liked"])
+        print(cfg["liked"])
     elif liked is False:
-        print(cfg["spotify-status"]["notliked"])
+        print(cfg["notliked"])
     else:
         raise ValueError(f"Unknown liked status {liked}")
     return liked
@@ -246,19 +291,26 @@ def status():
     album = metadata["xesam:album"]
 
     cfg = read_config()
-    print(cfg["spotify-status"]["format"].format(artist=artist, song=song, album=album))
+    print(cfg["format"].format(artist=artist, song=song, album=album))
 
 
 @app.command()
 @handle_spotify_not_running
-def playback_status():
-    playback_status = get_playback_status()
+def playback_status(quiet: bool = False):
+    try:
+        playback_status = get_playback_status()
+        if quiet:
+            exit(0)
+    except dbus.DBusException:
+        if quiet:
+            exit(1)
+        raise
 
     cfg = read_config()
     if playback_status == "Playing":
-        print(cfg["spotify-status"]["paused"])
+        print(cfg["paused"])
     elif playback_status == "Paused":
-        print(cfg["spotify-status"]["playing"])
+        print(cfg["playing"])
     else:
         raise ValueError(f"Unknown playback status {playback_status}")
 

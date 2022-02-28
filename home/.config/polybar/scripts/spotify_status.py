@@ -10,6 +10,7 @@ import webbrowser
 from functools import wraps
 from queue import Queue
 
+import dbus
 import requests
 import toml
 import typer
@@ -17,8 +18,6 @@ from flask import Flask
 from flask import cli as flask_cli
 from flask import redirect, request
 from werkzeug.serving import make_server
-
-import dbus
 
 app = typer.Typer()
 
@@ -239,6 +238,30 @@ def switch_like():
 
     r = method("https://api.spotify.com/v1/me/tracks", headers=headers, params=params)
     r.raise_for_status()
+
+    metadata = get_metadata()
+
+    artist = metadata["xesam:artist"][0]
+    song = metadata["xesam:title"]
+
+    bus_name = "org.freedesktop.Notifications"
+    object_path = "/org/freedesktop/Notifications"
+    interface = bus_name
+
+    notify = dbus.Interface(
+        dbus.SessionBus().get_object(bus_name, object_path), interface
+    )
+
+    notify.Notify(
+        "spotify-status",
+        0,
+        "",
+        "Removed from your liked songs" if _status else "Added to your liked songs",
+        f"{song}\n{artist}",
+        [],
+        {"urgency": 1},
+        15000,
+    )
 
 
 @handle_refresh_token

@@ -68,7 +68,7 @@ def handle_refresh_token(function):
         try:
             return function(*args, **kwargs)
         except requests.HTTPError as e:
-            if e.response.status != 401:
+            if e.response.status_code != 401:
                 raise
             refresh_auth()
             return function(*args, **kwargs)
@@ -104,7 +104,7 @@ def build_b64_secret():
 
 def refresh_auth():
     b64_secret = build_b64_secret()
-    refresh_token = read_creds()["refrest_token"]
+    refresh_token = read_creds()["refresh_token"]
 
     headers = {
         "Authorization": f"Basic {b64_secret}",

@@ -55,8 +55,6 @@ def handle_spotify_not_running(function):
             return function(*args, **kwargs)
         except dbus.DBusException:
             print("Spotify is not running")
-        except Exception as e:
-            print(f"Unknown error: {e}")
 
     return _handle
 
@@ -69,6 +67,7 @@ def handle_refresh_token(function):
         except requests.HTTPError as e:
             if e.response.status_code != 401:
                 raise
+            print(e)
             refresh_auth()
             return function(*args, **kwargs)
 
@@ -119,7 +118,9 @@ def refresh_auth():
     r.raise_for_status()
     path = pathlib.Path.home() / ".cache" / "spotify_status.json"
     with open(path, "w") as f:
-        json.dump(r.json(), f, indent=4)
+        data = json.load(f)
+        data.update(r.json())
+        json.dump(data, f, indent=4)
 
 
 @app.command()

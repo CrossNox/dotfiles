@@ -120,6 +120,8 @@ def refresh_auth():
     with open(path, "w") as f:
         data = json.load(f)
         data.update(r.json())
+
+    with open(path, "w") as f:
         json.dump(data, f, indent=4)
 
 

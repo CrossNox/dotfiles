@@ -117,11 +117,11 @@ def refresh_auth():
     )
     r.raise_for_status()
     path = pathlib.Path.home() / ".cache" / "spotify_status.json"
-    with open(path, "w") as f:
+    with open(path, "r+") as f:
         data = json.load(f)
         data.update(r.json())
-
-    with open(path, "w") as f:
+        f.seek(0)
+        f.truncate()
         json.dump(data, f, indent=4)
 
 

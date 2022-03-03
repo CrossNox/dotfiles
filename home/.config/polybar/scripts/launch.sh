@@ -11,6 +11,8 @@ echo "Launching polybar"
 if type "xrandr"; then
 	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
 		POLYBAR_GH_ACCESS_TOKEN=$(pass github/tokens/polybar) MONITOR=$m polybar --reload --config=$HOME/.config/polybar/statusbar.ini statusbar &
+		#done
+		#for m in $(xrandr --query | grep " primary" | cut -d" " -f1); do
 		SPOTIFY_CLIENT_ID=$(pass spotify/client_id) SPOTIFY_CLIENT_SECRET=$(pass spotify/client_secret) MONITOR=$m polybar --reload --config=$HOME/.config/polybar/spotify.ini spotibar &
 		MONITOR=$m polybar --reload --config=$HOME/.config/polybar/bottom.ini bottomstatus &
 	done

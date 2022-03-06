@@ -3,6 +3,6 @@ Type=Application
 Name=Google Calendar
 Comment=Google Calendar
 Icon=google-calendar
-Exec=sh -c "vivaldi --app=https://calendar.google.com/u/0 --disk-cache-size=1 --disable-extensions --check-for-update-interval=1000000000 --disable-component-update --enable-hardware-overlays=single-fullscreen --force-overlay-fullscreen-video && xdotool search --classname \"calendar.google.com\" set_window --classname \"Google Calendar\""
+Exec=sh -c "vivaldi --app=https://calendar.google.com/u/0 --disk-cache-size=1 --disable-extensions --check-for-update-interval=1000000000 --disable-component-update --enable-hardware-overlays=single-fullscreen --force-overlay-fullscreen-video && xdotool search --classname \"calendar.google.com__u_0\" set_window --classname \"Google Calendar\" --class \"GoogleCalendar\""
 Terminal=false
 Categories=Office;Calendar;

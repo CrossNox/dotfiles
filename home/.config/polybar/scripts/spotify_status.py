@@ -55,6 +55,8 @@ def handle_spotify_not_running(function):
             return function(*args, **kwargs)
         except dbus.DBusException:
             print("Spotify is not running")
+        except Exception:
+            print("!")
 
     return _handle
 

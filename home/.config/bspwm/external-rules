@@ -14,29 +14,32 @@ elif [[ "$HOSTNAME" == "shootingstar" ]]; then
 	desktops=(["Spotify"]="3" ["TelegramDesktop"]="7" ["Slack"]="2")
 fi
 
-main() {
-	case "$class" in
-	Spotify)
+move_wn() {
+	if [ "$class" = Spotify ]; then
 		echo "state=tiled desktop=${desktops['Spotify']} follow=on"
-		;;
-	TelegramDesktop)
-		echo "state=tiled desktop=${desktops['TelegramDesktop']}  follow=on"
-		;;
-	Slack)
-		echo "state=tiled desktop=${desktops['Slack']}  follow=on"
-		;;
-	"")
+	elif [ "$class" = TelegramDesktop ]; then
+		echo "state=tiled desktop=${desktops['TelegramDesktop']} follow=on"
+	elif [ "$class" = Slack ]; then
+		echo "state=tiled desktop=${desktops['Slack']} follow=on"
+	elif [ "$instance" = Netflix ]; then
+		echo "state=fullscreen"
+	elif [ "$class" = "GoogleCalendar" ]; then
+		echo "state=floating center=true rectangle=1152x648+348+216"
+	else
+		false
+	fi
+}
+
+main() {
+	move_wn
+	status=$?
+	if ! $(exit $status) && [ $class = "Vivaldi-stable" ]; then
 		sleep 0.5
-
 		wm_class=($(xprop -id $wid | grep 'WM_CLASS' | grep -Po '"\K[^,"]+'))
-
 		class=${wm_class[-1]}
-
 		[[ ${#wm_class[@]} == "2" ]] && instance=${wm_class[0]}
-
-		[[ -n $class ]] && main
-		;;
-	esac
+		[[ -n $class ]] && move_wn
+	fi
 }
 
 main

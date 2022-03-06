@@ -20,10 +20,10 @@ main() {
 		echo "state=tiled desktop=${desktops['Spotify']} follow=on"
 		;;
 	TelegramDesktop)
-		echo "state=tiled desktop=${desktops['TelegramDesktop']}  follow=on"
+		echo "state=tiled desktop=${desktops['TelegramDesktop']} follow=on"
 		;;
 	Slack)
-		echo "state=tiled desktop=${desktops['Slack']}  follow=on"
+		echo "state=tiled desktop=${desktops['Slack']} follow=on"
 		;;
 	"")
 		sleep 0.5

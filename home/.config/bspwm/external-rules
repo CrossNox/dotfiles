@@ -26,7 +26,7 @@ move_wn() {
 	elif [ "$class" = "GoogleCalendar" ]; then
 		echo "state=floating center=true rectangle=1152x648+348+216"
 	else
-		false
+		return false
 	fi
 }
 
@@ -35,7 +35,7 @@ main() {
 	status=$?
 	if ! $(exit $status) && [ $class = "Vivaldi-stable" ]; then
 		sleep 0.5
-		wm_class=($(xprop -id $wid | grep 'WM_CLASS' | grep -Po '"\K[^,"]+'))
+		wm_class=($(xprop -id $wid WM_CLASS | grep -Po '"\K[^,"]+'))
 		class=${wm_class[-1]}
 		[[ ${#wm_class[@]} == "2" ]] && instance=${wm_class[0]}
 		[[ -n $class ]] && move_wn

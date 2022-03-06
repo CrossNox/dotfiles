@@ -97,6 +97,7 @@ xcb-util-renderutil-devel
 xcb-util-wm-devel
 xcb-util-xrm-devel
 xclip
+xdotool
 xinput
 xorg-x11-proto-devel
 xsetroot

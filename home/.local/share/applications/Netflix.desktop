@@ -3,6 +3,6 @@ Type=Application
 Name=Netflix
 Comment=Netflix
 Icon=netflix-desktop
-Exec=vivaldi --app=https://netflix.com/browse --disk-cache-size=1 --disable-extensions --check-for-update-interval=1000000000 --disable-component-update --enable-hardware-overlays=single-fullscreen --force-overlay-fullscreen-video --start-fullscreen
+Exec=sh -c "vivaldi --app=https://netflix.com/browse --disk-cache-size=1 --disable-extensions --check-for-update-interval=1000000000 --disable-component-update --enable-hardware-overlays=single-fullscreen --force-overlay-fullscreen-video --start-fullscreen && xdotool search --classname \"netflix.com__browse\" set_window --classname \"Netflix\""
 Terminal=false
 Categories=AudioVideo;TV;

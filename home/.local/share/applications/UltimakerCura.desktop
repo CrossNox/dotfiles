@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Ultimaker Cura
+Comment=Ultimaker Cura
+Icon=/home/nox/AppImages/cura-64.png
+Exec=/home/nox/AppImages/Ultimaker_Cura-4.13.1.AppImage
+Terminal=false
+Categories=Design

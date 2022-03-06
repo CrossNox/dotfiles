@@ -318,17 +318,6 @@ wget https://github.com/Ultimaker/Cura/releases/download/4.13.1/Ultimaker_Cura-4
 chmod +x Ultimaker_Cura-4.13.1.AppImage
 wget https://raw.githubusercontent.com/Ultimaker/Cura/master/icons/cura-64.png
 
-cat >>~/.local/share/applications/UltimakerCura.desktop <<EOF
-[Desktop Entry]
-Type=Application
-Name=Ultimaker Cura
-Comment=Ultimaker Cura
-Icon=$HOME/AppImages/cura-64.png
-Exec=$HOME/AppImages/Ultimaker_Cura-4.13.1.AppImage
-Terminal=false
-Categories=Design
-EOF
-
 if [ ! -d "$REPOS_FOLDER/rofi-network-manager" ]; then
 	git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
 fi

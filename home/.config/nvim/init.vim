@@ -44,12 +44,14 @@ Plug 'artanikin/vim-synthwave84'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'dylanaraps/wal.vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 " Utils
 Plug 'luukvbaal/nnn.nvim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'voldikss/vim-floaterm'
@@ -121,22 +123,89 @@ let g:ale_fix_on_save = 1
 " SQL
 " :autocmd BufWritePost *.sql call CocAction('format')
 
-" colorscheme
-if exists('+termguicolors')
-    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-    let &t_ZH="\e[3m"
-    let &t_ZR="\e[23m"
-    let &t_ZH="\e[3m"
-    let &t_ZR="\e[23m"
-    set termguicolors
-endif
+" Example config in VimScript
+let g:tokyonight_style = "night"
+let g:tokyonight_terminal_colors = 1
+let g:tokyonight_italic_functions = 1
+let g:tokyonight_italic_comments = 1
+let g:tokyonight_italic_keywords = 1
+let g:tokyonight_italic_variables = 1
+let g:tokyonight_transparent = 0
+let g:tokyonight_sidebars = []
 
-hi Comment cterm=ITALIC
+" Change the "hint" color to the "orange" color, and make the "error" color bright red
+let g:tokyonight_colors = {
+  \ 'hint': 'orange',
+  \ 'error': '#ff0000'
+\ }
 
-colorscheme gruvbit
-let g:airline_theme='gruvbit'
-" colorscheme wal
+colorscheme tokyonight
+
+" lualine
+lua << END
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'tokyonight',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = "", right = ''},
+    disabled_filetypes = {},
+    always_divide_middle = true,
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {
+		'branch',
+		'diff',
+		{
+			'diagnostics',
+
+			-- Table of diagnostic sources, available sources are:
+      		--   'nvim_lsp', 'nvim_diagnostic', 'coc', 'ale', 'vim_lsp'.
+      		-- or a function that returns a table as such:
+      		--   { error=error_cnt, warn=warn_cnt, info=info_cnt, hint=hint_cnt }
+      		sources = { 'coc', 'ale' },
+
+      		-- Displays diagnostics for the defined severity types
+      		sections = { 'error', 'warn', 'info', 'hint' },
+
+      		diagnostics_color = {
+        		-- Same values as the general color option can be used here.
+        		error = 'DiagnosticError', -- Changes diagnostics' error color.
+        		warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+        		info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+        		hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+      		},
+      		symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
+      		colored = true,           -- Displays diagnostics status in color if set to true.
+      		update_in_insert = false, -- Update diagnostics in insert mode.
+      		always_visible = false,   -- Show diagnostics even if there are none.
+    	}
+	},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {},
+    lualine_x = {},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {
+	lualine_a = {'buffers'},
+	lualine_b = {},
+	lualine_c = {},
+	lualine_x = {},
+	lualine_y = {},
+	lualine_z = {'tabs'}
+  },
+  extensions = {}
+}
+END
 
 " Colorizer
 " let g:colorizer_auto_color = 1
@@ -170,16 +239,7 @@ let g:vimtex_syntax_conceal_default = 0
 let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_import = 0
 
-" airline
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#poetv#update = 1
-
 set guifont=FiraCode\ Nerd\ Font
-
-" testing rounded separators (extra-powerline-symbols):
-let g:airline_left_sep = "\uE0C6"
-let g:airline_right_sep = "\uE0C7"
 
 " nnn.nvim
 

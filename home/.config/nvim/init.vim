@@ -126,10 +126,10 @@ let g:ale_fix_on_save = 1
 " Example config in VimScript
 let g:tokyonight_style = "night"
 let g:tokyonight_terminal_colors = 1
-let g:tokyonight_italic_functions = 1
+let g:tokyonight_italic_functions = 0
 let g:tokyonight_italic_comments = 1
 let g:tokyonight_italic_keywords = 1
-let g:tokyonight_italic_variables = 1
+let g:tokyonight_italic_variables = 0
 let g:tokyonight_transparent = 0
 let g:tokyonight_sidebars = []
 

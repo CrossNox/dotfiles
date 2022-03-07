@@ -33,8 +33,8 @@ move_wn() {
 main() {
 	move_wn
 	status=$?
-	if ! $(exit $status) && [ $class = "Vivaldi-stable" ]; then
-		sleep 0.5
+	if ! $(exit $status); then
+		sleep 1.5
 		wm_class=($(xprop -id $wid WM_CLASS | grep -Po '"\K[^,"]+'))
 		class=${wm_class[-1]}
 		[[ ${#wm_class[@]} == "2" ]] && instance=${wm_class[0]}

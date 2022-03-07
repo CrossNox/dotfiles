@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export WP="$HOME/Pictures/Wallpapers/monsters.jpg"
+export WP="$HOME/Pictures/Wallpapers/wallpaper_mikael_gustafsson.png"
 
 feh --bg-fill "$WP"
 wal -i "$WP" -t -s &

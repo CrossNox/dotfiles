@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=WhatsApp
+Comment=WhatsApp
+Icon=web-whatsapp
+Exec=sh -c "vivaldi --app=https://web.whatsapp.com --disk-cache-size=1 --disable-extensions --check-for-update-interval=1000000000 --disable-component-update --enable-hardware-overlays=single-fullscreen --force-overlay-fullscreen-video --start-fullscreen && xdotool search --classname \"web.whatsapp.com\" set_window --classname \"WhatsApp\" --class \"WhatsApp\""
+Terminal=false
+Categories=AudioVideo;TV;

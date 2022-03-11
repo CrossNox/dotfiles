@@ -1,5 +1,5 @@
 [display]
-base_currency = "ars"
+base_currency = "usd"
 format = "{price} {change1h:+.2f}% {change24h:+.2f}%"
 separator = " "
 

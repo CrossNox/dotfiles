@@ -89,3 +89,6 @@ OWM_API_KEY="$(pass openweathermap.org/api_keys/ntfd)" ntfd &
 
 # polybar
 $HOME/.config/polybar/scripts/launch.sh
+
+# Launch gammastep
+systemctl --user start gammastep

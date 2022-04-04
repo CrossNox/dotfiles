@@ -102,9 +102,64 @@ let g:ale_linters = {
       \   'python': ['pylint', 'flake8'],
       \}
 
+
+call ale#Set('python_pycln_executable', 'pycln')
+call ale#Set('python_pycln_use_global', get(g:, 'ale_use_global_executables', 0))
+call ale#Set('python_pycln_options', '')
+call ale#Set('python_pycln_auto_pipenv', 0)
+call ale#Set('python_pycln_auto_poetry', 0)
+call ale#Set('python_pycln_change_directory', 1)
+
+function! PyclnGetExecutable(buffer) abort
+    if (ale#Var(a:buffer, 'python_auto_pipenv') || ale#Var(a:buffer, 'python_pycln_auto_pipenv'))
+    \ && ale#python#PipenvPresent(a:buffer)
+        return 'pipenv'
+    endif
+
+    if (ale#Var(a:buffer, 'python_auto_poetry') || ale#Var(a:buffer, 'python_pycln_auto_poetry'))
+    \ && ale#python#PoetryPresent(a:buffer)
+        return 'poetry'
+    endif
+
+    return ale#python#FindExecutable(a:buffer, 'python_pycln', ['pycln'])
+endfunction
+
+function! PyclnFix(buffer) abort
+    let l:executable = PyclnGetExecutable(a:buffer)
+
+	if !executable(l:executable)
+        return 0
+    endif
+
+    let l:cmd = [ale#Escape(l:executable)]
+
+    if l:executable =~? 'pipenv\|poetry$'
+        call extend(l:cmd, ['run', 'pycln'])
+    endif
+
+    let l:options = ale#Var(a:buffer, 'python_pycln_options')
+
+    if !empty(l:options)
+        call add(l:cmd, l:options)
+    endif
+
+    call add(l:cmd, bufname(a:buffer))
+
+    let l:result = {'command': join(l:cmd, ' ')}
+
+    if ale#Var(a:buffer, 'python_pycln_change_directory')
+        let l:result.cwd = '%s:h'
+    endif
+
+    return l:result
+endfunction
+
+execute ale#fix#registry#Add('pycln', 'PyclnFix', ['pycln'], 'A formatter for finding and removing unused import statements.')
+
+
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \    'python': ['black', 'isort', 'autoimport'],
+      \    'python': ['black', 'isort', 'autoimport', 'pycln'],
       \    'json': ['jq'],
       \    'html': ['html-beautify'],
       \    'java': ['google_java_format'],

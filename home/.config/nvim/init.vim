@@ -143,6 +143,8 @@ function! PyclnFix(buffer) abort
         call add(l:cmd, l:options)
     endif
 
+	call add(l:cmd, '--silence')
+
     call add(l:cmd, bufname(a:buffer))
 
     let l:result = {'command': join(l:cmd, ' ')}

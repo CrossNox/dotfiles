@@ -318,6 +318,11 @@ wget https://github.com/Ultimaker/Cura/releases/download/4.13.1/Ultimaker_Cura-4
 chmod +x Ultimaker_Cura-4.13.1.AppImage
 wget https://raw.githubusercontent.com/Ultimaker/Cura/master/icons/cura-64.png
 
+cd ~/AppImages
+wget https://github.com/MyCryptoHQ/MyCrypto/releases/download/1.7.17/linux-x86-64_1.7.17_MyCrypto.AppImage -O MyCrypto.AppImage
+chmod +x MyCrypto.AppImage
+wget https://download.mycrypto.com/common/assets/meta-fe1afc0ffc5a0dde50cf70fdd4e77e3d/coast-228x228.png -O MyCrypto.png
+
 if [ ! -d "$REPOS_FOLDER/rofi-network-manager" ]; then
 	git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
 fi

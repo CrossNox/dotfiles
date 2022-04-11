@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=MyCrypto
+Comment=MyCrypto
+Icon=/home/nox/AppImages/MyCrypto.png
+Exec=/home/nox/AppImages/MyCrypto.AppImage
+Terminal=false
+Categories=Utility

@@ -17,7 +17,7 @@ trap 'echo "\"${last_command}\" command filed with exit code $?."' EXIT
 
 SUDO_USER_HOME="$(eval echo "~$SUDO_USER")"
 REPOS_FOLDER=$SUDO_USER_HOME/repos
-DOTFILES_FOLDER=$SUDO_USER_HOME/repos/dotfiles
+DOTFILES_FOLDER=$REPOS_FOLDER/dotfiles
 
 # clone this repo
 echo "Cloning repo"

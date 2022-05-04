@@ -14,6 +14,9 @@ sxhkd &
 
 if [[ "$HOSTNAME" == "dell-xps" ]]; then
 	xrandr --output eDP1 --mode 1920x1080 --dpi 96 --scale 1.0x1.0
+	if [[ $(xrandr | grep "HDMI1") ]]; then
+		xrandr --otput HDMI1 --mode 1920x1080 --dpi 96 --scale 1.0x1.0 --above-of eDP1
+	fi
 else
 	echo "Set the resolution!"
 fi
@@ -34,7 +37,11 @@ while pgrep -u $UID -x xautolock >/dev/null; do sleep 1; done
 xautolock -time 5 -locker noxlock &
 
 if [[ "$HOSTNAME" == "dell-xps" ]]; then
-	bspc monitor -d 1 2 3 4 5
+	bspc monitor eDP1 -d 1 2 3 4 5
+	if [[ $(xrandr | grep "HDMI1") ]]; then
+		bspc monitor HDMI1 -d 6 7 8 9 10
+	fi
+
 elif [[ "$HOSTNAME" == "shootingstar" ]]; then
 	bspc monitor DP-1 -d 1 2 3 4 5
 	bspc monitor DP-5 -d 6 7 8 9 10

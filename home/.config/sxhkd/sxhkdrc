@@ -181,3 +181,11 @@ XF86AudioPrev
     playerctl previous
 XF86AudioStop
     playerctl stop
+
+# Disable XA_PRIMARY paste with mouse wheel click
+~button2
+    echo -n | xsel -n -i
+~control + c
+    echo -n | xsel -n -i
+~control + x
+    echo -n | xsel -n -i

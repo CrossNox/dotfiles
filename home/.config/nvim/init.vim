@@ -45,6 +45,7 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'dylanaraps/wal.vim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'lumburns/kimbox'
 
 " Utils
 Plug 'luukvbaal/nnn.nvim'
@@ -197,6 +198,11 @@ let g:tokyonight_colors = {
 \ }
 
 colorscheme tokyonight
+
+"lua <<EOF
+"require("kimbox").setup()
+"require("kimbox").colorscheme()
+"EOF
 
 " lualine
 lua << END

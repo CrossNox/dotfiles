@@ -89,7 +89,12 @@ NB_COLOR_THEME=ocean
 
 export PATH="$PATH:$HOME/.spicetify"
 
-
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
+
+bind 'set show-all-if-ambiguous on'
+bind 'set menu-complete-display-prefix on'
+bind 'TAB: menu-complete'
+bind 'set colored-completion-prefix on'
+bind 'set colored-stats on'

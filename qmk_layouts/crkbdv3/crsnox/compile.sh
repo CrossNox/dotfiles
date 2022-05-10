@@ -1,4 +1,4 @@
 qmk json2c crsnox.json -o layout.c
-qmk cformat layout.c
-qmk cformat keymap.c
+qmk format-c layout.c
+qmk format-c keymap.c
 qmk compile -kb crkbd -km crsnox

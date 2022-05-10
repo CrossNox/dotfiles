@@ -8,8 +8,9 @@ ln -s ~/repos/dotfiles/qmk_layouts/crkbdv3/crsnox/ $HOME/qmk_firmware/keyboards/
 
 ## Convert into `keymap.c`
 ```bash
-qmk json2c minimal_vim.json -o layout.c
-qmk cformat keymap.c
+qmk json2c crsnox.json -o layout.c
+qmk format-c layout.c
+qmk format-c keymap.c
 ```
 
 ## Compile

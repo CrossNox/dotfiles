@@ -8,13 +8,14 @@ ln -s ~/repos/dotfiles/qmk_layouts/lily58/crsnox $HOME/qmk_firmware/keyboards/li
 
 ## Convert into `keymap.c`
 ```bash
-qmk json2c minimal_vim.json -o layout.c
-qmk cformat keymap.c
+qmk json2c crsnox.json -o layout.c
+qmk format-c layout.c
+qmk format-c keymap.c
 ```
 
 ## Compile
 ```bash
-qmk compile -kb lily58 -km minimal_vim
+qmk compile -kb lily58 -km crsnox
 ```
 
 ## All the above
@@ -24,5 +25,5 @@ bash compile.sh
 
 ## Flash
 ```bash
-qmk flash -kb lily58 -km minimal_vim
+qmk flash -kb lily58 -km crsnox
 ```

@@ -79,14 +79,14 @@ Plug 'psf/black', {'tag': '21.12b0'}
 Plug 'glench/vim-jinja2-syntax'
 Plug 'vim-scripts/dbext.vim'
 Plug 'tmhedberg/SimpylFold'
-" Plug 'petobens/poet-v'
+Plug 'petobens/poet-v'
 
 call plug#end()
 
-"let g:poetv_executables = ['poetry']
-"let g:poetv_auto_activate = 1
+let g:poetv_executables = ['poetry']
+let g:poetv_auto_activate = 1
 
-" let g:indentLine_setColors = 0
+let g:indentLine_setColors = 1
 let g:indentLine_defaultGroup = 'SpecialKey'
 let g:indentLine_char = '¦'
 

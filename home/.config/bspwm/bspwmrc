@@ -75,7 +75,7 @@ if [[ "$HOSTNAME" == "dell-xps" ]]; then
 elif [[ "$HOSTNAME" == "shootingstar" ]]; then
 	# Map wacom only to primary screen
 	# https://tonisagrista.com/blog/2021/map-wacom-one-screen/
-	for item in $(xinput | grep Wacom | grep -oP 'id=\K\d+' | xargs); do
+	for item in $(xinput | grep Wacom | grep pointer | grep -oP 'id=\K\d+' | xargs); do
 		xinput map-to-output $item $(xrandr | grep primary | cut -d " " -f 1 | xargs)
 	done
 fi

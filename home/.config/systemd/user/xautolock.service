@@ -1,0 +1,11 @@
+[Unit]
+Description=xautolock
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/xautolock -time 5 -locker noxlock
+Restart=always
+PIDFile=/var/run/xautolock.pid
+
+[Install]
+WantedBy=default.target

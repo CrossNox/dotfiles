@@ -32,10 +32,6 @@ killall -q xbanish
 while pgrep -u $UID -x xbanish >/dev/null; do sleep 1; done
 xbanish &
 
-killall -q xautolock
-while pgrep -u $UID -x xautolock >/dev/null; do sleep 1; done
-xautolock -time 5 -locker noxlock &
-
 if [[ "$HOSTNAME" == "dell-xps" ]]; then
 	bspc monitor eDP1 -d 1 2 3 4 5
 	if [[ $(xrandr | grep "HDMI1 connected") ]]; then
@@ -45,7 +41,7 @@ if [[ "$HOSTNAME" == "dell-xps" ]]; then
 elif [[ "$HOSTNAME" == "shootingstar" ]]; then
 	bspc monitor DP-1 -d 1 2 3 4 5
 	bspc monitor DP-5 -d 6 7 8 9 10
-	bspc monitor HDMI-0 -d X
+	bspc monitor HDMI-0 -d X Y Z
 fi
 
 bspc config top_padding 34
@@ -99,3 +95,6 @@ $HOME/.config/polybar/scripts/launch.sh
 
 # Launch gammastep
 systemctl --user start gammastep
+
+# Launch xautolock
+systemctl --user start xautolock

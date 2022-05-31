@@ -185,6 +185,9 @@ wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/
 # systemctl --user enable glances.service
 # systemctl --user start glances.service
 
+# own systemd services
+systemctl --user enable xautolock
+
 # pipx
 echo "Installing pipx and some apps"
 python3 -m pip uninstall --yes pipx

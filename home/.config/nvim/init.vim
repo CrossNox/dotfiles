@@ -159,10 +159,10 @@ endfunction
 
 execute ale#fix#registry#Add('pycln', 'PyclnFix', ['pycln'], 'A formatter for finding and removing unused import statements.')
 
-
+" autoimport, pycln
 let g:ale_fixers = {
       \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \    'python': ['black', 'isort', 'autoimport', 'pycln'],
+      \    'python': ['black', 'isort'],
       \    'json': ['jq'],
       \    'html': ['html-beautify'],
       \    'java': ['google_java_format'],

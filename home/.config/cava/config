@@ -86,7 +86,7 @@
 # 'raw' defaults to 200 bars, which can be adjusted in the 'bars' option above.
 #
 # 'sdl' uses the Simple DirectMedia Layer to render in a graphical context.
-; method = ncurses
+method = ncurses
 
 # Visual channels. Can be 'stereo' or 'mono'.
 # 'stereo' mirrors both channels with low frequencies in center.
@@ -138,16 +138,16 @@
 # Gradient mode, only hex defined colors (and thereby ncurses mode) are supported,
 # background must also be defined in hex  or remain commented out. 1 = on, 0 = off.
 # You can define as many as 8 different colors. They range from bottom to top of screen
-; gradient = 0
-; gradient_count = 8
-; gradient_color_1 = '#59cc33'
-; gradient_color_2 = '#80cc33'
-; gradient_color_3 = '#a6cc33'
-; gradient_color_4 = '#cccc33'
-; gradient_color_5 = '#cca633'
-; gradient_color_6 = '#cc8033'
-; gradient_color_7 = '#cc5933'
-; gradient_color_8 = '#cc3333'
+gradient = 1
+gradient_count = 8
+gradient_color_1 = '#5f249f'
+gradient_color_2 = '#9b4aae'
+gradient_color_3 = '#cb76c0'
+gradient_color_4 = '#f4a6d7'
+gradient_color_5 = '#cbbaf6'
+gradient_color_6 = '#a3cbfa'
+gradient_color_7 = '#99d6ea'
+gradient_color_8 = '#99d6ea'
 
 
 

@@ -3,9 +3,9 @@ Description=xautolock
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/xautolock -time 5 -locker noxlock
+ExecStart=/usr/bin/xautolock -time 1 -locker noxlock
 Restart=always
-PIDFile=/var/run/xautolock.pid
+PIDFile=/run/xautolock.pid
 
 [Install]
 WantedBy=default.target

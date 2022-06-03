@@ -3,7 +3,7 @@ Description=xautolock
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/xautolock -time 1 -locker ~/.local/bin/noxlock
+ExecStart=/usr/bin/xautolock -time 5 -locker ~/.local/bin/noxlock
 Restart=always
 PIDFile=/run/xautolock.pid
 

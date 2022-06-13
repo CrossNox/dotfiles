@@ -98,3 +98,7 @@ bind 'set menu-complete-display-prefix on'
 bind 'TAB: menu-complete'
 bind 'set colored-completion-prefix on'
 bind 'set colored-stats on'
+
+function passqr() {
+	command pass $1 | xclip -o | qrencode -t utf8
+}

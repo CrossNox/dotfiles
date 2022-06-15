@@ -15,7 +15,12 @@ sxhkd &
 if [[ "$HOSTNAME" == "dell-xps" ]]; then
 	xrandr --output eDP1 --mode 1920x1080 --dpi 96 --scale 1.0x1.0
 	if [[ $(xrandr | grep "HDMI1 connected") ]]; then
-		xrandr --output HDMI1 --mode 1920x1080 --dpi 96 --scale 1.0x1.0 --above eDP1
+		# --same-as
+		# --above
+		# --below
+		# --left-of
+		# --right-of
+		xrandr --output HDMI1 --mode 1920x1080 --dpi 96 --scale 1.0x1.0 --same-as eDP1
 	fi
 else
 	echo "Set the resolution!"

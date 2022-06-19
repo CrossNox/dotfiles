@@ -346,3 +346,16 @@ if [ ! -d "$REPOS_FOLDER/zscroll" ]; then
 fi
 cd ~/repos/zscroll
 cp zscroll ~/.local/bin/
+
+if [ ! -d "$REPOS_FOLDER/eww" ]; then
+	git clone https://github.com/elkowar/eww ~/repos/eww
+fi
+cd ~/repos/eww
+sudo dnf install -y cairo-gobject-devel pango-devel atk-devel gdk-pixbuf2-devel gtk3-devel
+sudo dnf remove rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+source $HOME/.cargo/env
+source ~/.bashrc
+cargo build --release
+chmod +x target/release/eww
+cp target/release/eww ~/.local/bin/

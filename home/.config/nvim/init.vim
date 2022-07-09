@@ -1,5 +1,11 @@
 " share clipboard
 " set mouse=n
+
+set undofile " Maintain undo history between sessions
+set undodir=~/.local/share/nvim/undo
+
+let g:python_host_prog='/usr/bin/python3'
+
 set clipboard+=unnamedplus
 set spell
 set spelllang=en_us,es
@@ -45,10 +51,10 @@ Plug 'liuchengxu/space-vim-dark'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'dylanaraps/wal.vim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'lumburns/kimbox'
+Plug 'lmburns/kimbox'
 
 " Utils
-Plug 'luukvbaal/nnn.nvim'
+Plug 'luukvbaal/nnn.nvim', { 'commit': '578cc845b49657319975a72dbb26113ef7e43f1d' }
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-surround'
 Plug 'nvim-lualine/lualine.nvim'
@@ -62,6 +68,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-unimpaired'
 Plug 'chrisbra/Colorizer'
+Plug 'simnalamburt/vim-mundo', { 'commit':'595ee332719f397c2441d85f79608113957cc78f' }
 
 " LaTex
 Plug 'lervag/vimtex'
@@ -417,7 +424,7 @@ let g:blamer_relative_time = 0
 " Git
 nmap <leader>gs :G<CR>
 nmap <leader>gj :diffget //3<CR>
-nmap <leader>gf :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
 nmap <leader>gM :vert Gdiffsplit!<CR>
 
 " Buffer navigation
@@ -441,3 +448,5 @@ nmap <F2> <Plug>VimspectorToggleBreakpoint
 nmap <F3> <Plug>VimspectorContinue
 nmap <F7> <Plug>VimspectorStepOver
 nmap <F7> <Plug>VimspectorStepInto
+
+nmap <leader>u :MundoToggle<CR>

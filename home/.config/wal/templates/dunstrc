@@ -321,6 +321,11 @@
     appname = Slack
     format = "%a\n\n<span font_desc='FiraCode Nerd Font 11' weight='bold' foreground='{color1}'>%s</span>\n\n<span font_desc='FiraCode Nerd Font 11' weight='bold' foreground='{color6}'>%b</span>"
 
+[gmail]
+    appname = GMail Unread
+    mouse_left_click = close_current
+    format = "<span font_desc='FiraCode Nerd Font 11' weight='heavy' foreground='{color1}'>%s</span>\n\n<span font_desc='FiraCode Nerd Font 11' weight='bold' foreground='{color6}'>%b</span>"
+
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
 #

@@ -107,7 +107,7 @@ def notify(account: str, email: Dict):
     email_from = html.escape(email_from)
 
     notify.Notify(
-        "GMail Unread",
+        f"Gmail ({account})",
         0,
         str(pathlib.Path(__file__).parent / "gmail.png"),
         f"{subject}",
@@ -126,7 +126,6 @@ def notify_unread(account: str, last_seconds: int = 60, from_pass: bool = False)
         account, unread, filter_with=filter_new_mail, last_seconds=last_seconds
     )
     for message in messages:
-        typer.echo("Notification sent")
         notify(account, message)
 
 

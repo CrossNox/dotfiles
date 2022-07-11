@@ -139,7 +139,7 @@ virtualenv -p python3 venv
 source venv/bin/activate
 pip install -r $DOTFILES_FOLDER/fedora/base_requirements.txt
 deactivate
-pip install toml typer dbus-python flask
+pip install toml typer dbus-python flask google-api-python-client google-auth-httplib2 google-auth-oauthlib
 
 # nvm
 echo "Install nvm"
@@ -187,6 +187,12 @@ wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/
 
 # own systemd services
 systemctl --user enable xautolock
+systemctl --user enable gmail-notifications-uni.service
+systemctl --user start gmail-notifications-uni.service
+systemctl --user enable gmail-notifications-work.service
+systemctl --user start gmail-notifications-work.service
+systemctl --user enable gmail-notifications-personal.service
+systemctl --user start gmail-notifications-personal.service
 
 # pipx
 echo "Installing pipx and some apps"

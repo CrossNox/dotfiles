@@ -42,17 +42,19 @@ def get_service(account: str):
     return service
 
 
-def get_unread(account: str, last_seconds: Optional[int] = None):
+def get_unread(
+    account: str, last_seconds: Optional[int] = None, max_results: int = 100
+):
     last_days = (
         (last_seconds // (24 * 60 * 60)) + 1 if last_seconds is not None else None
     )
     newer_than_filter_str = f" newer_than:{last_days}d" if last_days is not None else ""
-    filter_str = f"is:unread{newer_than_filter_str}"
+    filter_str = f"is:unread category:primary {newer_than_filter_str}"
     result = (
         get_service(account)
         .users()
         .messages()
-        .list(userId="me", q=filter_str)
+        .list(userId="me", q=filter_str, maxResults=max_results)
         .execute()
     )
     messages_ids = [message["id"] for message in result["messages"]]
@@ -130,9 +132,12 @@ def notify_unread(account: str, last_seconds: int = 60, from_pass: bool = False)
 
 
 @app.command()
-def number_unread(account: str):
-    unread, n_unread = get_unread(account)
-    typer.echo(n_unread)
+def number_unread(account: str, max_results: int = 250):
+    unread, n_unread = get_unread(account, max_results=max_results)
+    if n_unread >= max_results:
+        typer.echo(f"{n_unread}+")
+    else:
+        typer.echo(n_unread)
 
 
 if __name__ == "__main__":

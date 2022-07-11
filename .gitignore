@@ -6,3 +6,4 @@
 .vim/.netrwhist
 *.swp
 *.bak
+*__pycache__

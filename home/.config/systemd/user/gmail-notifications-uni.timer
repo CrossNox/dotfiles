@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer for gmail unread notifications.
+Requires=gmail-notifications-uni.service
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

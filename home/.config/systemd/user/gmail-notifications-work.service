@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs Gmail unread notifications for work account
+Wants=gmail-notifications-work.timer
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python .config/polybar/scripts/gmail.py notify-unread dunst/accounts/work --from-pass --last-seconds 60
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs Gmail unread notifications for uni account
+Wants=gmail-notifications-uni.timer
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python .config/polybar/scripts/gmail.py notify-unread dunst/accounts/uni --from-pass --last-seconds 60
+
+[Install]
+WantedBy=default.target

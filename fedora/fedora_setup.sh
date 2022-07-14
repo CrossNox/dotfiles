@@ -139,7 +139,7 @@ virtualenv -p python3 venv
 source venv/bin/activate
 pip install -r $DOTFILES_FOLDER/fedora/base_requirements.txt
 deactivate
-pip install toml typer dbus-python flask google-api-python-client google-auth-httplib2 google-auth-oauthlib
+pip install toml typer dbus-python flask google-api-python-client google-auth-httplib2 google-auth-oauthlib youconfigme
 
 # nvm
 echo "Install nvm"

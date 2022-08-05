@@ -1,5 +1,7 @@
 # .bashrc
 
+[ -z "$PS1" ] && return
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -93,11 +95,13 @@ export PATH="$PATH:$HOME/.spicetify"
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
 
-bind 'set show-all-if-ambiguous on'
-bind 'set menu-complete-display-prefix on'
-bind 'TAB: menu-complete'
-bind 'set colored-completion-prefix on'
-bind 'set colored-stats on'
+if [[ ${SHELLOPTS} =~ (vi|emacs) ]]; then
+	bind 'set show-all-if-ambiguous on'
+	bind 'set menu-complete-display-prefix on'
+	bind 'TAB: menu-complete'
+	bind 'set colored-completion-prefix on'
+	bind 'set colored-stats on'
+fi
 
 function passqr() {
 	pass $1 | qrencode -t utf8

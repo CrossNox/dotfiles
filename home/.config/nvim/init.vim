@@ -213,6 +213,11 @@ colorscheme tokyonight
 
 " lualine
 lua << END
+
+local function getWordCount()
+  return tostring(vim.fn.wordcount().words)
+end
+
 require('lualine').setup {
   options = {
     icons_enabled = true,
@@ -254,7 +259,7 @@ require('lualine').setup {
 	},
     lualine_c = {'filename'},
     lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
+    lualine_y = {'progress', getWordCount},
     lualine_z = {'location'}
   },
   inactive_sections = {

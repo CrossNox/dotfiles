@@ -50,7 +50,7 @@ Plug 'artanikin/vim-synthwave84'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'dylanaraps/wal.vim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'folke/tokyonight.nvim', { 'commit': '2981e4bd0919305675d8d665f9a20281bb33ed06' }
 Plug 'lmburns/kimbox'
 
 " Utils

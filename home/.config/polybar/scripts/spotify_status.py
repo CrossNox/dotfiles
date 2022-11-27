@@ -55,7 +55,7 @@ def handle_spotify_not_running(function):
             return function(*args, **kwargs)
         except dbus.DBusException:
             print("Spotify is not running")
-        except Exception:
+        except:
             print("!")
 
     return _handle
@@ -221,7 +221,7 @@ def get_playback_status():
 
 
 def get_current_trackid():
-    _, _, track_id = get_metadata()["mpris:trackid"].split(":")
+    *_ , track_id = get_metadata()["mpris:trackid"].split("/")
     return track_id
 
 

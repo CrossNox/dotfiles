@@ -4,6 +4,7 @@ import json
 import logging
 import os
 import pathlib
+import sys
 import threading
 import urllib
 import webbrowser
@@ -18,6 +19,17 @@ from flask import Flask
 from flask import cli as flask_cli
 from flask import redirect, request
 from werkzeug.serving import make_server
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+)
+file_handler = logging.FileHandler("/tmp/spotify_status")
+file_handler.setLevel(logging.INFO)
+file_handler.setFormatter(formatter)
+logger.addHandler(file_handler)
 
 app = typer.Typer()
 
@@ -55,7 +67,10 @@ def handle_spotify_not_running(function):
             return function(*args, **kwargs)
         except dbus.DBusException:
             print("Spotify is not running")
+        except SystemExit:
+            raise
         except:
+            logger.error("Spotify status error", exc_info=True)
             print("!")
 
     return _handle
@@ -328,10 +343,10 @@ def playback_status(quiet: bool = False):
     try:
         playback_status = get_playback_status()
         if quiet:
-            exit(0)
+            sys.exit(0)
     except dbus.DBusException:
         if quiet:
-            exit(1)
+            sys.exit(1)
         raise
 
     cfg = read_config()

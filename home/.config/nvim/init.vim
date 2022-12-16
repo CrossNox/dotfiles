@@ -78,6 +78,7 @@ Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'CrossNox/coc-sql-plus-jinja', {'do': 'yarn install --frozen-lockfile'}
 Plug 'hashivim/vim-terraform'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'puremourning/vimspector'
 
@@ -87,6 +88,7 @@ Plug 'glench/vim-jinja2-syntax'
 Plug 'vim-scripts/dbext.vim'
 Plug 'tmhedberg/SimpylFold'
 Plug 'petobens/poet-v'
+Plug 'stevearc/aerial.nvim'
 
 call plug#end()
 
@@ -213,7 +215,6 @@ colorscheme tokyonight
 
 " lualine
 lua << END
-
 local function getWordCount()
   return tostring(vim.fn.wordcount().words)
 end
@@ -258,7 +259,7 @@ require('lualine').setup {
     	}
 	},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {'aerial', 'encoding', 'fileformat', 'filetype'},
     lualine_y = {'progress', getWordCount},
     lualine_z = {'location'}
   },
@@ -280,6 +281,27 @@ require('lualine').setup {
   },
   extensions = {}
 }
+END
+
+" Treesitter
+lua <<EOF
+require('nvim-treesitter.configs').setup({
+	ensure_installed = {"c", "python", "lua"},
+	auto_install = true,
+})
+EOF
+
+" Aerial
+
+lua << END
+require('aerial').setup({
+	backends = { 'treesitter', 'lsp', 'markdown', 'man' },
+	layout = {
+		default_direction="prefer_left"
+	}
+})
+
+vim.keymap.set('n', '<leader>a', '<cmd>AerialToggle!<CR>')
 END
 
 " Colorizer

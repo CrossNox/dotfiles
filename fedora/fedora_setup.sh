@@ -332,6 +332,11 @@ wget https://github.com/MyCryptoHQ/MyCrypto/releases/download/1.7.17/linux-x86-6
 chmod +x MyCrypto.AppImage
 wget https://download.mycrypto.com/common/assets/meta-fe1afc0ffc5a0dde50cf70fdd4e77e3d/coast-228x228.png -O MyCrypto.png
 
+cd ~/AppImages
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.9/Obsidian-1.1.9.AppImage -O Obsidian.AppImage
+chmod +x Obsidian.AppImage
+wget https://avatars.githubusercontent.com/u/65011256?s=256 -O Obsidian.png
+
 if [ ! -d "$REPOS_FOLDER/rofi-network-manager" ]; then
 	git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
 fi

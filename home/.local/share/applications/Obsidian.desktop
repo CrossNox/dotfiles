@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Obsidian
+Comment=Obsidian is a powerful and extensible knowledge base that works on top of your local folder of plain text files.
+Icon=/home/nox/AppImages/Obsidian.png
+Exec=/home/nox/AppImages/Obsidian.AppImage
+Terminal=false
+Categories=Utility

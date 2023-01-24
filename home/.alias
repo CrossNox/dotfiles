@@ -23,3 +23,4 @@ alias n="nnn"
 alias d="cd ~/repos/dotfiles"
 alias qrcopy="xclip -o | qrencode -t utf8"
 alias f='git commit -m "fix" -a && git push'
+alias c='git commit -m "commit" -a && git push'

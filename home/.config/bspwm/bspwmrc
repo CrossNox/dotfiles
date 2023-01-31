@@ -44,8 +44,8 @@ if [[ "$HOSTNAME" == "dell-xps" ]]; then
 	fi
 
 elif [[ "$HOSTNAME" == "shootingstar" ]]; then
-	bspc monitor DP-1 -d 1 2 3 4 5
-	bspc monitor DP-5 -d 6 7 8 9 10
+	bspc monitor DP-1 -d 1 2 3 4 5 101 102
+	bspc monitor DP-5 -d 6 7 8 9 10 102 103
 	# bspc monitor HDMI-0 -d X Y Z
 fi
 

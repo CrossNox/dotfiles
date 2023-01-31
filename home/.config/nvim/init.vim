@@ -106,6 +106,7 @@ let g:coc_global_extensions = [
       \ 'coc-vimtex',
 	  \ 'coc-java',
 	  \ 'coc-java-debug',
+      \ 'coc-clangd',
       \ ]
 
 let g:ale_linters = {

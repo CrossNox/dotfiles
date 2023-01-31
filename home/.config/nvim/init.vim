@@ -69,6 +69,7 @@ Plug 'APZelos/blamer.nvim'
 Plug 'tpope/vim-unimpaired'
 Plug 'chrisbra/Colorizer'
 Plug 'simnalamburt/vim-mundo', { 'commit':'595ee332719f397c2441d85f79608113957cc78f' }
+Plug 'preservim/nerdcommenter'
 
 " LaTex
 Plug 'lervag/vimtex'
@@ -480,3 +481,15 @@ nmap <F7> <Plug>VimspectorStepOver
 nmap <F7> <Plug>VimspectorStepInto
 
 nmap <leader>u :MundoToggle<CR>
+
+" NerdCommenter {{{
+
+let g:NERDSpaceDelims = 1                  " Leave space after comment delimiter
+let g:NERDCreateDefaultMappings = 0        " Disable default mappings
+let g:NERDCustomDelimiters = {'python': {'left': '#'}}  " Fix python spacing
+
+" Mappings (for both normal and visual mode)
+map <Leader>cc <Plug>NERDCommenterComment
+map <Leader>cu <Plug>NERDCommenterUncomment
+map <Leader>ce <Plug>NERDCommenterToEOL
+map <Leader>ac <Plug>NERDCommenterAppend

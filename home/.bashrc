@@ -1,5 +1,8 @@
 # .bashrc
 
+# If not running interactively, don't do anything
+# [[ $- == *i* ]] || return
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -92,6 +95,9 @@ export PATH="$PATH:$HOME/.spicetify"
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
+
+# If not running interactively, don't do anything and return early
+[[ $- == *i* ]] || return
 
 bind 'set show-all-if-ambiguous on'
 bind 'set menu-complete-display-prefix on'

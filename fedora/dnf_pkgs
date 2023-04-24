@@ -79,6 +79,7 @@ scrot
 shfmt
 smbios-utils-python
 snapd
+sshfs
 sqlite-devel
 stow
 sxhkd

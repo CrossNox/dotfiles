@@ -43,6 +43,7 @@ let g:ale_disable_lsp = 1
 
 call plug#begin()
 " Themes
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'habamax/vim-gruvbit'

@@ -70,6 +70,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'chrisbra/Colorizer'
 Plug 'simnalamburt/vim-mundo', { 'commit':'595ee332719f397c2441d85f79608113957cc78f' }
 Plug 'preservim/nerdcommenter'
+Plug 'karb94/neoscroll.nvim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 
 " LaTex
 Plug 'lervag/vimtex'
@@ -92,6 +96,14 @@ Plug 'petobens/poet-v'
 Plug 'stevearc/aerial.nvim'
 
 call plug#end()
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Neoscroll
+lua require('neoscroll').setup()
 
 let g:poetv_executables = ['poetry']
 let g:poetv_auto_activate = 1

@@ -42,10 +42,10 @@ Print
 	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png'
 
 shift + Print
-	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png' --select=capture -l opacity=0
+	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png' --select=capture -l opacity=100,mode=edge
 
 ctrl + shift + Print
-	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png' --select=capture -l opacity=0 -e 'xclip -selection clipboard -t image/png -i "$f"'
+	scrot $HOME'/Pictures/screenshot-%Y-%m-%d %H:%M:%S.png' --select=capture -l opacity=100,mode=edge -e 'xclip -selection clipboard -t image/png -i "$f"'
 #
 # bspwm hotkeys
 #

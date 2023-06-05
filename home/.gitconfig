@@ -3,6 +3,10 @@
 # Please adapt and uncomment the following lines:
 	name = CrossNox
 	email = ijmermet@gmail.com
+	signingkey = DE00948BCCCE8893
+
+[commit]
+	gpgSign = true
 
 [pull]
 	rebase = false

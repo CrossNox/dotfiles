@@ -218,6 +218,7 @@ pipx install pywal
 pipx install bspcq
 pipx install gsutil
 pipx install autoimport
+pipx install awscli-local
 # pipx install git+https://github.com/CrossNox/nbtodos.git
 
 # jedi

@@ -54,6 +54,7 @@ mesa-libGL-devel
 meson
 neofetch
 neovim
+ngrok
 numix-icon-theme-circle
 openssl-devel
 pam-devel
@@ -65,6 +66,7 @@ pixman-devel
 pkgconf
 playerctl
 polybar
+postman
 powerline-go
 powertop
 python3-devel
@@ -79,8 +81,8 @@ scrot
 shfmt
 smbios-utils-python
 snapd
-sshfs
 sqlite-devel
+sshfs
 stow
 sxhkd
 texlive-arara

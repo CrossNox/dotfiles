@@ -109,4 +109,6 @@ function passqr() {
 	pass $1 | qrencode -t utf8
 }
 
-source ~/repos/lara/dotfiles/bashrc
+if [ -d "/home/nox/repos/lara/dotfiles" ]; then
+	source ~/repos/lara/dotfiles/bashrc
+fi

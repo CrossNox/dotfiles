@@ -78,6 +78,7 @@ flatpak install -y --noninteractive com.github.wwmm.easyeffects
 flatpak install -y --noninteractive com.slack.Slack
 flatpak install -y --noninteractive org.telegram.desktop
 flatpak install -y --noninteractive com.bitwarden.desktop
+flatpak install -y --noninteractive com.getpostman.Postman
 
 mkdir -p ~/.local/bin
 mkdir -p ~/.gnupg

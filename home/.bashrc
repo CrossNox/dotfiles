@@ -108,3 +108,5 @@ bind 'set colored-stats on'
 function passqr() {
 	pass $1 | qrencode -t utf8
 }
+
+source ~/repos/lara/dotfiles/bashrc

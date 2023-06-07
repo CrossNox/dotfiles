@@ -78,6 +78,7 @@ readline-devel
 rofi
 rofi-devel
 scrot
+shellcheck
 shfmt
 smbios-utils-python
 snapd

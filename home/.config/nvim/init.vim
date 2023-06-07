@@ -126,6 +126,7 @@ let g:coc_global_extensions = [
 let g:ale_linters = {
       \   'python': ['pylint', 'flake8'],
       \   'c': ['gcc'],
+	  \   'sh': ['shellcheck']
       \}
 
 

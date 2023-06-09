@@ -158,7 +158,7 @@ nvm install node
 npm install --global yarn
 nvm install 14.18.1
 nvm use 14.18.1
-nvm install --global yarn
+npm install --global yarn
 nvm use default
 
 # Install mdcat

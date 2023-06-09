@@ -156,6 +156,10 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 source ~/.bashrc
 nvm install node
 npm install --global yarn
+nvm install 14.18.1
+nvm use 14.18.1
+nvm install --global yarn
+nvm use default
 
 # Install mdcat
 if [ ! -d "$REPOS_FOLDER/mdcat" ]; then

@@ -121,12 +121,14 @@ let g:coc_global_extensions = [
 	  \ 'coc-java',
 	  \ 'coc-java-debug',
       \ 'coc-clangd',
+	  \ 'coc-tsserver',
       \ ]
 
 let g:ale_linters = {
       \   'python': ['pylint', 'flake8'],
       \   'c': ['gcc'],
-	  \   'sh': ['shellcheck']
+	  \   'sh': ['shellcheck'],
+	  \   'javascript': ['eslint']
       \}
 
 
@@ -193,7 +195,8 @@ let g:ale_fixers = {
       \    'html': ['html-beautify'],
       \    'java': ['google_java_format'],
 	  \    'sh': ['shfmt'],
-      \    'c': ['clang-format']
+      \    'c': ['clang-format'],
+	  \    'javascript': ['prettier']
       \}
 
 let g:terraform_fmt_on_save=1

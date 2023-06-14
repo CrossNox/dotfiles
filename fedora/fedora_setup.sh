@@ -155,10 +155,10 @@ echo "Install nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 source ~/.bashrc
 nvm install node
-npm install --global yarn
+npm install --global yarn prettier eslint
 nvm install 14.18.1
 nvm use 14.18.1
-npm install --global yarn
+npm install --global yarn prettier eslint
 nvm use default
 
 # Install mdcat

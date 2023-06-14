@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Beekeeper
+Comment=Beekeper Community Edition
+Icon=/home/nox/AppImages/Beekeeper.png
+Exec=/home/nox/AppImages/Beekeeper.AppImage
+Terminal=false
+Categories=Utility

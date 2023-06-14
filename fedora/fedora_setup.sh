@@ -352,6 +352,11 @@ wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.9/Ob
 chmod +x Obsidian.AppImage
 wget https://avatars.githubusercontent.com/u/65011256?s=256 -O Obsidian.png
 
+cd ~/AppImages
+wget https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v3.9.14/Beekeeper-Studio-3.9.14.AppImage -O Beekeeper.AppImage
+chmod +x Beekeeper.AppImage
+wget https://avatars.githubusercontent.com/u/53234021?s=256 -O Beekeeper.png
+
 if [ ! -d "$REPOS_FOLDER/rofi-network-manager" ]; then
 	git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
 fi

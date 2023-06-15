@@ -53,6 +53,7 @@ Plug 'pineapplegiant/spaceduck', { 'branch': 'main' }
 Plug 'dylanaraps/wal.vim'
 Plug 'folke/tokyonight.nvim', { 'commit': '2981e4bd0919305675d8d665f9a20281bb33ed06' }
 Plug 'lmburns/kimbox'
+Plug 'navarasu/onedark.nvim'
 
 " Utils
 Plug 'luukvbaal/nnn.nvim', { 'commit': '578cc845b49657319975a72dbb26113ef7e43f1d' }
@@ -228,6 +229,14 @@ let g:tokyonight_colors = {
 \ }
 
 colorscheme tokyonight
+
+"lua << END
+"require('onedark').setup {
+"    style = 'darker'
+"}
+"require('onedark').load()
+"END
+
 
 "lua <<EOF
 "require("kimbox").setup()

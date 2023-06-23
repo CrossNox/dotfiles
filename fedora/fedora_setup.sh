@@ -71,6 +71,10 @@ flatpak --user override --filesystem=/usr/share/icons/:ro
 
 REPOS_FOLDER=~/repos
 
+if grep "38" /etc/fedora-release; then
+	sudo dnf downgrade ostree-libs
+fi
+
 echo "Installing flatpaks"
 flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord

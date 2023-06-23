@@ -204,9 +204,9 @@ let g:terraform_fmt_on_save=1
 let g:terraform_align=1
 let g:hcl_align=1
 
-nmap <F6> :ALEFix<CR>
-nmap <F5> :ALENext<CR>
 nmap <F4> :ALEPrevious<CR>
+nmap <F5> :ALENext<CR>
+nmap <F6> :ALEFix<CR>
 let g:ale_fix_on_save = 1
 
 " SQL
@@ -499,12 +499,20 @@ function JavaStartDebug()
   call CocActionAsync('runCommand', 'vscode.java.startDebugSession', function('JavaStartDebugCallback'))
 endfunction
 
-nmap <F1> :call JavaStartDebug()<CR>
-" nmap <F1> :CocCommand java.debug.vimspector.start<CR>
+"nmap <F1> :call JavaStartDebug()<CR>
+"nmap <F1> :CocCommand java.debug.vimspector.start<CR>
+
+nmap <F1> :call vimspector#Launch()<CR>
 nmap <F2> <Plug>VimspectorToggleBreakpoint
 nmap <F3> <Plug>VimspectorContinue
 nmap <F7> <Plug>VimspectorStepOver
-nmap <F7> <Plug>VimspectorStepInto
+nmap <F8> <Plug>VimspectorStop
+nmap <leader>si <Plug>VimspectorStepInto
+nmap <leader>sv <Plug>VimspectorStepOver
+nmap <leader>so <Plug>VimspectorStepOut
+
+
+
 
 nmap <leader>u :MundoToggle<CR>
 

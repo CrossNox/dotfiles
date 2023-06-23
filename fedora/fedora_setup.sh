@@ -72,7 +72,7 @@ flatpak --user override --filesystem=/usr/share/icons/:ro
 REPOS_FOLDER=~/repos
 
 if grep "38" /etc/fedora-release; then
-	sudo dnf downgrade ostree-libs
+	sudo dnf downgrade -y ostree-libs
 fi
 
 echo "Installing flatpaks"

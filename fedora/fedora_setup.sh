@@ -52,7 +52,7 @@ sudo systemctl enable powertop.service
 cd /tmp
 wget https://github.com/git-lfs/git-lfs/releases/download/v3.3.0/git-lfs-linux-amd64-v3.3.0.tar.gz
 tar -zxvf git-lfs-linux-amd64-v3.3.0.tar.gz
-cd git-lfs-linux-amd64-v3.3.0
+cd git-lfs-3.3.0
 sudo ./install.sh
 
 # f33 default editor

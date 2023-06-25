@@ -129,7 +129,7 @@ nvm use 14.18.1
 npm install --global yarn prettier eslint
 nvm use default
 
-# Install mdcat
+echo "Install mdcat"
 if [ ! -d "$REPOS_FOLDER/mdcat" ]; then
 	git clone https://github.com/swsnr/mdcat.git $REPOS_FOLDER/mdcat
 fi
@@ -137,10 +137,10 @@ cd $REPOS_FOLDER/mdcat
 git pull
 cargo install mdcat
 
-# Install onefetch
+echo "Install onefetch"
 cargo install onefetch
 
-# nnn
+echo "Install nnn"
 if [ ! -d "$REPOS_FOLDER/nnn" ]; then
 	git clone https://github.com/jarun/nnn.git $REPOS_FOLDER/nnn
 fi
@@ -202,33 +202,17 @@ curl -fLo "CryptoFont" https://github.com/monzanifabio/cryptofont/raw/master/fon
 fc-cache -v
 
 # NB
+echo "Install nb"
 curl -L https://raw.github.com/xwmx/nb/master/nb -o /usr/local/bin/nb &&
 	chmod +x /usr/local/bin/nb &&
 	nb completions install
 
 nb env install && nb completions install --download
 
+echo "Install sass"
 npm install -g sass
 
-source ~/.bashrc
-
-if [ ! -d "$REPOS_FOLDER/picom" ]; then
-	git clone https://github.com/ibhagwan/picom.git ~/repos/picom
-fi
-cd ~/repos/picom
-git pull
-git submodule update --init --recursive
-meson --buildtype=release . build
-ninja -C build
-sudo ninja -C build install
-
-if [ ! -d "$REPOS_FOLDER/xdo" ]; then
-	git clone https://github.com/baskerville/xdo.git ~/repos/xdo
-fi
-cd ~/repos/xdo
-git pull
-make
-sudo make install
+# source ~/.bashrc
 
 curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh -s -- 2.9.1
 sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
@@ -272,6 +256,27 @@ for x in "shootingstar" "dell-xps"; do
 	fi
 done
 
+echo "Install picom"
+if [ ! -d "$REPOS_FOLDER/picom" ]; then
+	git clone https://github.com/ibhagwan/picom.git ~/repos/picom
+fi
+cd ~/repos/picom
+git pull
+git submodule update --init --recursive
+meson --buildtype=release . build
+ninja -C build
+sudo ninja -C build install
+
+echo "Install xdo"
+if [ ! -d "$REPOS_FOLDER/xdo" ]; then
+	git clone https://github.com/baskerville/xdo.git ~/repos/xdo
+fi
+cd ~/repos/xdo
+git pull
+make
+sudo make install
+
+echo "Install rofi emoji"
 if [ ! -d "$REPOS_FOLDER/rofi-emoji" ]; then
 	git clone https://github.com/Mange/rofi-emoji.git ~/repos/rofi-emoji
 fi
@@ -284,6 +289,7 @@ cd build/
 make
 sudo make install
 
+echo "Install xbanish"
 if [ ! -d "$REPOS_FOLDER/xbanish" ]; then
 	git clone https://github.com/jcs/xbanish.git ~/repos/xbanish
 fi
@@ -292,6 +298,7 @@ git pull
 make
 mv xbanish ~/.local/bin/
 
+echo "Install rofi calc"
 if [ ! -d "$REPOS_FOLDER/rofi-calc" ]; then
 	git clone https://github.com/svenstaro/rofi-calc.git ~/repos/rofi-calc
 fi
@@ -303,6 +310,7 @@ cd build/
 make
 sudo make install
 
+echo "Install rofi pass"
 if [ ! -d "$REPOS_FOLDER/rofi-pass" ]; then
 	git clone https://github.com/carnager/rofi-pass.git ~/repos/rofi-pass
 fi
@@ -310,6 +318,7 @@ cd ~/repos/rofi-pass
 git pull
 sudo make install
 
+echo "Install xtitle"
 if [ ! -d "$REPOS_FOLDER/xtitle" ]; then
 	git clone https://github.com/baskerville/xtitle.git ~/repos/xtitle
 fi
@@ -318,6 +327,7 @@ git pull
 sudo make
 sudo make install
 
+echo "Install i3lock color"
 if [ ! -d "$REPOS_FOLDER/i3lock-color" ]; then
 	git clone https://github.com/Raymo111/i3lock-color.git ~/repos/i3lock-color
 fi
@@ -325,6 +335,7 @@ git pull
 cd ~/repos/i3lock-color
 ./install-i3lock-color.sh
 
+echo "Install rofi bluetooth"
 if [ ! -d "$REPOS_FOLDER/rofi-bluetooth" ]; then
 	git clone https://github.com/ClydeDroid/rofi-bluetooth.git ~/repos/rofi-bluetooth
 fi
@@ -332,27 +343,7 @@ cd ~/repos/rofi-bluetooth
 git pull
 cp rofi-bluetooth ~/.local/bin
 
-mkdir -p ~/AppImages
-cd ~/AppImages
-wget https://github.com/Ultimaker/Cura/releases/download/5.0.0/Ultimaker-Cura-5.0.0-linux.AppImage
-chmod +x Ultimaker-Cura-5.0.0-linux.AppImage
-wget https://raw.githubusercontent.com/leoheck/Cura/main/packaging/icons/cura-64.png
-
-cd ~/AppImages
-wget https://github.com/MyCryptoHQ/MyCrypto/releases/download/1.7.17/linux-x86-64_1.7.17_MyCrypto.AppImage -O MyCrypto.AppImage
-chmod +x MyCrypto.AppImage
-wget https://download.mycrypto.com/common/assets/meta-fe1afc0ffc5a0dde50cf70fdd4e77e3d/coast-228x228.png -O MyCrypto.png
-
-cd ~/AppImages
-wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.9/Obsidian-1.1.9.AppImage -O Obsidian.AppImage
-chmod +x Obsidian.AppImage
-wget https://avatars.githubusercontent.com/u/65011256?s=256 -O Obsidian.png
-
-cd ~/AppImages
-wget https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v3.9.14/Beekeeper-Studio-3.9.14.AppImage -O Beekeeper.AppImage
-chmod +x Beekeeper.AppImage
-wget https://avatars.githubusercontent.com/u/53234021?s=256 -O Beekeeper.png
-
+echo "Install rofi network manager"
 if [ ! -d "$REPOS_FOLDER/rofi-network-manager" ]; then
 	git clone https://github.com/P3rf/rofi-network-manager.git ~/repos/rofi-network-manager
 fi
@@ -363,16 +354,46 @@ cp rofi-network-manager.sh ~/.config/polybar/scripts/
 #cp rofi-network-manager.rasi ~/.config/rofi/
 #cp rofi-network-manager.conf ~/.config/rofi/
 
+echo "Install ntfd"
 cd /tmp
 curl -fLo "ntfd" https://github.com/kamek-pf/ntfd/releases/download/0.2.2/ntfd-x86_64-unknown-linux-musl
 chmod +x ntfd
 mv ntfd ~/.local/bin
 
+echo "Install zscroll"
 if [ ! -d "$REPOS_FOLDER/zscroll" ]; then
 	git clone https://github.com/noctuid/zscroll ~/repos/zscroll
 fi
 cd ~/repos/zscroll
 cp zscroll ~/.local/bin/
+
+echo "Install AppImages"
+
+mkdir -p ~/AppImages
+
+echo "Install Cura"
+cd ~/AppImages
+wget https://github.com/Ultimaker/Cura/releases/download/5.0.0/Ultimaker-Cura-5.0.0-linux.AppImage
+chmod +x Ultimaker-Cura-5.0.0-linux.AppImage
+wget https://raw.githubusercontent.com/leoheck/Cura/main/packaging/icons/cura-64.png
+
+echo "Install MyCrypto"
+cd ~/AppImages
+wget https://github.com/MyCryptoHQ/MyCrypto/releases/download/1.7.17/linux-x86-64_1.7.17_MyCrypto.AppImage -O MyCrypto.AppImage
+chmod +x MyCrypto.AppImage
+wget https://download.mycrypto.com/common/assets/meta-fe1afc0ffc5a0dde50cf70fdd4e77e3d/coast-228x228.png -O MyCrypto.png
+
+echo "Install Obsidian"
+cd ~/AppImages
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.1.9/Obsidian-1.1.9.AppImage -O Obsidian.AppImage
+chmod +x Obsidian.AppImage
+wget https://avatars.githubusercontent.com/u/65011256?s=256 -O Obsidian.png
+
+echo "Install Beekeeper"
+cd ~/AppImages
+wget https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v3.9.14/Beekeeper-Studio-3.9.14.AppImage -O Beekeeper.AppImage
+chmod +x Beekeeper.AppImage
+wget https://avatars.githubusercontent.com/u/53234021?s=256 -O Beekeeper.png
 
 # install ngrok
 wget -O /tmp/ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz

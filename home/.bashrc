@@ -1,8 +1,5 @@
 # .bashrc
 
-# If not running interactively, don't do anything
-# [[ $- == *i* ]] || return
-
 # Source global definitions
 if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
@@ -96,6 +93,10 @@ export PATH="$PATH:$HOME/.spicetify"
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
 
+if [ -d "/home/nox/repos/lara/dotfiles" ]; then
+	source ~/repos/lara/dotfiles/bashrc
+fi
+
 # If not running interactively, don't do anything and return early
 [[ $- == *i* ]] || return
 
@@ -108,7 +109,3 @@ bind 'set colored-stats on'
 function passqr() {
 	pass $1 | qrencode -t utf8
 }
-
-if [ -d "/home/nox/repos/lara/dotfiles" ]; then
-	source ~/repos/lara/dotfiles/bashrc
-fi

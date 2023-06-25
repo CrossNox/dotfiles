@@ -388,4 +388,6 @@ cp zscroll ~/.local/bin/
 # install ngrok
 wget -O /tmp/ngrok.tgz https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz
 tar -zxvf /tmp/ngrok.tgz -C ~/.local/bin/
-ngrok config add-authtoken "$(pass ngrok/authtoken)"
+if pass ls ngrok/authtoken; then
+	ngrok config add-authtoken "$(pass ngrok/authtoken)"
+fi

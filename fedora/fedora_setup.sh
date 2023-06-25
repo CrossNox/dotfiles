@@ -88,44 +88,6 @@ flatpak install -y --noninteractive com.getpostman.Postman
 mkdir -p ~/.local/bin
 mkdir -p ~/.gnupg
 
-echo "Linking dotfiles with stow"
-cd $DOTFILES_FOLDER
-
-echo "Linking home files"
-if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
-	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
-		echo "Removing $HOME/$x"
-		rm "$HOME/$x"
-	done
-fi
-stow -vSt $HOME home
-
-echo "Linking root files"
-if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
-	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
-		echo "Removing /$x"
-		sudo rm "/$x"
-	done
-fi
-sudo stow -vSt / root
-
-echo "Linking host specific files"
-for x in "shootingstar" "dell-xps"; do
-	if [ $x = $HOSTNAME ]; then
-		cd hosts
-
-		if ! stow -nt / $HOSTNAME >/tmp/stow_stdout 2>/tmp/stow_stderr; then
-			for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
-				echo "Removing /$x"
-				sudo rm "/$x"
-			done
-		fi
-
-		sudo stow -vSt / $HOSTNAME
-		cd ..
-	fi
-done
-
 # For udev rules
 sudo udevadm control --reload-rules && sudo udevadm trigger
 
@@ -390,3 +352,41 @@ tar -zxvf /tmp/ngrok.tgz -C ~/.local/bin/
 if pass ls ngrok/authtoken; then
 	ngrok config add-authtoken "$(pass ngrok/authtoken)"
 fi
+
+echo "Linking dotfiles with stow"
+cd $DOTFILES_FOLDER
+
+echo "Linking home files"
+if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+		echo "Removing $HOME/$x"
+		rm "$HOME/$x"
+	done
+fi
+stow -vSt $HOME home
+
+echo "Linking root files"
+if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+		echo "Removing /$x"
+		sudo rm "/$x"
+	done
+fi
+sudo stow -vSt / root
+
+echo "Linking host specific files"
+for x in "shootingstar" "dell-xps"; do
+	if [ $x = $HOSTNAME ]; then
+		cd hosts
+
+		if ! stow -nt / $HOSTNAME >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+			for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+				echo "Removing /$x"
+				sudo rm "/$x"
+			done
+		fi
+
+		sudo stow -vSt / $HOSTNAME
+		cd ..
+	fi
+done

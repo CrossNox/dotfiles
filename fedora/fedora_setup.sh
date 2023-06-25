@@ -383,8 +383,5 @@ fi
 # own systemd services
 systemctl --user enable xautolock
 systemctl --user enable gmail-notifications-uni.service
-systemctl --user start gmail-notifications-uni.service
 systemctl --user enable gmail-notifications-work.service
-systemctl --user start gmail-notifications-work.service
 systemctl --user enable gmail-notifications-personal.service
-systemctl --user start gmail-notifications-personal.service

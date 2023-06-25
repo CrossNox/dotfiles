@@ -234,6 +234,44 @@ curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/instal
 sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
 sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
 
+echo "Linking dotfiles with stow"
+cd $DOTFILES_FOLDER
+
+echo "Linking home files"
+if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+		echo "Removing $HOME/$x"
+		rm "$HOME/$x"
+	done
+fi
+stow -vSt $HOME home
+
+echo "Linking root files"
+if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+		echo "Removing /$x"
+		sudo rm "/$x"
+	done
+fi
+sudo stow -vSt / root
+
+echo "Linking host specific files"
+for x in "shootingstar" "dell-xps"; do
+	if [ $x = $HOSTNAME ]; then
+		cd hosts
+
+		if ! stow -nt / $HOSTNAME >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+			for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+				echo "Removing /$x"
+				sudo rm "/$x"
+			done
+		fi
+
+		sudo stow -vSt / $HOSTNAME
+		cd ..
+	fi
+done
+
 if [ ! -d "$REPOS_FOLDER/rofi-emoji" ]; then
 	git clone https://github.com/Mange/rofi-emoji.git ~/repos/rofi-emoji
 fi
@@ -259,7 +297,6 @@ fi
 cd ~/repos/rofi-calc
 git pull
 autoreconf -i
-mkdir build
 cd build/
 ../configure
 make
@@ -294,11 +331,11 @@ cd ~/repos/rofi-bluetooth
 git pull
 cp rofi-bluetooth ~/.local/bin
 
-mkdir ~/AppImages
+mkdir -p ~/AppImages
 cd ~/AppImages
 wget https://github.com/Ultimaker/Cura/releases/download/5.0.0/Ultimaker-Cura-5.0.0-linux.AppImage
 chmod +x Ultimaker-Cura-5.0.0-linux.AppImage
-wget https://raw.githubusercontent.com/Ultimaker/Cura/master/icons/cura-64.png
+wget https://raw.githubusercontent.com/leoheck/Cura/main/packaging/icons/cura-64.png
 
 cd ~/AppImages
 wget https://github.com/MyCryptoHQ/MyCrypto/releases/download/1.7.17/linux-x86-64_1.7.17_MyCrypto.AppImage -O MyCrypto.AppImage
@@ -342,44 +379,6 @@ tar -zxvf /tmp/ngrok.tgz -C ~/.local/bin/
 if pass ls ngrok/authtoken; then
 	ngrok config add-authtoken "$(pass ngrok/authtoken)"
 fi
-
-echo "Linking dotfiles with stow"
-cd $DOTFILES_FOLDER
-
-echo "Linking home files"
-if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
-	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
-		echo "Removing $HOME/$x"
-		rm "$HOME/$x"
-	done
-fi
-stow -vSt $HOME home
-
-echo "Linking root files"
-if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
-	for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
-		echo "Removing /$x"
-		sudo rm "/$x"
-	done
-fi
-sudo stow -vSt / root
-
-echo "Linking host specific files"
-for x in "shootingstar" "dell-xps"; do
-	if [ $x = $HOSTNAME ]; then
-		cd hosts
-
-		if ! stow -nt / $HOSTNAME >/tmp/stow_stdout 2>/tmp/stow_stderr; then
-			for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
-				echo "Removing /$x"
-				sudo rm "/$x"
-			done
-		fi
-
-		sudo stow -vSt / $HOSTNAME
-		cd ..
-	fi
-done
 
 # own systemd services
 systemctl --user enable xautolock

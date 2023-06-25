@@ -166,15 +166,6 @@ wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/
 # systemctl --user enable glances.service
 # systemctl --user start glances.service
 
-# own systemd services
-systemctl --user enable xautolock
-systemctl --user enable gmail-notifications-uni.service
-systemctl --user start gmail-notifications-uni.service
-systemctl --user enable gmail-notifications-work.service
-systemctl --user start gmail-notifications-work.service
-systemctl --user enable gmail-notifications-personal.service
-systemctl --user start gmail-notifications-personal.service
-
 # pipx
 echo "Installing pipx and some apps"
 python3 -m pip uninstall --yes pipx
@@ -390,3 +381,12 @@ for x in "shootingstar" "dell-xps"; do
 		cd ..
 	fi
 done
+
+# own systemd services
+systemctl --user enable xautolock
+systemctl --user enable gmail-notifications-uni.service
+systemctl --user start gmail-notifications-uni.service
+systemctl --user enable gmail-notifications-work.service
+systemctl --user start gmail-notifications-work.service
+systemctl --user enable gmail-notifications-personal.service
+systemctl --user start gmail-notifications-personal.service

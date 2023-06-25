@@ -278,6 +278,7 @@ fi
 cd ~/repos/rofi-emoji
 git pull
 autoreconf -i
+mkdir -p build
 cd build/
 ../configure
 make

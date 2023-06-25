@@ -131,7 +131,7 @@ nvm use default
 
 # Install mdcat
 if [ ! -d "$REPOS_FOLDER/mdcat" ]; then
-	git clone https://github.com/lunaryorn/mdcat.git $REPOS_FOLDER/mdcat
+	git clone https://github.com/swsnr/mdcat.git $REPOS_FOLDER/mdcat
 fi
 cd $REPOS_FOLDER/mdcat
 git pull

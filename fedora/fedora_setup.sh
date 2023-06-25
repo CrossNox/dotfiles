@@ -135,7 +135,7 @@ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -
 curl -L get.rvm.io | bash -s stable
 # echo 'source ~/.rvm/scripts/rvm' >> ~/.bashrc
-source $SUDO_USER_HOME/.bashrc
+source $HOME/.bashrc
 rvm install 3.2.2
 rvm pkg install openssl
 rvm install ruby-2.7.8 --with-openssl-dir=$HOME/.rvm/usr

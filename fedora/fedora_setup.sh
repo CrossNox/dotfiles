@@ -10,7 +10,7 @@ while true; do
 done 2>/dev/null &
 
 set -E -o functrace
-trap 'failure "LINENO" "BASH_LINENO" "#{BASH_COMMAND}" "${?}"'
+trap 'failure "LINENO" "BASH_LINENO" "#{BASH_COMMAND}" "${?}"' ERR
 # keep track of the last executed command
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting

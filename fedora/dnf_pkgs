@@ -21,6 +21,8 @@ fontconfig
 gammastep
 gcc
 gcc-c++
+gdbm
+gdbm-devel
 git
 git-delta
 gnome-shell

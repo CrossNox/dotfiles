@@ -88,10 +88,6 @@ NB_COLOR_THEME=ocean
 # time nbtodos
 
 export PATH="$PATH:$HOME/.spicetify"
-export LD_LIBRARY_PATH=/usr/local/lib64/:/usr/lib64/:${LD_LIBRARY_PATH}
-export GUROBI_HOME=/opt/gurobi1001/linux64
-export PATH=$PATH:${GUROBI_HOME}/bin
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi

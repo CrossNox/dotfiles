@@ -9,7 +9,7 @@ while true; do
 	kill -0 "$$" || exit
 done 2>/dev/null &
 
-set -E -o functrace
+set -e -o functrace
 trap 'failure "LINENO" "BASH_LINENO" "#{BASH_COMMAND}" "${?}"' ERR
 # keep track of the last executed command
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
@@ -135,10 +135,10 @@ curl -sSL https://rvm.io/mpapis.asc | gpg2 --import -
 curl -sSL https://rvm.io/pkuczynski.asc | gpg2 --import -
 curl -L get.rvm.io | bash -s stable
 # echo 'source ~/.rvm/scripts/rvm' >> ~/.bashrc
-source $HOME/.bashrc
+# source $HOME/.bashrc
 rvm install 3.2.2
 rvm pkg install openssl
-rvm install ruby-2.7.8 --with-openssl-dir=$HOME/.rvm/usr
+rvm install ruby-2.7.8 --with-openssl-dir="$HOME/.rvm/usr"
 rvm --default use 2.7.8
 
 # kitty
@@ -153,14 +153,14 @@ echo "Setting devenv"
 cd $REPOS_FOLDER
 virtualenv -p python3 venv
 source venv/bin/activate
-pip install -r $DOTFILES_FOLDER/fedora/base_requirements.txt
+pip install -r "$DOTFILES_FOLDER/fedora/base_requirements.txt"
 deactivate
 pip install toml typer dbus-python flask google-api-python-client google-auth-httplib2 google-auth-oauthlib youconfigme
 
 # nvm
 echo "Install nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-source ~/.bashrc
+# source $HOME/.bashrc
 nvm install node
 npm install --global yarn prettier eslint
 nvm install 14.18.1
@@ -258,7 +258,7 @@ nb env install && nb completions install --download
 
 npm install -g sass
 
-source ~/.bashrc
+#source ~/.bashrc
 
 if [ ! -d "$REPOS_FOLDER/picom" ]; then
 	git clone https://github.com/ibhagwan/picom.git ~/repos/picom

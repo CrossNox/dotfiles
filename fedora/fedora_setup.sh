@@ -298,7 +298,7 @@ cp rofi-bluetooth ~/.local/bin
 mkdir ~/AppImages
 cd ~/AppImages
 wget https://github.com/Ultimaker/Cura/releases/download/5.0.0/Ultimaker-Cura-5.0.0-linux.AppImage
-chmod +x Ultimaker_Cura-5.0.0-linux.AppImage
+chmod +x Ultimaker-Cura-5.0.0-linux.AppImage
 wget https://raw.githubusercontent.com/Ultimaker/Cura/master/icons/cura-64.png
 
 cd ~/AppImages

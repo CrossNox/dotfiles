@@ -403,6 +403,8 @@ if pass ls ngrok/authtoken; then
 	ngrok config add-authtoken "$(pass ngrok/authtoken)"
 fi
 
+xdg-settings set default-web-browser vivaldi-stable.desktop
+
 # own systemd services
 systemctl --user enable xautolock
 systemctl --user enable gmail-notifications-uni.service

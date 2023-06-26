@@ -240,7 +240,7 @@ fi
 sudo stow -vSt / root
 
 echo "Linking host specific files"
-for x in "shootingstar" "dell-xps"; do
+for x in "shootingstar" "dell-xps" "gram"; do
 	if [ $x = $HOSTNAME ]; then
 		cd hosts
 

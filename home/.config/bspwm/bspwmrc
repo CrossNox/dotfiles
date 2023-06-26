@@ -60,6 +60,8 @@ then
 	bspc monitor DP-1 -d 1 2 3 4 5 101 102
 	bspc monitor DP-5 -d 6 7 8 9 10 102 103
 	# bspc monitor HDMI-0 -d X Y Z
+elif [[ "$HOSTNAME" == "gram" ]]; then
+	bspc monitor eDP-1 -d 1 2 3 4 5
 fi
 
 bspc config top_padding 34
@@ -68,6 +70,8 @@ if [[ "$HOSTNAME" == "shootingstar" ]]; then
 	bspc config -m DP-1 bottom_padding 34
 elif [[ "$HOSTNAME" == "dell-xps" ]]; then
 	bspc config bottom_padding 34
+elif [[ "$HOSTNAME" == "gram" ]]; then
+	bspc config -m eDP-1 bottom_padding 34
 fi
 
 bspc config border_width 4
@@ -86,6 +90,10 @@ if [[ "$HOSTNAME" == "dell-xps" ]]; then
 	xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Natural Scrolling Enabled" 1
 	xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Click Method Enabled" 0 1
 	xinput set-prop "DLL07BE:01 06CB:7A13 Touchpad" "libinput Tapping Enabled" 1
+elif [[ "$HOSTNAME" == "gram" ]]; then
+	xinput set-prop "04CA00A0:00 04CA:00B1 Touchpad" "libinput Natural Scrolling Enabled" 1
+	xinput set-prop "04CA00A0:00 04CA:00B1 Touchpad" "libinput Click Method Enabled" 0 1
+	xinput set-prop "04CA00A0:00 04CA:00B1 Touchpad" "libinput Tapping Enabled" 1
 elif [[ "$HOSTNAME" == "shootingstar" ]]; then
 	# Map wacom only to primary screen
 	# https://tonisagrista.com/blog/2021/map-wacom-one-screen/

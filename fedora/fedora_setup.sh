@@ -305,6 +305,7 @@ fi
 cd ~/repos/rofi-calc
 git pull
 autoreconf -i
+mkdir -p build
 cd build/
 ../configure
 make

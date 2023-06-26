@@ -5,6 +5,7 @@ automake
 bat
 bison
 breeze-cursor-theme
+brightnessctl
 bspwm
 bzip2
 cairo-devel

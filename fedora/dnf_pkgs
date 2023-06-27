@@ -69,6 +69,7 @@ pixman-devel
 pkgconf
 playerctl
 polybar
+postgresql
 powerline-go
 powertop
 python3-devel

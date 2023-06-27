@@ -4,7 +4,7 @@ format = "{price} {change1h:+.2f}% {change24h:+.2f}%"
 separator = " "
 
 [coins.bitcoin]
-icon = ""
+icon = ""
 
 [coins.ethereum]
-icon = ""
+icon = ""

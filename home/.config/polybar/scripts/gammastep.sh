@@ -25,9 +25,9 @@ temperature)
 	if checkIfRunning; then
 		CURRENT_TEMP=$(gammastep -p 2>&1 | grep "Color temperature" | sed 's/.*: //')
 		# echo " $CURRENT_TEMP"
-		echo ""
+		echo "󰌵"
 	else
-		echo ""
+		echo "󰌶"
 	fi
 	;;
 esac

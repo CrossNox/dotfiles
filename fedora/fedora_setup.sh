@@ -76,6 +76,29 @@ if grep "38" /etc/fedora-release; then
 	sudo dnf downgrade -y ostree-libs
 fi
 
+echo "Install docker"
+sudo dnf remove -y docker \
+	docker-client \
+	docker-client-latest \
+	docker-common \
+	docker-latest \
+	docker-latest-logrotate \
+	docker-logrotate \
+	docker-selinux \
+	docker-engine-selinux \
+	docker-engine
+
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo groupadd docker || echo "Group docker already exists"
+sudo usermod -aG docker $USER
+
+sudo systemctl enable docker
+sudo systemctl start docker
+
 echo "Installing flatpaks"
 flatpak install -y --noninteractive com.spotify.Client
 flatpak install -y --noninteractive com.discordapp.Discord

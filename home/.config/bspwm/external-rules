@@ -10,7 +10,7 @@ declare -A desktops
 
 if [[ "$HOSTNAME" == "dell-xps" ]]; then
 	desktops=(["Spotify"]="3" ["TelegramDesktop"]="2" ["Slack"]="2")
-if [[ "$HOSTNAME" == "gram" ]]; then
+elif [[ "$HOSTNAME" == "gram" ]]; then
 	desktops=(["Spotify"]="3" ["TelegramDesktop"]="2" ["Slack"]="2")
 elif [[ "$HOSTNAME" == "shootingstar" ]]; then
 	desktops=(["Spotify"]="3" ["TelegramDesktop"]="7" ["Slack"]="2")

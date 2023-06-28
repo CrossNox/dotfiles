@@ -86,6 +86,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'CrossNox/coc-sql-plus-jinja', {'do': 'yarn install --frozen-lockfile'}
 Plug 'hashivim/vim-terraform'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'puremourning/vimspector'
 
@@ -98,6 +99,9 @@ Plug 'petobens/poet-v'
 Plug 'stevearc/aerial.nvim'
 
 call plug#end()
+
+" editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Ultisnips
 let g:UltiSnipsExpandTrigger="<tab>"

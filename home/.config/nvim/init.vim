@@ -201,7 +201,8 @@ let g:ale_fixers = {
       \    'java': ['google_java_format'],
 	  \    'sh': ['shfmt'],
       \    'c': ['clang-format'],
-	  \    'javascript': ['prettier']
+	  \    'javascript': ['prettier'],
+	  \    'sql': ['sqlfluff']
       \}
 
 let g:terraform_fmt_on_save=1

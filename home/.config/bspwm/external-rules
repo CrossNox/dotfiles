@@ -28,7 +28,7 @@ move_wn() {
 	elif [ "$class" = "GoogleCalendar" ]; then
 		echo "state=floating center=true rectangle=1152x648+348+216"
 	else
-		return false
+		return 0
 	fi
 }
 

@@ -61,6 +61,7 @@ neovim
 numix-icon-theme-circle
 openssl-devel
 pam-devel
+pandoc
 pass
 patch
 pcre-devel

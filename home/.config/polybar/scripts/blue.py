@@ -30,7 +30,7 @@ def main():
         cierre_anterior = int(blue["cierre"])
         diff = venta - cierre_anterior
         symbol = {-1: "-", 0: "", 1: "+"}[sign(diff)]
-        print(f"󰈸 {compra}/{venta}/{symbol}{diff}/{(venta/cierre_anterior)-1:.2%}")
+        print(f"󰈸 {compra}/{venta}/{symbol}{abs(diff)}/{(venta/cierre_anterior)-1:.2%}")
     except (Timeout, HTTPError):
         print("󱗗")
 

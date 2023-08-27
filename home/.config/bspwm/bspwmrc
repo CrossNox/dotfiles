@@ -30,6 +30,9 @@ if [[ "$HOSTNAME" == "dell-xps" ]]; then
 		# --right-of
 		xrandr --output DP2 --mode 1920x1080 --dpi 96 --scale 1.0x1.0 --left-of HDMI1
 	fi
+elif [[ "$HOSTNAME" == "shootingstar" ]]; then
+	xrandr --output DP-1 --mode 1920x1080 --dpi 96 --scale 1.0x1.0 --primary
+	xrandr --output DP-3 --mode 1920x1080 --dpi 96 --scale 1.0x1.0 --left-of DP-1
 else
 	echo "Set the resolution!"
 fi
@@ -58,7 +61,7 @@ elif
 	[[ "$HOSTNAME" == "shootingstar" ]]
 then
 	bspc monitor DP-1 -d 1 2 3 4 5 101 102
-	bspc monitor DP-5 -d 6 7 8 9 10 102 103
+	bspc monitor DP-3 -d 6 7 8 9 10 102 103
 	# bspc monitor HDMI-0 -d X Y Z
 elif [[ "$HOSTNAME" == "gram" ]]; then
 	bspc monitor eDP-1 -d 1 2 3 4 5

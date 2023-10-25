@@ -4,6 +4,7 @@ You can import the JSON file on [QMK configurator](https://config.qmk.fm). It wi
 ## Add the keymap to the QMK repo
 ```bash
 ln -s ~/repos/dotfiles/qmk_layouts/crkbdv3/crsnox/ $HOME/qmk_firmware/keyboards/crkbd/keymaps/crsnox
+ln -s ~/repos/dotfiles/qmk_layouts/crkbdv3/crsnox_choc/ $HOME/qmk_firmware/keyboards/crkbd/keymaps/crsnox_choc
 ```
 
 ## Convert into `keymap.c`

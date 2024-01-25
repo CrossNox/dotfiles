@@ -14,6 +14,8 @@ syntax on
 set bs=2
 set ts=4 sw=4
 
+let g:indentLine_fileTypeExclude = ['json']
+
 " set cursorcolumn
 set cursorline
 
@@ -215,7 +217,8 @@ nmap <F6> :ALEFix<CR>
 let g:ale_fix_on_save = 1
 
 " SQL
-" :autocmd BufWritePost *.sql call CocAction('format')
+" autocmd BufWritePost *.sql call CocAction('format')
+autocmd Filetype sql setlocal ts=4 sw=4 sts=4 expandtab
 
 " Example config in VimScript
 let g:tokyonight_style = "night"

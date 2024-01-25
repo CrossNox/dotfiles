@@ -18,13 +18,21 @@ def sign(x: int) -> int:
 def main():
     """Fetch and display USD blue value."""
     try:
+        headers = {
+            "api-client": "finanzasargy",
+            "Access-Control-Allow-Origin": "*",
+            "Accept": "application/json, text/plain, */*",
+            "Referer": "https://www.finanzasargy.com/",
+        }
+
         res = requests.get(
-            "https://backend-ifa-production.up.railway.app/api/dolar/v2/general",
-            timeout=60,
+            "https://backend-ifa-production-a92c.up.railway.app/api/mercado-blue",
+            headers=headers,
+            timeout=120,
         )
         res.raise_for_status()
-        panel = res.json()["panel"]
-        blue = [x for x in panel if x["titulo"] == "Dólar Blue"][0]
+        data = res.json()
+        blue = [x for x in data if x["titulo"] == "Dólar Blue"][0]
         compra = int(blue["compra"])
         venta = int(blue["venta"])
         cierre_anterior = int(blue["cierre"])
@@ -32,7 +40,7 @@ def main():
         symbol = {-1: "-", 0: "", 1: "+"}[sign(diff)]
         print(f"󰈸 {compra}/{venta}/{symbol}{abs(diff)}/{(venta/cierre_anterior)-1:.2%}")
     except (Timeout, HTTPError):
-        print("󱗗")
+        print(f"󱗗 ({res.status_code})")
 
 
 if __name__ == "__main__":

@@ -25,6 +25,7 @@ gcc-c++
 gdbm
 gdbm-devel
 git
+git-absorb
 git-delta
 gnome-shell
 gnome-tweaks

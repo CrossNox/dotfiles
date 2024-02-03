@@ -135,7 +135,7 @@ sed -i "s/Icon\=kitty/Icon\=\/home\/$USER\/.local\/kitty.app\/share\/icons\/hico
 # set up dev env
 echo "Setting devenv"
 cd $REPOS_FOLDER
-virtualenv -p python3 venv
+virtualenv -p python3.11 venv
 source venv/bin/activate
 pip install -r "$DOTFILES_FOLDER/fedora/base_requirements.txt"
 deactivate

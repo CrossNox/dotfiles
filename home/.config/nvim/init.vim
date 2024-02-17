@@ -196,16 +196,17 @@ execute ale#fix#registry#Add('pycln', 'PyclnFix', ['pycln'], 'A formatter for fi
 
 " autoimport, pycln
 let g:ale_fixers = {
-      \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \    'python': ['black', 'isort'],
-      \    'json': ['jq'],
-      \    'html': ['html-beautify'],
-      \    'java': ['google_java_format'],
-	  \    'sh': ['shfmt'],
-      \    'c': ['clang-format'],
-	  \    'javascript': ['prettier'],
-	  \    'sql': ['sqlfluff']
-      \}
+	\	'*': ['remove_trailing_lines', 'trim_whitespace'],
+	\	'python': ['black', 'isort'],
+	\	'json': ['jq'],
+	\	'html': ['html-beautify'],
+	\	'java': ['google_java_format'],
+	\	'sh': ['shfmt'],
+	\	'c': ['clang-format'],
+	\	'javascript': ['prettier'],
+	\	'sql': ['sqlfluff'],
+	\	'yaml': ['prettier']
+\}
 
 let g:terraform_fmt_on_save=1
 let g:terraform_align=1

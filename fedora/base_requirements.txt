@@ -4,3 +4,4 @@ matplotlib
 jupyterlab
 numpy
 scikit-learn
+pyarrow

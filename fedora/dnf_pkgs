@@ -57,6 +57,7 @@ lxappearance
 make
 mesa-libGL-devel
 meson
+moreutils
 neofetch
 neovim
 numix-icon-theme-circle

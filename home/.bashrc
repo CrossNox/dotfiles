@@ -6,7 +6,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # If not running interactively, don't do anything and return early
-#[[ $- == *i* ]] || return
+[[ $- == *i* ]] || return
 
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then

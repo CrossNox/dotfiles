@@ -100,6 +100,9 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'petobens/poet-v'
 Plug 'stevearc/aerial.nvim'
 
+" LLMs
+Plug 'huggingface/llm.nvim'
+
 call plug#end()
 
 " editorconfig
@@ -536,3 +539,36 @@ map <Leader>cc <Plug>NERDCommenterComment
 map <Leader>cu <Plug>NERDCommenterUncomment
 map <Leader>ce <Plug>NERDCommenterToEOL
 map <Leader>ac <Plug>NERDCommenterAppend
+
+" LLM
+lua << END
+local llm = require('llm')
+
+llm.setup({
+  backend = "tgi",
+  model = "codellama/CodeLlama-7b-hf",
+  url = "http://localhost:8080/generate",
+  request_body = {
+    options = {
+      temperature = 0.2,
+      top_p = 0.95,
+    }
+  },
+  tokens_to_clear = { "<EOT>" },
+  fim = {
+    enabled = true,
+    prefix = "<PRE> ",
+    middle = " <MID>",
+    suffix = " <SUF>",
+  },
+  debounce_ms = 150,
+  accept_keymap = "<C-CR>",
+  dismiss_keymap = "<C-Tab>",
+  context_window = 4096,
+  tokenizer = {
+    repository = "codellama/CodeLlama-13b-hf",
+  },
+  enable_suggestions_on_startup = true,
+  enable_suggestions_on_files = {"*.py","*.sql"}
+})
+END

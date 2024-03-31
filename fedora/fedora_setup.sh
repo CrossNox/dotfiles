@@ -266,17 +266,30 @@ sudo stow -vSt / root
 echo "Linking host specific files"
 for x in "shootingstar" "dell-xps" "gram"; do
 	if [ $x = $HOSTNAME ]; then
-		cd hosts
+		cd hosts/$HOSTNAME
 
-		if ! stow -nt / $HOSTNAME >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+		# stow root files
+		if ! stow -nt / root >/tmp/stow_stdout 2>/tmp/stow_stderr; then
 			for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
 				echo "Removing /$x"
 				sudo rm "/$x"
 			done
 		fi
 
-		sudo stow -vSt / $HOSTNAME
-		cd ..
+		sudo stow -vSt / root
+
+		# stow home files
+		if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
+			for x in $(grep "existing target is neither a link nor a directory:" /tmp/stow_stderr | cut -d: -f2 | xargs); do
+				echo "Removing $HOME/$x"
+				sudo rm "$HOME/$x"
+			done
+		fi
+
+		sudo stow -vSt $HOME home
+
+		# ready, go back
+		cd ../..
 	fi
 done
 
@@ -434,3 +447,4 @@ systemctl --user enable xautolock
 systemctl --user enable gmail-notifications-uni.service
 systemctl --user enable gmail-notifications-work.service
 systemctl --user enable gmail-notifications-personal.service
+systemctl --user enable tgi-stable-code.service

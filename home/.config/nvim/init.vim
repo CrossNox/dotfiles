@@ -546,7 +546,7 @@ local llm = require('llm')
 
 llm.setup({
   backend = "tgi",
-  model = "codellama/CodeLlama-7b-hf",
+  model = "stabilityai/stable-code-3b",
   url = "http://localhost:8080/generate",
   request_body = {
     options = {
@@ -554,19 +554,19 @@ llm.setup({
       top_p = 0.95,
     }
   },
-  tokens_to_clear = { "<EOT>" },
+  tokens_to_clear = { "<eod>" },
   fim = {
     enabled = true,
-    prefix = "<PRE> ",
-    middle = " <MID>",
-    suffix = " <SUF>",
+    prefix = "<fim_prefix> ",
+    middle = " <fim_middle>",
+    suffix = " <fim_suffix>",
   },
-  debounce_ms = 150,
+  debounce_ms = 300,
   accept_keymap = "<C-CR>",
   dismiss_keymap = "<C-Tab>",
-  context_window = 4096,
+  context_window = 16384,
   tokenizer = {
-    repository = "codellama/CodeLlama-13b-hf",
+    repository = "stabilityai/stable-code-3b",
   },
   enable_suggestions_on_startup = true,
   enable_suggestions_on_files = {"*.py","*.sql"}

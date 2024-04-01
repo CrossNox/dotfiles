@@ -1,13 +1,10 @@
 [Unit]
 Description=TGI runner for stable code
-After=docker.service
-Requires=docker.service
 
 [Service]
+ConditionPathExists=/var/run/docker.sock
 TimeoutStartSec=0
 Restart=always
-ExecStartPre=-/usr/bin/docker stop %n
-ExecStartPre=-/usr/bin/docker rm %n
 ExecStartPre=/usr/bin/docker pull ghcr.io/huggingface/text-generation-inference:1.4
 ExecStart=/usr/bin/docker run --rm --name %n \
 	--runtime nvidia --gpus all \

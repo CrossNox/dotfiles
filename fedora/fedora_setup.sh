@@ -276,7 +276,7 @@ for x in "shootingstar" "dell-xps" "gram"; do
 			done
 		fi
 
-		sudo stow -vSt / root
+		sudo stow --no-folding -vSt / root
 
 		# stow home files
 		if ! stow -nt $HOME home >/tmp/stow_stdout 2>/tmp/stow_stderr; then
@@ -286,7 +286,7 @@ for x in "shootingstar" "dell-xps" "gram"; do
 			done
 		fi
 
-		sudo stow -vSt $HOME home
+		stow --no-folding -vSt $HOME home
 
 		# ready, go back
 		cd ../..

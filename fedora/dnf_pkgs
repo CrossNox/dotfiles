@@ -79,6 +79,8 @@ python3-devel
 python3-neovim
 python3-virtualenv
 qalculate
+qbittorrent
+qbittorrent-nox
 readline
 readline-devel
 rofi

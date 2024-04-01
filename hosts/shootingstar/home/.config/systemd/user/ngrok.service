@@ -1,0 +1,10 @@
+[Unit]
+Description=ngrok ssh
+
+[Service]
+WorkingDirectory=/home/nox/
+ExecStart=/home/nox/.local/bin/ngrok tcp 22
+Restart=always
+
+[Install]
+WantedBy=default.target

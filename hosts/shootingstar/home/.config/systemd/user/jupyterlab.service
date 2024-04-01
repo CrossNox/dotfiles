@@ -1,0 +1,10 @@
+[Unit]
+Description=JupyterLab
+
+[Service]
+WorkingDirectory=/home/nox/repos
+ExecStart=/home/nox/repos/venv/bin/jupyter lab --ip 0.0.0.0 --port 8888
+Restart=always
+
+[Install]
+WantedBy=default.target

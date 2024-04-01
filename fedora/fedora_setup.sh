@@ -76,6 +76,8 @@ if grep "38" /etc/fedora-release; then
 	sudo dnf downgrade -y ostree-libs
 fi
 
+sudo dnf swap pipewire-media-session wireplumber
+
 echo "Install docker"
 sudo dnf remove -y docker \
 	docker-client \

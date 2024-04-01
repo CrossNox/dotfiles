@@ -1,16 +1,15 @@
 [Unit]
 Description=TGI runner for stable code
+ConditionPathExists=/var/run/docker.sock
 
 [Service]
-ConditionPathExists=/var/run/docker.sock
 TimeoutStartSec=0
 Restart=always
 ExecStartPre=/usr/bin/docker pull ghcr.io/huggingface/text-generation-inference:1.4
-ExecStart=/usr/bin/docker run --rm --name %n \
-	--runtime nvidia --gpus all \
-	--shm-size 1g \
+ExecStart=/usr/bin/docker run --rm --name %N \
+	--runtime nvidia --gpus all --shm-size 1g \
 	-p 8080:80 \
-	-v ~/.cache/huggingface:/data \
+	-v %h/.cache/huggingface:/data \
 	ghcr.io/huggingface/text-generation-inference:1.4 \
 	--model-id stabilityai/stable-code-3b
 

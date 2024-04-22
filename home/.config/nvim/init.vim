@@ -437,6 +437,8 @@ nnoremap <C-Left> <C-W><C-H>
 
 " Apply first suggestion
 nnoremap <C-L> 1z=
+" ]s jumps to next misspelled word
+" [s jumps to previous misspelled word
 
 " Floaterm
 let g:floaterm_keymap_new    = '<F9>'

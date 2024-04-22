@@ -5,3 +5,7 @@ jupyterlab
 numpy
 scikit-learn
 pyarrow
+jupyterlab-code-formatter
+isort
+black
+tqdm

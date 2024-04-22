@@ -566,11 +566,11 @@ llm.setup({
   debounce_ms = 300,
   accept_keymap = "<C-CR>",
   dismiss_keymap = "<C-Tab>",
-  context_window = 16384,
+  context_window = 1024,
   tokenizer = {
     repository = "stabilityai/stable-code-3b",
   },
   enable_suggestions_on_startup = true,
-  enable_suggestions_on_files = {"*.py","*.sql"}
+  enable_suggestions_on_files = {"*.py","*.sql","docker-compose.yaml","Dockerfile"}
 })
 END

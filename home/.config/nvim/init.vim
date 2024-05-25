@@ -135,7 +135,7 @@ let g:coc_global_extensions = [
       \ ]
 
 let g:ale_linters = {
-      \   'python': ['pylint', 'flake8'],
+      \   'python': ['pylint'],
       \   'c': ['gcc'],
 	  \   'sh': ['shellcheck'],
 	  \   'javascript': ['eslint']

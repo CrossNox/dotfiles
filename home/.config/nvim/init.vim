@@ -571,6 +571,6 @@ llm.setup({
     repository = "stabilityai/stable-code-3b",
   },
   enable_suggestions_on_startup = true,
-  enable_suggestions_on_files = {"*.py","*.sql","docker-compose.yaml","Dockerfile"}
+  enable_suggestions_on_files = {"*.py","docker-compose.yaml","Dockerfile"}
 })
 END

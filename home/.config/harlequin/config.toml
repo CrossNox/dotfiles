@@ -2,4 +2,4 @@ default_profile = "default"
 [profiles.default]
 adapter = "postgres"
 theme = "nord"
-limit = 100
+limit = 1000

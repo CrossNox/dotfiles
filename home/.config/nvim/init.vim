@@ -6,10 +6,11 @@ set undodir=~/.local/share/nvim/undo
 
 let g:python_host_prog='/usr/bin/python3'
 
+set number relativenumber
+
 set clipboard+=unnamedplus
 set spell
 set spelllang=en_us,es
-set number
 syntax on
 set bs=2
 set ts=4 sw=4

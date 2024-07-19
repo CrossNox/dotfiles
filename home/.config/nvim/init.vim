@@ -140,8 +140,8 @@ let g:ale_linters = {
       \   'python': ['pylint'],
       \   'c': ['gcc'],
 	  \   'sh': ['shellcheck'],
-	  \   'javascript': ['eslint']
-      \   'svelte': ['svelteserver']
+	  \   'javascript': ['eslint'],
+      \   'svelte': ['svelteserver'],
       \}
 
 
@@ -547,6 +547,8 @@ map <Leader>ce <Plug>NERDCommenterToEOL
 map <Leader>ac <Plug>NERDCommenterAppend
 
 " LLM
+"
+if $HOSTNAME != "gram"
 lua << END
 local llm = require('llm')
 
@@ -578,3 +580,4 @@ llm.setup({
   enable_suggestions_on_files = {"*.py","docker-compose.yaml","Dockerfile"}
 })
 END
+endif

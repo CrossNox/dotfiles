@@ -25,3 +25,7 @@ alias qrcopy="xclip -o | qrencode -t utf8"
 alias f='git commit -m "fix" -a && git push'
 alias c='git commit -m "commit" -a && git push'
 alias yolo='git commit -m "yolo commit" -a --no-verify && git push --no-verify -f'
+
+function passqr() {
+	pass $1 | qrencode -t utf8
+}

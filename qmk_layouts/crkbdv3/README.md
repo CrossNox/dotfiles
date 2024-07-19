@@ -30,3 +30,9 @@ Using an Elite C v4, so use the `dfu` bootloader.
 ```bash
 qmk flash -kb crkbd -km crsnox -bl dfu
 ```
+
+Using Pro Micros:
+```bash
+qmk flash -kb crkbd/rev1 -km crsnox_choc -bl avrdude-split-left
+qmk flash -kb crkbd/rev1 -km crsnox_choc -bl avrdude-split-right
+```

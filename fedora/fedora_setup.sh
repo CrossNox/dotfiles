@@ -76,7 +76,7 @@ if grep "38" /etc/fedora-release; then
 	sudo dnf downgrade -y ostree-libs
 fi
 
-sudo dnf swap pipewire-media-session wireplumber
+# sudo dnf swap pipewire-media-session wireplumber
 
 echo "Install docker"
 sudo dnf remove -y docker \
@@ -201,6 +201,8 @@ pipx install cookiecutter
 pipx install poetry
 pipx install sqlparse
 pipx install black
+pipx install ruff
+pipx install pycln
 pipx install git+https://github.com/dsanson/termpdf.py.git
 pipx install termdown
 pipx install pywal
@@ -209,6 +211,7 @@ pipx install gsutil
 pipx install autoimport
 pipx install awscli-local
 pipx install sqlfluff
+pipx install harlequin[s3,postgres]
 # pipx install git+https://github.com/CrossNox/nbtodos.git
 
 # jedi

@@ -6,10 +6,11 @@ set undodir=~/.local/share/nvim/undo
 
 let g:python_host_prog='/usr/bin/python3'
 
+set number relativenumber
+
 set clipboard+=unnamedplus
 set spell
 set spelllang=en_us,es
-set number
 syntax on
 set bs=2
 set ts=4 sw=4
@@ -136,7 +137,7 @@ let g:coc_global_extensions = [
       \ ]
 
 let g:ale_linters = {
-      \   'python': ['pylint', 'flake8'],
+      \   'python': ['pylint'],
       \   'c': ['gcc'],
 	  \   'sh': ['shellcheck'],
 	  \   'javascript': ['eslint']
@@ -574,6 +575,6 @@ llm.setup({
     repository = "stabilityai/stable-code-3b",
   },
   enable_suggestions_on_startup = true,
-  enable_suggestions_on_files = {"*.py","*.sql","docker-compose.yaml","Dockerfile"}
+  enable_suggestions_on_files = {"*.py","docker-compose.yaml","Dockerfile"}
 })
 END

@@ -15,7 +15,9 @@ W tensorflow/stream_executor/platform/default/dso_loader.cc:59] Could not load d
 
 ## Fix
 ```
-pip install -U tensorflow-gpu keras
+# pip install -U tensorflow-gpu keras
+pip install torch torchvision torchaudio
+python -c "import torch; print(torch.cuda.is_available())"
 ls -lrth /usr/lib64/libcudart**
 ```
 

@@ -22,9 +22,9 @@ source /usr/share/autojump/autojump.bash
 source ~/.alias
 source ~/.config/powerline/.powerline
 
-if [ -f ~/.cache/wal/sequences ]; then
-	\cat ~/.cache/wal/sequences
-fi
+#if [ -f ~/.cache/wal/sequences ]; then
+#\cat ~/.cache/wal/sequences
+#fi
 if [ -f ~/.cache/wal/colors-tty.sh ]; then
 	source ~/.cache/wal/colors-tty.sh
 fi
@@ -110,7 +110,3 @@ bind 'set menu-complete-display-prefix on'
 bind 'TAB: menu-complete'
 bind 'set colored-completion-prefix on'
 bind 'set colored-stats on'
-
-function passqr() {
-	pass $1 | qrencode -t utf8
-}

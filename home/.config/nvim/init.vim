@@ -132,6 +132,7 @@ let g:coc_global_extensions = [
 	  \ 'coc-java-debug',
       \ 'coc-clangd',
 	  \ 'coc-tsserver',
+      \ 'coc-svelte',
       \ ]
 
 let g:ale_linters = {
@@ -139,6 +140,7 @@ let g:ale_linters = {
       \   'c': ['gcc'],
 	  \   'sh': ['shellcheck'],
 	  \   'javascript': ['eslint']
+      \   'svelte': ['svelteserver']
       \}
 
 
@@ -208,7 +210,8 @@ let g:ale_fixers = {
 	\	'c': ['clang-format'],
 	\	'javascript': ['prettier'],
 	\	'sql': ['sqlfluff'],
-	\	'yaml': ['prettier']
+	\	'yaml': ['prettier'],
+    \   'svelte': ['prettier']
 \}
 
 let g:terraform_fmt_on_save=1

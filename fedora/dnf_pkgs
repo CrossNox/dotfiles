@@ -27,6 +27,7 @@ gdbm-devel
 git
 git-absorb
 git-delta
+git-filter-repo
 gnome-shell
 gnome-tweaks
 google-chrome-stable

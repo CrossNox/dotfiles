@@ -95,7 +95,7 @@
       "KC_BSPC"
     ],
     [
-      "LALT(OSM(MOD_LALT))",
+      "KC_LALT",
       "KC_1",
       "KC_2",
       "KC_3",

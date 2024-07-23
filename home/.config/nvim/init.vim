@@ -133,13 +133,15 @@ let g:coc_global_extensions = [
 	  \ 'coc-java-debug',
       \ 'coc-clangd',
 	  \ 'coc-tsserver',
+      \ 'coc-svelte',
       \ ]
 
 let g:ale_linters = {
       \   'python': ['pylint'],
       \   'c': ['gcc'],
 	  \   'sh': ['shellcheck'],
-	  \   'javascript': ['eslint']
+	  \   'javascript': ['eslint'],
+      \   'svelte': ['svelteserver'],
       \}
 
 
@@ -209,7 +211,8 @@ let g:ale_fixers = {
 	\	'c': ['clang-format'],
 	\	'javascript': ['prettier'],
 	\	'sql': ['sqlfluff'],
-	\	'yaml': ['prettier']
+	\	'yaml': ['prettier'],
+    \   'svelte': ['prettier']
 \}
 
 let g:terraform_fmt_on_save=1
@@ -544,6 +547,8 @@ map <Leader>ce <Plug>NERDCommenterToEOL
 map <Leader>ac <Plug>NERDCommenterAppend
 
 " LLM
+"
+if $HOSTNAME != "gram"
 lua << END
 local llm = require('llm')
 
@@ -575,3 +580,4 @@ llm.setup({
   enable_suggestions_on_files = {"*.py","docker-compose.yaml","Dockerfile"}
 })
 END
+endif

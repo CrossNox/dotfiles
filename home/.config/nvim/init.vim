@@ -212,7 +212,7 @@ let g:ale_fixers = {
 	\	'javascript': ['prettier'],
 	\	'sql': ['sqlfluff'],
 	\	'yaml': ['prettier'],
-    \   'svelte': ['prettier']
+    \   'svelte': ['prettier'],
     \   'toml': ['dprint']
 \}
 

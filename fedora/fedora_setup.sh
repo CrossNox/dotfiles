@@ -162,6 +162,9 @@ cd $REPOS_FOLDER/mdcat
 git pull
 cargo install mdcat
 
+echo "Install dprint"
+cargo install --locked dprint
+
 echo "Install onefetch"
 cargo install onefetch
 

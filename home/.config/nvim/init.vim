@@ -86,7 +86,6 @@ Plug 'lervag/vimtex'
 " Linting
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'CrossNox/coc-sql-plus-jinja', {'do': 'yarn install --frozen-lockfile'}
 Plug 'hashivim/vim-terraform'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'editorconfig/editorconfig-vim'
@@ -134,6 +133,7 @@ let g:coc_global_extensions = [
       \ 'coc-clangd',
 	  \ 'coc-tsserver',
       \ 'coc-svelte',
+      \ 'coc-toml',
       \ ]
 
 let g:ale_linters = {
@@ -213,6 +213,7 @@ let g:ale_fixers = {
 	\	'sql': ['sqlfluff'],
 	\	'yaml': ['prettier'],
     \   'svelte': ['prettier']
+    \   'toml': ['dprint']
 \}
 
 let g:terraform_fmt_on_save=1

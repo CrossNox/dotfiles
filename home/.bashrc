@@ -98,6 +98,11 @@ eval "$(thefuck --alias)"
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi
 # END_KITTY_SHELL_INTEGRATION
 
+# Atlas config
+if [ -d "/home/nox/repos/atlas/dotfiles" ]; then
+	source ~/repos/atlas/dotfiles/bashrc
+fi
+
 # If not running interactively, don't do anything and return early
 [[ $- == *i* ]] || return
 

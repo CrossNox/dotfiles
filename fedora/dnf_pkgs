@@ -51,6 +51,8 @@ libev-devel
 libffi-devel
 libjpeg-turbo-devel
 libtool
+libtree-sitter
+libtree-sitter-devel
 libxcb-devel
 libxkbcommon-devel
 libxkbcommon-x11-devel
@@ -61,7 +63,6 @@ mesa-libGL-devel
 meson
 moreutils
 neofetch
-neovim
 numix-icon-theme-circle
 openssl-devel
 pam-devel
@@ -85,6 +86,7 @@ qbittorrent
 qbittorrent-nox
 readline
 readline-devel
+ripgrep
 rofi
 rofi-devel
 scrot

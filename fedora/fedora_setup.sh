@@ -245,7 +245,7 @@ echo "Install sass"
 npm install -g sass
 
 echo "Install serverless"
-npm install -g serverless
+npm install -g serverless@3.38
 
 # source ~/.bashrc
 

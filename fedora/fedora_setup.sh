@@ -244,6 +244,9 @@ nb env install && nb completions install --download
 echo "Install sass"
 npm install -g sass
 
+echo "Install serverless"
+npm install -g serverless
+
 # source ~/.bashrc
 
 curl -fsSL https://raw.githubusercontent.com/khanhas/spicetify-cli/master/install.sh | sh -s -- 2.9.1

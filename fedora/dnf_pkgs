@@ -12,6 +12,7 @@ bzip2
 cairo-devel
 cargo
 cava
+chromium
 clang-tools-extra
 cmake
 dbus-devel

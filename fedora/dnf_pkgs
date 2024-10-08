@@ -122,5 +122,6 @@ xdotool
 xinput
 xorg-x11-proto-devel
 xsetroot
+xvfb
 zlib
 zlib-devel

@@ -23,8 +23,16 @@ cfg = ycm.Config(from_items={})
 
 
 def get_creds(account: str):
+    creds = None
+
     token_json = pathlib.Path.home() / ".cache" / f"dunst_gmail_{account}.json"
-    if not token_json.exists():
+
+    if token_json.exists():
+        creds = Credentials.from_authorized_user_file(token_json, SCOPES)
+
+    if creds is not None and creds.expired and creds.refresh_token is not None:
+        creds.refresh(Request())
+    else:
         client_dict = cfg.dunst.gmail(
             default="dunst/gmail", from_pass=True, cast=json.loads
         )
@@ -34,7 +42,7 @@ def get_creds(account: str):
         with open(token_json, "w") as f:
             f.write(creds.to_json())
 
-    return Credentials.from_authorized_user_file(token_json, SCOPES)
+    return creds
 
 
 def get_service(account: str):

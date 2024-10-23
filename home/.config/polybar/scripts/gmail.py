@@ -32,7 +32,7 @@ def get_creds(account: str):
 
     if creds is not None and creds.expired and creds.refresh_token is not None:
         creds.refresh(Request())
-    else:
+    elif creds is None or not creds.valid:
         client_dict = cfg.dunst.gmail(
             default="dunst/gmail", from_pass=True, cast=json.loads
         )
@@ -140,7 +140,8 @@ def notify_unread(account: str, last_seconds: int = 60, from_pass: bool = False)
 
 
 @app.command()
-def number_unread(account: str, max_results: int = 250):
+def number_unread(account: str, max_results: int = 500, from_pass: bool = False):
+    account = cfg.dunst.account(default=account, from_pass=from_pass)
     unread, n_unread = get_unread(account, max_results=max_results)
     if n_unread >= max_results:
         typer.echo(f"{n_unread}+")

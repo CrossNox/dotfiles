@@ -162,6 +162,9 @@ cd $REPOS_FOLDER/mdcat
 git pull
 cargo install mdcat
 
+echo "Install dprint"
+cargo install --locked dprint
+
 echo "Install onefetch"
 cargo install onefetch
 
@@ -240,6 +243,9 @@ nb env install && nb completions install --download
 
 echo "Install sass"
 npm install -g sass
+
+echo "Install serverless"
+npm install -g serverless@3.38
 
 # source ~/.bashrc
 
@@ -409,6 +415,17 @@ if [ ! -d "$REPOS_FOLDER/zscroll" ]; then
 fi
 cd ~/repos/zscroll
 cp zscroll ~/.local/bin/
+
+echo "Install nvim"
+if [ ! -d "$REPOS_FOLDER/neovim" ]; then
+	git clone https://github.com/neovim/neovim ~/repos/neovim
+fi
+cd ~/repos/neovim
+sudo dnf -y install ninja-build cmake gcc make unzip gettext curl glibc-gconv-extra
+git checkout stable
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+python3 -m pip install --user --upgrade pynvim
 
 echo "Install AppImages"
 

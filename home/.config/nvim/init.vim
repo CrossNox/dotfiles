@@ -86,7 +86,6 @@ Plug 'lervag/vimtex'
 " Linting
 Plug 'dense-analysis/ale'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'CrossNox/coc-sql-plus-jinja', {'do': 'yarn install --frozen-lockfile'}
 Plug 'hashivim/vim-terraform'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'editorconfig/editorconfig-vim'
@@ -134,6 +133,7 @@ let g:coc_global_extensions = [
       \ 'coc-clangd',
 	  \ 'coc-tsserver',
       \ 'coc-svelte',
+      \ 'coc-toml',
       \ ]
 
 let g:ale_linters = {
@@ -212,7 +212,8 @@ let g:ale_fixers = {
 	\	'javascript': ['prettier'],
 	\	'sql': ['sqlfluff'],
 	\	'yaml': ['prettier'],
-    \   'svelte': ['prettier']
+    \   'svelte': ['prettier'],
+    \   'toml': ['dprint']
 \}
 
 let g:terraform_fmt_on_save=1
@@ -460,6 +461,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gv :vsp<CR><Plug>(coc-definition)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -577,7 +579,7 @@ llm.setup({
     repository = "stabilityai/stable-code-3b",
   },
   enable_suggestions_on_startup = true,
-  enable_suggestions_on_files = {"*.py","docker-compose.yaml","Dockerfile"}
+  enable_suggestions_on_files = {"*.py","docker-compose.yaml","Dockerfile", "*.sh"}
 })
 END
 endif

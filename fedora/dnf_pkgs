@@ -6,11 +6,13 @@ bat
 bison
 breeze-cursor-theme
 brightnessctl
+btop
 bspwm
 bzip2
 cairo-devel
 cargo
 cava
+chromium
 clang-tools-extra
 cmake
 dbus-devel
@@ -27,6 +29,7 @@ gdbm-devel
 git
 git-absorb
 git-delta
+git-filter-repo
 gnome-shell
 gnome-tweaks
 google-chrome-stable
@@ -49,6 +52,8 @@ libev-devel
 libffi-devel
 libjpeg-turbo-devel
 libtool
+libtree-sitter
+libtree-sitter-devel
 libxcb-devel
 libxkbcommon-devel
 libxkbcommon-x11-devel
@@ -59,7 +64,6 @@ mesa-libGL-devel
 meson
 moreutils
 neofetch
-neovim
 numix-icon-theme-circle
 openssl-devel
 pam-devel
@@ -83,6 +87,7 @@ qbittorrent
 qbittorrent-nox
 readline
 readline-devel
+ripgrep
 rofi
 rofi-devel
 scrot
@@ -100,6 +105,7 @@ thefuck
 the_silver_searcher
 tlp
 tlp-rdw
+tree
 uthash-devel
 vim
 vivaldi-stable
@@ -116,5 +122,6 @@ xdotool
 xinput
 xorg-x11-proto-devel
 xsetroot
+xvfb
 zlib
 zlib-devel

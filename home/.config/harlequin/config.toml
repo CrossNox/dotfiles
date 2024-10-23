@@ -1,4 +1,5 @@
 default_profile = "default"
+
 [profiles.default]
 adapter = "postgres"
 theme = "nord"

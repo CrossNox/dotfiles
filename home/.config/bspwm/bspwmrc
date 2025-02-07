@@ -64,7 +64,7 @@ then
 	bspc monitor DP-3 -d 6 7 8 9 10 102 103
 	# bspc monitor HDMI-0 -d X Y Z
 elif [[ "$HOSTNAME" == "gram" ]]; then
-	bspc monitor eDP-1 -d 1 2 3 4 5
+	bspc monitor eDP-1 -d 1 2 3 4 5 6 7 8 9
 fi
 
 bspc config top_padding 34

@@ -25,6 +25,8 @@ move_wn() {
 		echo "state=tiled desktop=${desktops['Slack']} follow=on"
 	elif [ "$instance" = Netflix ]; then
 		echo "state=fullscreen"
+	elif [ "$instance" = Disney+ ]; then
+		echo "state=fullscreen"
 	elif [ "$class" = "GoogleCalendar" ]; then
 		echo "state=floating center=true rectangle=1152x648+348+216"
 	else

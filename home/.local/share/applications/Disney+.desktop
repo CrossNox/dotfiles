@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Disney+
+Comment=Disney+
+Icon=disney
+Exec=sh -c "vivaldi --app=https://www.disneyplus.com/home --disk-cache-size=1 --disable-extensions --check-for-update-interval=1000000000 --disable-component-update --enable-hardware-overlays=single-fullscreen --force-overlay-fullscreen-video --start-fullscreen && xdotool search --classname \"disneyplus.com__browse\" set_window --classname \"Disney+\" --class \"Disney+\""
+Terminal=false
+Categories=AudioVideo;TV;

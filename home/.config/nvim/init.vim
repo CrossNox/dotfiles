@@ -541,6 +541,7 @@ nmap <leader>u :MundoToggle<CR>
 let g:NERDSpaceDelims = 1                  " Leave space after comment delimiter
 let g:NERDCreateDefaultMappings = 0        " Disable default mappings
 let g:NERDDefaultAlign = 'left'
+let g:NERDCustomDelimiters = {'python': {'left': '#'}}  " Fix python spacing
 
 " Mappings (for both normal and visual mode)
 map <Leader>cc <Plug>NERDCommenterComment

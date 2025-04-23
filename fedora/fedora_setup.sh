@@ -445,7 +445,7 @@ wget https://download.mycrypto.com/common/assets/meta-fe1afc0ffc5a0dde50cf70fdd4
 
 echo "Install Obsidian"
 cd ~/AppImages
-wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.3/Obsidian-1.5.3.AppImage -O Obsidian.AppImage
+wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.10/Obsidian-1.8.10.AppImage -O Obsidian.AppImage
 chmod +x Obsidian.AppImage
 wget https://avatars.githubusercontent.com/u/65011256?s=256 -O Obsidian.png
 

@@ -134,6 +134,7 @@ let g:coc_global_extensions = [
 	  \ 'coc-tsserver',
       \ 'coc-svelte',
       \ 'coc-toml',
+      \ 'coc-go',
       \ ]
 
 let g:ale_linters = {
@@ -213,7 +214,8 @@ let g:ale_fixers = {
 	\	'sql': ['sqlfluff'],
 	\	'yaml': ['prettier'],
     \   'svelte': ['prettier'],
-    \   'toml': ['dprint']
+    \   'toml': ['dprint'],
+    \   'go': ['gofmt']
 \}
 
 let g:terraform_fmt_on_save=1

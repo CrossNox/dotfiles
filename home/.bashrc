@@ -92,6 +92,8 @@ NB_COLOR_THEME=ocean
 
 export PATH="$PATH:$HOME/.spicetify"
 
+export PATH="$PATH:/usr/local/go/bin"
+
 eval "$(thefuck --alias)"
 
 # BEGIN_KITTY_SHELL_INTEGRATION

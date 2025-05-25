@@ -222,7 +222,7 @@ pip3 install --user jedi
 
 # golang
 wget -P /tmp https://dl.google.com/go/go1.24.3.linux-amd64.tar.gz
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.24.3.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf /tmp/go1.24.3.linux-amd64.tar.gz
 
 # fonts
 echo "Downloading fonts"

@@ -385,6 +385,8 @@ let g:vimtex_syntax_conceal_disable = 1
 let g:SimpylFold_docstring_preview = 1
 let g:SimpylFold_fold_import = 0
 
+autocmd FileType python setlocal foldmethod=manual
+
 set guifont=FiraCode\ Nerd\ Font
 
 " nnn.nvim

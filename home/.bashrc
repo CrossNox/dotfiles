@@ -113,3 +113,7 @@ bind 'set menu-complete-display-prefix on'
 bind 'TAB: menu-complete'
 bind 'set colored-completion-prefix on'
 bind 'set colored-stats on'
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

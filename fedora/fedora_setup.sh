@@ -149,11 +149,13 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
 source $HOME/.bashrc
 nvm install node
 npm install --global yarn prettier eslint
-nvm install 14.18.1
-nvm use 14.18.1
-npm install --global yarn prettier eslint
 nvm use default
 
+# bun
+echo "Installing bun"
+curl -fsSL https://bun.sh/install | bash
+
+# mdcat
 echo "Install mdcat"
 if [ ! -d "$REPOS_FOLDER/mdcat" ]; then
 	git clone https://github.com/swsnr/mdcat.git $REPOS_FOLDER/mdcat

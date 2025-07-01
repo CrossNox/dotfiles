@@ -117,3 +117,5 @@ bind 'set colored-stats on'
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+. "/home/nox/.deno/env"
+source /home/nox/.local/share/bash-completion/completions/deno.bash

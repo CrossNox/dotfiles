@@ -151,6 +151,9 @@ nvm install node
 npm install --global yarn prettier eslint
 nvm use default
 
+# deno
+curl -fsSL https://deno.land/install.sh | sh
+
 # bun
 echo "Installing bun"
 curl -fsSL https://bun.sh/install | bash

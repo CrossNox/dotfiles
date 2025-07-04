@@ -10,7 +10,14 @@ while true; do
 done 2>/dev/null &
 
 set -e -o functrace
-trap 'failure "LINENO" "BASH_LINENO" "#{BASH_COMMAND}" "${?}"' ERR
+failure() {
+	local lineno=$1
+	local command=$3
+	local exit_code=$4
+	echo "Error on line $lineno: command '$command' exited with code $exit_code"
+	exit $exit_code
+}
+trap 'failure "$LINENO" "$BASH_LINENO" "${BASH_COMMAND}" "${?}"' ERR
 # keep track of the last executed command
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 # echo an error message before exiting

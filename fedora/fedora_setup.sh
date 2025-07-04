@@ -206,28 +206,23 @@ wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/
 # systemctl --user enable glances.service
 # systemctl --user start glances.service
 
-# pipx
-echo "Installing pipx and some apps"
-python3 -m pip uninstall --yes pipx
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-pipx completions
-pipx install cookiecutter
-pipx install poetry
-pipx install sqlparse
-pipx install black
-pipx install ruff
-pipx install pycln
-pipx install git+https://github.com/dsanson/termpdf.py.git
-pipx install termdown
-pipx install pywal
-pipx install bspcq
-pipx install gsutil
-pipx install autoimport
-pipx install awscli-local
-pipx install sqlfluff
-pipx install harlequin[s3,postgres]
-# pipx install git+https://github.com/CrossNox/nbtodos.git
+# uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
+uv tool install cookiecutter
+uv tool install poetry
+uv tool install sqlparse
+uv tool install black
+uv tool install ruff
+uv tool install pycln
+uv tool install git+https://github.com/dsanson/termpdf.py.git
+uv tool install termdown
+uv tool install pywal
+uv tool install bspcq
+uv tool install gsutil
+uv tool install autoimport
+uv tool install awscli-local
+uv tool install sqlfluff
+uv tool install harlequin[s3,postgres]
 
 # jedi
 pip3 install --user jedi

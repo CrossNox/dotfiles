@@ -2,7 +2,7 @@
 Run both as sudo and user
 
 ```bash
-pipx install qmk
+uvx tool install qmk
 qmk setup
 ```
 

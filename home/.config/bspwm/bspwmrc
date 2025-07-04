@@ -1,7 +1,9 @@
 #! /bin/sh
 # in order to reload the config, just execute the script again
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh) export SSH_AUTH_SOCK
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
+ssh-add
 
 # caps is a useless key
 # change it into a useful key

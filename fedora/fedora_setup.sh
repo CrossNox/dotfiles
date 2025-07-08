@@ -152,7 +152,7 @@ pip install toml typer dbus-python flask google-api-python-client google-auth-ht
 
 # nvm
 echo "Install nvm"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 source $HOME/.bashrc
 nvm install node
 npm install --global yarn prettier eslint

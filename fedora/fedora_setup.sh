@@ -158,6 +158,9 @@ nvm install node
 npm install --global yarn prettier eslint
 nvm use default
 
+# claude
+npm install -g @anthropic-ai/claude-code
+
 # deno
 curl -fsSL https://deno.land/install.sh | sh
 

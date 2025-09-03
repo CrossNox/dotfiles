@@ -56,6 +56,8 @@ echo "Installing DNF packages"
 sudo dnf install -y $(cat $DOTFILES_FOLDER/fedora/dnf_pkgs)
 sudo systemctl enable powertop.service
 
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
 # install git-lfs
 cd /tmp
 wget https://github.com/git-lfs/git-lfs/releases/download/v3.3.0/git-lfs-linux-amd64-v3.3.0.tar.gz
@@ -150,6 +152,16 @@ pip install -r "$DOTFILES_FOLDER/fedora/base_requirements.txt"
 deactivate
 pip install toml typer dbus-python flask google-api-python-client google-auth-httplib2 google-auth-oauthlib youconfigme
 
+# python3.12
+cd /tmp
+wget https://www.python.org/ftp/python/3.12.0/Python-3.12.0.tgz
+tar -xvf Python-3.12.0.tgz
+cd Python-3.12.0/
+./configure --enable-optimizations
+make -j $(nproc)
+sudo make altinstall
+python3.12 -m ensurepip --default-pip -U
+
 # nvm
 echo "Install nvm"
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
@@ -167,6 +179,10 @@ curl -fsSL https://deno.land/install.sh | sh
 # bun
 echo "Installing bun"
 curl -fsSL https://bun.sh/install | bash
+
+# pnpm
+echo "Installing pnpm"
+curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 # mdcat
 echo "Install mdcat"
@@ -260,6 +276,9 @@ npm install -g sass
 
 echo "Install serverless"
 npm install -g serverless@3.38
+
+echo "install flyctl"
+curl -L https://fly.io/install.sh | sh
 
 # source ~/.bashrc
 
@@ -477,6 +496,11 @@ if pass ls ngrok/authtoken; then
 fi
 
 xdg-settings set default-web-browser vivaldi-stable.desktop
+
+# sync marimo
+cd ~/.config/marimo
+uv sync
+cd $DOTFILES_FOLDER
 
 # own systemd services
 systemctl --user enable xautolock

@@ -50,9 +50,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
-# Load cargo
-export PATH="$PATH:$HOME/.cargo/bin"
-
 export EDITOR=nvim
 
 if command wal &>/dev/null; then
@@ -120,3 +117,19 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 . "/home/nox/.deno/env"
 eval "$(uv generate-shell-completion bash)"
 eval "$(uvx --generate-shell-completion bash)"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/nox/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export FLYCTL_INSTALL="/home/nox/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/nox/.local/share/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+. "$HOME/.cargo/env"

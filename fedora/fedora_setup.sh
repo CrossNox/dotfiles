@@ -211,21 +211,21 @@ wget https://cdn.dribbble.com/users/5031/screenshots/3713646/attachments/832536/
 
 # uv
 curl -LsSf https://astral.sh/uv/install.sh | sh
-uv tool install cookiecutter
-uv tool install poetry
-uv tool install sqlparse
-uv tool install black
-uv tool install ruff
-uv tool install pycln
-uv tool install git+https://github.com/dsanson/termpdf.py.git
-uv tool install termdown
-uv tool install pywal
-uv tool install bspcq
-uv tool install gsutil
-uv tool install autoimport
-uv tool install awscli-local
-uv tool install sqlfluff
-uv tool install harlequin[s3,postgres]
+uv tool install cookiecutter --force
+uv tool install poetry --force
+uv tool install sqlparse --force
+uv tool install black --force
+uv tool install ruff --force
+uv tool install pycln --force
+uv tool install git+https://github.com/dsanson/termpdf.py.git --force
+uv tool install termdown --force
+uv tool install pywal --force
+uv tool install bspcq --force
+uv tool install gsutil --force
+uv tool install autoimport --force
+uv tool install awscli-local --force
+uv tool install sqlfluff --force
+uv tool install harlequin[s3,postgres] --force
 
 # jedi
 pip3 install --user jedi

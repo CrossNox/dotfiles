@@ -1,0 +1,12 @@
+[Unit]
+Description=Marimo Server
+
+[Service]
+Type=simple
+WorkingDirectory=/home/nox/.config/marimo
+ExecStart=/home/nox/.local/bin/uv run marimo edit --host 0.0.0.0 --port 8888 --no-token
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,20 @@
+@import "config.rasi"
+
+configuration {
+    font: "FiraCode Nerd Font 12";
+}
+
+window {
+    width: 600px;
+}
+
+mainbox {
+    margin: 0px;
+    padding: 0px;
+}
+
+listview {
+	lines: 10;
+    dynamic: true;
+    fixed-height: false;
+}

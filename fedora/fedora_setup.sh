@@ -337,6 +337,13 @@ for x in "shootingstar" "dell-xps" "gram"; do
 	fi
 done
 
+echo "Install bsp-layout"
+if [ ! -d "$REPOS_FOLDER/bsp-layout" ]; then
+	git clone https://github.com/phenax/bsp-layout ~/repos/bsp-layout
+fi
+cd ~/repos/bsp-layout
+sudo make install
+
 echo "Install picom"
 if [ ! -d "$REPOS_FOLDER/picom" ]; then
 	git clone https://github.com/ibhagwan/picom.git ~/repos/picom

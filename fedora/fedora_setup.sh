@@ -473,8 +473,8 @@ mkdir -p ~/AppImages
 
 echo "Install Cura"
 cd ~/AppImages
-wget https://github.com/Ultimaker/Cura/releases/download/5.0.0/Ultimaker-Cura-5.0.0-linux.AppImage
-chmod +x Ultimaker-Cura-5.0.0-linux.AppImage
+wget -O Ultimaker-Cura.AppImage https://github.com/Ultimaker/Cura/releases/download/5.10.2/UltiMaker-Cura-5.10.2-linux-X64.AppImage
+chmod +x Ultimaker-Cura.AppImage
 wget https://raw.githubusercontent.com/leoheck/Cura/main/packaging/icons/cura-64.png
 
 echo "Install MyCrypto"

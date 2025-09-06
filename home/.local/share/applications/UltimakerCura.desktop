@@ -3,6 +3,6 @@ Type=Application
 Name=Ultimaker Cura
 Comment=Ultimaker Cura
 Icon=/home/nox/AppImages/cura-64.png
-Exec=/home/nox/AppImages/Ultimaker-Cura-5.0.0-linux.AppImage
+Exec=/home/nox/AppImages/Ultimaker-Cura.AppImage
 Terminal=false
 Categories=Design

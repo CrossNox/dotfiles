@@ -210,6 +210,7 @@ let g:ale_fixers = {
 	\	'java': ['google_java_format'],
 	\	'sh': ['shfmt'],
 	\	'c': ['clang-format'],
+	\	'cpp': ['clang-format'],
 	\	'javascript': ['prettier'],
 	\	'sql': ['sqlfluff'],
 	\	'yaml': ['prettier'],

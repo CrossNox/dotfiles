@@ -145,20 +145,27 @@ let g:ale_linters = {
       \   'svelte': ['svelteserver'],
       \}
 
-
 call ale#Set('python_pycln_executable', 'pycln')
 call ale#Set('python_pycln_use_global', get(g:, 'ale_use_global_executables', 0))
 call ale#Set('python_pycln_options', '')
-call ale#Set('python_pycln_auto_pipenv', 0)
+call ale#Set('python_pycln_auto_uv', 0)
 call ale#Set('python_pycln_auto_poetry', 0)
 call ale#Set('python_pycln_change_directory', 1)
 
+function! PyclnUvPresent(buffer) abort
+    " Check if uv.lock exists in the project root
+    let l:uv_lock = ale#path#FindNearestFile(a:buffer, 'uv.lock')
+    return !empty(l:uv_lock)
+endfunction
+
 function! PyclnGetExecutable(buffer) abort
-    if (ale#Var(a:buffer, 'python_auto_pipenv') || ale#Var(a:buffer, 'python_pycln_auto_pipenv'))
-    \ && ale#python#PipenvPresent(a:buffer)
-        return 'pipenv'
+    " Check for uv first (most likely for this user)
+    if (ale#Var(a:buffer, 'python_auto_uv') || ale#Var(a:buffer, 'python_pycln_auto_uv'))
+    \ && PyclnUvPresent(a:buffer)
+        return 'uv'
     endif
 
+    " Fall back to poetry
     if (ale#Var(a:buffer, 'python_auto_poetry') || ale#Var(a:buffer, 'python_pycln_auto_poetry'))
     \ && ale#python#PoetryPresent(a:buffer)
         return 'poetry'
@@ -170,13 +177,14 @@ endfunction
 function! PyclnFix(buffer) abort
     let l:executable = PyclnGetExecutable(a:buffer)
 
-	if !executable(l:executable)
+    if !executable(l:executable)
         return 0
     endif
 
     let l:cmd = [ale#Escape(l:executable)]
 
-    if l:executable =~? 'pipenv\|poetry$'
+    " Add 'run pycln' for uv and poetry
+    if l:executable =~? 'uv\|poetry$'
         call extend(l:cmd, ['run', 'pycln'])
     endif
 
@@ -186,13 +194,13 @@ function! PyclnFix(buffer) abort
         call add(l:cmd, l:options)
     endif
 
-	call add(l:cmd, '--silence')
-
+    call add(l:cmd, '--silence')
     call add(l:cmd, bufname(a:buffer))
 
     let l:result = {'command': join(l:cmd, ' ')}
 
     if ale#Var(a:buffer, 'python_pycln_change_directory')
+        " Run from file's directory - uv/poetry will find the project root themselves
         let l:result.cwd = '%s:h'
     endif
 
@@ -204,7 +212,7 @@ execute ale#fix#registry#Add('pycln', 'PyclnFix', ['pycln'], 'A formatter for fi
 " autoimport, pycln
 let g:ale_fixers = {
 	\	'*': ['remove_trailing_lines', 'trim_whitespace'],
-	\	'python': ['black', 'isort'],
+	\	'python': ['black', 'isort', 'pycln'],
 	\	'json': ['jq'],
 	\	'html': ['html-beautify'],
 	\	'java': ['google_java_format'],

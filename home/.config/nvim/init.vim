@@ -151,6 +151,8 @@ call ale#Set('python_pycln_options', '')
 call ale#Set('python_pycln_auto_uv', 0)
 call ale#Set('python_pycln_auto_poetry', 0)
 call ale#Set('python_pycln_change_directory', 1)
+call ale#Set('python_auto_uv', 0)
+call ale#Set('python_auto_poetry', 0)
 
 function! PyclnUvPresent(buffer) abort
     " Check if uv.lock exists in the project root

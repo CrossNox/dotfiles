@@ -10,6 +10,7 @@ import dbus
 import typer
 import youconfigme as ycm
 from dateutil import parser
+from google.auth.exceptions import RefreshError
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
@@ -150,4 +151,7 @@ def number_unread(account: str, max_results: int = 500, from_pass: bool = False)
 
 
 if __name__ == "__main__":
-    app()
+    try:
+        app()
+    except RefreshError:
+        print("Refresh error!")
